@@ -17,8 +17,8 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-border shadow-lg">
-      <div className="container mx-auto px-4 py-2">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0AF] backdrop-blur-lg border-b border-white/20 shadow-lg">
+      <div className="container mx-auto px-4 py-1">
         <div className="flex items-center justify-between">
           <a href="#home" className="flex items-center transition-transform hover:scale-105">
             <img 
@@ -34,7 +34,7 @@ const Navigation = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-800 hover:text-primary font-medium transition-colors"
+                className="text-white hover:text-white/80 font-medium transition-colors"
               >
                 {link.name}
               </a>
@@ -59,7 +59,7 @@ const Navigation = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="block py-2 text-gray-800 hover:text-primary font-medium transition-colors"
+                className="block py-2 text-white hover:text-white/80 font-medium transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
