@@ -35,9 +35,41 @@ const Footer = () => {
               YouTube Music
             </a>
           </div>
+
+          <div className="mb-8">
+            <h4 className="text-sm font-semibold text-candy-cyan mb-3">Legal Hub</h4>
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <a href="/terms" className="text-muted-foreground hover:text-candy-pink transition-colors">
+                Terms of Use
+              </a>
+              <span className="text-muted-foreground/30">|</span>
+              <a href="/privacy" className="text-muted-foreground hover:text-candy-pink transition-colors">
+                Privacy Policy
+              </a>
+              <span className="text-muted-foreground/30">|</span>
+              <a href="/digital-licensing" className="text-muted-foreground hover:text-candy-pink transition-colors">
+                Digital Licensing
+              </a>
+              <span className="text-muted-foreground/30">|</span>
+              <a href="/refund-policy" className="text-muted-foreground hover:text-candy-pink transition-colors">
+                Refund Policy
+              </a>
+              <span className="text-muted-foreground/30">|</span>
+              <a href="/cookies" className="text-muted-foreground hover:text-candy-pink transition-colors">
+                Cookies Policy
+              </a>
+              <span className="text-muted-foreground/30">|</span>
+              <a href="/modern-slavery" className="text-muted-foreground hover:text-candy-pink transition-colors">
+                Modern Slavery Statement
+              </a>
+            </div>
+          </div>
           
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground mb-2">
             © 2025 FutureCandy. Born Digital. Made for the Future.
+          </p>
+          <p className="text-xs text-muted-foreground/60">
+            A subsidiary of HEALTH CHOICES GLOBAL LIMITED | Company No. 10941962 | 128 City Road, London, EC1V 2NX
           </p>
         </div>
       </div>

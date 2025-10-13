@@ -6,6 +6,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Journal from "./pages/Journal";
 import Collab from "./pages/Collab";
+import TermsOfUse from "./pages/TermsOfUse";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import DigitalLicensing from "./pages/DigitalLicensing";
+import ModernSlavery from "./pages/ModernSlavery";
+import RefundPolicy from "./pages/RefundPolicy";
+import CookiesPolicy from "./pages/CookiesPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +26,12 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/journal" element={<Journal />} />
           <Route path="/collab" element={<Collab />} />
+          <Route path="/terms" element={<TermsOfUse />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/digital-licensing" element={<DigitalLicensing />} />
+          <Route path="/modern-slavery" element={<ModernSlavery />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/cookies" element={<CookiesPolicy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
