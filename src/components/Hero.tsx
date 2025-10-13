@@ -43,7 +43,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-22">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28">
       {/* Hero Background Image - Optimized for all devices */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
