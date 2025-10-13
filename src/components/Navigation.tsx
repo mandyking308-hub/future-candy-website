@@ -18,13 +18,13 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-border shadow-lg">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           <a href="#home" className="flex items-center transition-transform hover:scale-105">
             <img 
               src={logo} 
               alt="FutureCandy Logo" 
-              className="h-24 md:h-32 w-auto object-contain"
+              className="h-18 md:h-24 w-auto object-contain"
             />
           </a>
 
