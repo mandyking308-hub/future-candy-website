@@ -1,7 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import christineWorld from "@/assets/christine-world.jpg";
+import velvetteWorld from "@/assets/velvette-world.jpg";
 import echoNovaWorld from "@/assets/echonova-world.jpg";
 import byteBabyWorld from "@/assets/bytebaby-world.jpg";
 import { useState } from "react";
@@ -11,9 +11,9 @@ const Artists = () => {
 
   const projects = [
     {
-      name: "Christine",
+      name: "Velvette",
       description: "Pop attitude. Hooks that bite. Pure energy.",
-      image: christineWorld,
+      image: velvetteWorld,
       color: "candy-pink",
       flavor: "Bold",
       spotify: "https://open.spotify.com",
