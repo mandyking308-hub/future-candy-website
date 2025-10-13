@@ -1,9 +1,9 @@
 const Timeline = () => {
   const milestones = [
-    { year: "2025", event: "Launch", description: "FutureCandy is born" },
-    { year: "2025", event: "Project Christine", description: "Pure pop energy unleashed" },
-    { year: "2025", event: "EchoNova Debut", description: "Dreamy electro emerges" },
-    { year: "2026", event: "ByteBaby Chaos", description: "Experimental hyperpop arrives" },
+    { year: "2024", event: "Launch", description: "FutureCandy is born" },
+    { year: "Mid 2024", event: "Project Christine", description: "Pure pop energy unleashed" },
+    { year: "Early 2025", event: "EchoNova Debut", description: "Dreamy electro emerges" },
+    { year: "Mid 2025", event: "ByteBaby Chaos", description: "Experimental hyperpop arrives" },
     { year: "2026", event: "The Future", description: "Infinite possibilities ahead" },
   ];
 
