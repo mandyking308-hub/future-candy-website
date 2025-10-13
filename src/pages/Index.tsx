@@ -7,6 +7,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import NowPlaying from "@/components/NowPlaying";
 import CandyClub from "@/components/CandyClub";
+import CookieConsent from "@/components/CookieConsent";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <Contact />
       <Footer />
       <NowPlaying />
+      <CookieConsent />
     </div>
   );
 };
