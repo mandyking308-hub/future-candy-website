@@ -1,36 +1,49 @@
 import { ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import christineWorld from "@/assets/christine-world.jpg";
 import echoNovaWorld from "@/assets/echonova-world.jpg";
 import byteBabyWorld from "@/assets/bytebaby-world.jpg";
+import { useState } from "react";
 
 const Artists = () => {
+  const [activeFilter, setActiveFilter] = useState<string>("All");
+
   const projects = [
     {
       name: "Christine",
       description: "Pop attitude. Hooks that bite. Pure energy.",
       image: christineWorld,
       color: "candy-pink",
-      spotify: "#",
-      youtube: "#",
+      flavor: "Bold",
+      spotify: "https://open.spotify.com",
+      youtube: "https://youtube.com",
     },
     {
       name: "EchoNova",
       description: "Dreamy electro and cinematic emotion.",
       image: echoNovaWorld,
       color: "candy-cyan",
-      spotify: "#",
-      youtube: "#",
+      flavor: "Dreamy",
+      spotify: "https://open.spotify.com",
+      youtube: "https://youtube.com",
     },
     {
       name: "ByteBaby",
       description: "Experimental beats and hyperpop chaos.",
       image: byteBabyWorld,
       color: "candy-violet",
-      spotify: "#",
-      youtube: "#",
+      flavor: "Experimental",
+      spotify: "https://open.spotify.com",
+      youtube: "https://youtube.com",
     },
   ];
+
+  const flavors = ["All", "Dreamy", "Bold", "Experimental"];
+
+  const filteredProjects = activeFilter === "All" 
+    ? projects 
+    : projects.filter(p => p.flavor === activeFilter);
 
   return (
     <section id="artists" className="py-24">
@@ -44,11 +57,29 @@ const Artists = () => {
           Each project is a world: a flavor, a mood, a vibe.
         </p>
 
+        {/* Filter by Flavor */}
+        <div className="flex justify-center gap-3 mb-12 flex-wrap">
+          {flavors.map((flavor) => (
+            <Button
+              key={flavor}
+              onClick={() => setActiveFilter(flavor)}
+              variant={activeFilter === flavor ? "default" : "outline"}
+              className={`transition-all ${
+                activeFilter === flavor 
+                  ? "bg-gradient-to-r from-candy-pink to-candy-violet shadow-[0_0_20px_rgba(236,72,153,0.5)]" 
+                  : "border-candy-cyan/50 text-candy-cyan hover:bg-candy-cyan/10"
+              }`}
+            >
+              {flavor}
+            </Button>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <Card
               key={project.name}
-              className="group relative overflow-hidden border-2 hover:scale-105 transition-transform duration-300 cursor-pointer animate-fade-in"
+              className="group relative overflow-hidden border-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(236,72,153,0.4)] transition-all duration-300 cursor-pointer animate-fade-in glass"
               style={{ 
                 animationDelay: `${index * 0.2}s`,
                 borderColor: `hsl(var(--${project.color}) / 0.5)`,

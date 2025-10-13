@@ -1,8 +1,47 @@
 import { Button } from "@/components/ui/button";
-import { Music, Video } from "lucide-react";
+import { Music, Video, Volume2, VolumeX } from "lucide-react";
 import heroVisual from "@/assets/hero-visual.jpg";
+import { useState, useRef, useEffect } from "react";
 
 const Hero = () => {
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    // Create ambient audio element (placeholder - user would need to add actual audio file)
+    audioRef.current = new Audio();
+    audioRef.current.loop = true;
+    audioRef.current.volume = 0.3;
+    
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
+
+  const toggleAudio = () => {
+    if (audioRef.current) {
+      if (audioPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play().catch(() => {
+          console.log("Audio playback requires user interaction");
+        });
+      }
+      setAudioPlaying(!audioPlaying);
+    }
+  };
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const target = document.querySelector('#about');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background with Ambient Glow */}
@@ -30,23 +69,36 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: "0.6s" }}>
-          <a href="#about">
-            <Button size="lg" className="glow-pink gap-2 text-lg px-8 interactive-glow">
+          <a href="#about" onClick={scrollToSection}>
+            <Button size="lg" className="glow-pink gap-2 text-lg px-8 py-6 bg-gradient-to-r from-candy-pink to-candy-violet hover:scale-105 transition-transform shadow-[0_0_30px_rgba(236,72,153,0.5)]">
               Enter the World
             </Button>
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="glow-cyan gap-2 text-lg px-8 bg-secondary text-secondary-foreground hover:bg-secondary/80 interactive-glow">
+          <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="gap-2 text-lg px-8 py-6 bg-candy-cyan/20 border-2 border-candy-cyan text-candy-cyan hover:bg-candy-cyan hover:text-background transition-all shadow-[0_0_20px_rgba(34,211,238,0.3)]">
               <Music className="w-5 h-5" />
               Listen on Spotify
             </Button>
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" variant="outline" className="gap-2 text-lg px-8 border-accent text-accent hover:bg-accent hover:text-accent-foreground interactive-glow">
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" variant="outline" className="gap-2 text-lg px-8 py-6 border-2 border-candy-violet text-candy-violet hover:bg-candy-violet hover:text-background transition-all shadow-[0_0_20px_rgba(167,139,250,0.3)]">
               <Video className="w-5 h-5" />
               Watch on YouTube
             </Button>
           </a>
+        </div>
+
+        {/* Ambient Sound Toggle */}
+        <div className="mt-8 animate-fade-in" style={{ animationDelay: "0.8s" }}>
+          <Button
+            onClick={toggleAudio}
+            variant="ghost"
+            size="sm"
+            className="gap-2 text-sm text-muted-foreground hover:text-candy-cyan transition-colors"
+          >
+            {audioPlaying ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+            {audioPlaying ? "Ambient Sound On" : "Ambient Sound Off"}
+          </Button>
         </div>
       </div>
 
