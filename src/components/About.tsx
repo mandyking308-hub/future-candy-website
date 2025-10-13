@@ -1,3 +1,5 @@
+import Timeline from "./Timeline";
+
 const About = () => {
   return (
     <section id="about" className="py-24 bg-card/30">
@@ -28,6 +30,14 @@ const About = () => {
             </p>
           </div>
 
+          <div className="mt-16 p-8 glass rounded-lg border border-candy-violet/30">
+            <h3 className="text-3xl font-bold text-gradient mb-6">Our Philosophy</h3>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              We believe creativity should be infinite, borderless, and ego-free. Music is emotion rendered as energy. 
+              FutureCandy is the experiment that never ends — a perpetual evolution of sound, vision, and feeling.
+            </p>
+          </div>
+
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-6 bg-card rounded-lg border border-candy-pink/30 glow-pink">
               <h3 className="text-2xl font-bold text-candy-pink mb-2">Digital First</h3>
@@ -41,6 +51,11 @@ const About = () => {
               <h3 className="text-2xl font-bold text-candy-violet mb-2">Always Evolving</h3>
               <p className="text-foreground/70">Every release pushes boundaries further</p>
             </div>
+          </div>
+
+          <div className="mt-16">
+            <h3 className="text-3xl font-bold text-gradient mb-8">Timeline of Creation</h3>
+            <Timeline />
           </div>
         </div>
       </div>

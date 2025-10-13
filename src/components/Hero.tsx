@@ -5,9 +5,12 @@ import heroVisual from "@/assets/hero-visual.jpg";
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Animated Background with Ambient Glow */}
+      <div className="absolute inset-0 ambient-glow opacity-50" style={{ 
+        background: 'linear-gradient(135deg, hsl(var(--candy-pink) / 0.3), hsl(var(--candy-violet) / 0.3), hsl(var(--candy-cyan) / 0.3))'
+      }} />
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-40"
+        className="absolute inset-0 bg-cover bg-center opacity-30"
         style={{ backgroundImage: `url(${heroVisual})` }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
@@ -27,14 +30,23 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: "0.6s" }}>
-          <Button size="lg" className="glow-pink gap-2 text-lg px-8">
-            <Music className="w-5 h-5" />
-            Listen on Spotify
-          </Button>
-          <Button size="lg" variant="outline" className="gap-2 text-lg px-8 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
-            <Video className="w-5 h-5" />
-            Watch on YouTube
-          </Button>
+          <a href="#about">
+            <Button size="lg" className="glow-pink gap-2 text-lg px-8 interactive-glow">
+              Enter the World
+            </Button>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="glow-cyan gap-2 text-lg px-8 bg-secondary text-secondary-foreground hover:bg-secondary/80 interactive-glow">
+              <Music className="w-5 h-5" />
+              Listen on Spotify
+            </Button>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" variant="outline" className="gap-2 text-lg px-8 border-accent text-accent hover:bg-accent hover:text-accent-foreground interactive-glow">
+              <Video className="w-5 h-5" />
+              Watch on YouTube
+            </Button>
+          </a>
         </div>
       </div>
 
