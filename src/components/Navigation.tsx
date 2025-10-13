@@ -17,14 +17,14 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-      <div className="container mx-auto px-4 py-3">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-border shadow-lg">
+      <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <a href="#home" className="flex items-center transition-transform hover:scale-105">
             <img 
               src={logo} 
               alt="FutureCandy Logo" 
-              className="h-12 md:h-16 w-auto object-contain"
+              className="h-24 md:h-32 w-auto object-contain"
             />
           </a>
 
@@ -34,7 +34,7 @@ const Navigation = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-foreground hover:text-primary transition-colors"
+                className="text-gray-800 hover:text-primary font-medium transition-colors"
               >
                 {link.name}
               </a>
@@ -59,7 +59,7 @@ const Navigation = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="block py-2 text-foreground hover:text-primary transition-colors"
+                className="block py-2 text-gray-800 hover:text-primary font-medium transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
