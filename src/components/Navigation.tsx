@@ -17,14 +17,14 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,170,255,0.2)]">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-lg">
       <div className="container mx-auto px-6 py-2">
         <div className="flex items-center justify-between">
-          <a href="#home" className="flex items-center transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+          <a href="#home" className="flex items-center transition-all duration-300 hover:scale-105">
             <img 
               src={logo} 
               alt="FutureCandy Logo" 
-              className="h-16 md:h-20 w-auto object-contain drop-shadow-[0_0_10px_rgba(0,170,255,0.4)]"
+              className="h-16 md:h-20 w-auto object-contain"
             />
           </a>
 
