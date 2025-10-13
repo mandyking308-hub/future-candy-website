@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/futurecandy-logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +18,14 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <a href="#home" className="text-2xl font-bold text-gradient">
-            FutureCandy
+          <a href="#home" className="flex items-center transition-transform hover:scale-105">
+            <img 
+              src={logo} 
+              alt="FutureCandy Logo" 
+              className="h-12 md:h-16 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Menu */}
