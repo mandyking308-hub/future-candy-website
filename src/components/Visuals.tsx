@@ -19,10 +19,14 @@ const Visuals = () => {
     <section id="visuals" className="py-24 bg-card/30">
       <div className="container mx-auto px-4">
         <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
-          <span className="text-gradient">Visuals</span>
+          <span className="text-gradient">See the Sound.</span>
         </h2>
-        <p className="text-xl text-center text-muted-foreground mb-16">
-          Abstract worlds. Pure energy. No boundaries.
+        <p className="text-xl text-center text-muted-foreground mb-16 max-w-3xl mx-auto">
+          Every track deserves a vision.
+          <br />
+          FutureCandy visuals are explosions of color and emotion — part music video, part dream sequence.
+          <br />
+          No avatars. No fake faces. Just pure energy in motion.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">

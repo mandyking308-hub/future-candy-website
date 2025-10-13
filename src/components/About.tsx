@@ -11,14 +11,20 @@ const About = () => {
           
           <div className="space-y-6 text-lg md:text-xl text-foreground/80">
             <p>
-              We're not here to fit in. We're here to remix reality.
+              FutureCandy is a digital-first pop production label.
+              <br />
+              We don&apos;t follow trends — we generate them.
             </p>
             <p>
-              FutureCandy makes pop that bites — crafted by digital minds and human hearts. 
-              Every track is a new flavor, every sound is an adventure into what's next.
+              Our music is built by creative minds, amplified by machines, and crafted for a world that never stops scrolling.
+            </p>
+            <p>
+              Every beat, every bassline, every hook is a new flavor — bright, bold, and totally addictive.
+              <br />
+              No egos. No faces. Just sound, design, and raw emotion.
             </p>
             <p className="text-2xl font-semibold text-gradient">
-              "We're not just making music. We're making the future sound like fun."
+              We make the future sound like fun.
             </p>
           </div>
 

@@ -21,7 +21,9 @@ const Hero = () => {
           Sweet Beats. Synthetic Dreams.
         </p>
         <p className="text-xl md:text-2xl mb-12 text-muted-foreground animate-fade-in max-w-2xl mx-auto" style={{ animationDelay: "0.4s" }}>
-          We make the future sound like fun.
+          The future of pop isn&apos;t human — it&apos;s energy, color, and sound.
+          <br />
+          We make tracks that melt your brain and move your heart.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: "0.6s" }}>

@@ -7,18 +7,26 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl font-bold mb-8">
-            <span className="text-gradient">Let's Collaborate</span>
+            <span className="text-gradient">Work With FutureCandy</span>
           </h2>
           
-          <p className="text-xl text-foreground/80 mb-12">
-            We're open to collabs, licensing, and digital experiments. 
-            If you want your brand to sound like tomorrow, get in touch.
+          <p className="text-xl text-foreground/80 mb-8">
+            We collaborate with brands, filmmakers, designers, and dreamers.
+            <br />
+            Want your project to sound like tomorrow?
+            <br />
+            Drop us a line.
           </p>
 
-          <Button size="lg" className="glow-pink gap-2 text-lg px-8 mb-12">
-            <Mail className="w-5 h-5" />
-            Contact Us
-          </Button>
+          <a 
+            href="mailto:hello@futurecandy.studio"
+            className="inline-block mb-12"
+          >
+            <Button size="lg" className="glow-pink gap-2 text-lg px-8">
+              <Mail className="w-5 h-5" />
+              hello@futurecandy.studio
+            </Button>
+          </a>
 
           <div className="flex justify-center gap-8 flex-wrap">
             <a

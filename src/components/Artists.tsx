@@ -2,12 +2,13 @@ import { ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import christineWorld from "@/assets/christine-world.jpg";
 import echoNovaWorld from "@/assets/echonova-world.jpg";
+import byteBabyWorld from "@/assets/bytebaby-world.jpg";
 
 const Artists = () => {
   const projects = [
     {
       name: "Christine",
-      description: "Candy pink chaos. Pop with a bite.",
+      description: "Pop attitude. Hooks that bite. Pure energy.",
       image: christineWorld,
       color: "candy-pink",
       spotify: "#",
@@ -15,9 +16,17 @@ const Artists = () => {
     },
     {
       name: "EchoNova",
-      description: "Dreamy neon cloudscapes. Ethereal vibes.",
+      description: "Dreamy electro and cinematic emotion.",
       image: echoNovaWorld,
       color: "candy-cyan",
+      spotify: "#",
+      youtube: "#",
+    },
+    {
+      name: "ByteBaby",
+      description: "Experimental beats and hyperpop chaos.",
+      image: byteBabyWorld,
+      color: "candy-violet",
       spotify: "#",
       youtube: "#",
     },
@@ -27,13 +36,15 @@ const Artists = () => {
     <section id="artists" className="py-24">
       <div className="container mx-auto px-4">
         <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
-          <span className="text-gradient">Artists & Projects</span>
+          <span className="text-gradient">Meet the Sounds of FutureCandy</span>
         </h2>
         <p className="text-xl text-center text-muted-foreground mb-16">
-          Visual worlds. Sonic universes. No limits.
+          We don&apos;t do artists — we do experiences.
+          <br />
+          Each project is a world: a flavor, a mood, a vibe.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
             <Card
               key={project.name}
