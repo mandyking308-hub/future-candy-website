@@ -12,6 +12,8 @@ import DigitalLicensing from "./pages/DigitalLicensing";
 import ModernSlavery from "./pages/ModernSlavery";
 import RefundPolicy from "./pages/RefundPolicy";
 import CookiesPolicy from "./pages/CookiesPolicy";
+import GlobalLicensing from "./pages/GlobalLicensing";
+import MultilingualRights from "./pages/MultilingualRights";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +34,8 @@ const App = () => (
           <Route path="/modern-slavery" element={<ModernSlavery />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/cookies" element={<CookiesPolicy />} />
+          <Route path="/global-licensing" element={<GlobalLicensing />} />
+          <Route path="/multilingual-rights" element={<MultilingualRights />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

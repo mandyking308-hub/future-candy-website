@@ -110,6 +110,7 @@ const PrivacyPolicy = () => {
             <li><strong className="text-candy-pink">4.2. Service Providers:</strong> Third-party vendors who perform functions on our behalf (e.g., cloud hosting, IT support, payment processing, professional accounting/legal services).</li>
             <li><strong className="text-candy-pink">4.3. Legal Requirements:</strong> When required by law, court order, or governmental regulation.</li>
             <li><strong className="text-candy-pink">4.4. Music Industry Partners:</strong> Where necessary for the scope of the project (e.g., sharing contact information with mixing engineers, mastering houses, or collection societies).</li>
+            <li><strong className="text-candy-pink">4.5. International Data Transfers:</strong> For global distribution and royalty management, FutureCandy may share limited metadata (track titles, artist identifiers, rights information) with international streaming and licensing platforms. All transfers comply with UK GDPR and applicable adequacy frameworks, including the UK-US Data Bridge and EU Standard Contractual Clauses where relevant.</li>
           </ul>
         </section>
 

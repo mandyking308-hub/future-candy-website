@@ -62,7 +62,23 @@ const Footer = () => {
               <a href="/modern-slavery" className="text-muted-foreground hover:text-candy-pink transition-colors">
                 Modern Slavery Statement
               </a>
+              <span className="text-muted-foreground/30">|</span>
+              <a href="/global-licensing" className="text-muted-foreground hover:text-candy-pink transition-colors">
+                Global Licensing
+              </a>
+              <span className="text-muted-foreground/30">|</span>
+              <a href="/multilingual-rights" className="text-muted-foreground hover:text-candy-pink transition-colors">
+                Multilingual Rights
+              </a>
             </div>
+          </div>
+          
+          <div className="mb-6 max-w-3xl mx-auto">
+            <p className="text-xs text-muted-foreground/60 leading-relaxed">
+              Translation and localization features of FutureCandy's productions are generated using supervised AI systems. 
+              Artistic adaptations may differ from literal linguistic equivalents. All works are reviewed for cultural respect 
+              and accuracy prior to release.
+            </p>
           </div>
           
           <p className="text-sm text-muted-foreground mb-2">

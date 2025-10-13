@@ -38,6 +38,25 @@ const About = () => {
             </p>
           </div>
 
+          <div className="mt-12 p-8 glass rounded-lg border border-candy-pink/30">
+            <h3 className="text-3xl font-bold text-gradient mb-6">Music Without Borders.</h3>
+            <p className="text-lg text-foreground/80 leading-relaxed mb-4">
+              FutureCandy creates and distributes multilingual productions worldwide — sound that transcends language.
+            </p>
+            <p className="text-lg text-foreground/80 leading-relaxed mb-4">
+              Every track can exist in multiple versions, each built with precision and emotion for audiences across the globe.
+            </p>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              Whether English, Japanese, Spanish, or beyond, every translation is an independent master recording owned by FutureCandy.
+            </p>
+            <div className="mt-6 flex justify-center">
+              <div className="relative w-32 h-32 animate-[spin_20s_linear_infinite]">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-candy-pink via-candy-cyan to-candy-violet opacity-30 blur-xl"></div>
+                <div className="absolute inset-4 rounded-full bg-gradient-to-r from-candy-violet via-candy-pink to-candy-cyan opacity-50"></div>
+              </div>
+            </div>
+          </div>
+
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-6 bg-card rounded-lg border border-candy-pink/30 glow-pink">
               <h3 className="text-2xl font-bold text-candy-pink mb-2">Digital First</h3>

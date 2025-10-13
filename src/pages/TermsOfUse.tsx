@@ -69,8 +69,13 @@ const TermsOfUse = () => {
           </p>
           
           <h3 className="text-xl font-semibold text-candy-pink mt-6 mb-3">2.3. Unauthorized Use</h3>
-          <p>
+          <p className="mb-4">
             You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of the content on our Website without explicit written consent from FutureCandy.
+          </p>
+          
+          <h3 className="text-xl font-semibold text-candy-pink mt-6 mb-3">2.4. Multilingual Works</h3>
+          <p>
+            FutureCandy may create, reproduce, and distribute alternative-language versions of any musical work using AI voice and lyric models. Each language version constitutes a distinct master recording owned exclusively by FutureCandy while sharing the same underlying composition rights.
           </p>
         </section>
 
