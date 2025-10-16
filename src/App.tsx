@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Journal from "./pages/Journal";
 import Collab from "./pages/Collab";
+import ContactPage from "./pages/ContactPage";
 import TermsOfUse from "./pages/TermsOfUse";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import DigitalLicensing from "./pages/DigitalLicensing";
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/journal" element={<Journal />} />
           <Route path="/collab" element={<Collab />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/digital-licensing" element={<DigitalLicensing />} />

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Instagram, Music } from "lucide-react";
+import { Music, Instagram } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -15,16 +15,12 @@ const Contact = () => {
             <br />
             Want your project to sound like tomorrow?
             <br />
-            Drop us a line.
+            Get in touch through our contact page.
           </p>
 
-          <a 
-            href="mailto:hello@futurecandy.studio"
-            className="inline-block mb-12"
-          >
+          <a href="/contact" className="inline-block mb-12">
             <Button size="lg" className="glow-pink gap-2 text-lg px-8">
-              <Mail className="w-5 h-5" />
-              hello@futurecandy.studio
+              Contact Us
             </Button>
           </a>
 

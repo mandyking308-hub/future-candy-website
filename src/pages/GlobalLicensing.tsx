@@ -33,12 +33,15 @@ const GlobalLicensing = () => {
       return;
     }
 
-    // Send email to licensing@futurecandy.online
-    const mailtoLink = `mailto:licensing@futurecandy.online?subject=Global Licensing Request from ${formData.name}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nOrganisation: ${formData.organisation}\nCountry/Region: ${formData.country}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\nPreferred Language: ${formData.language}\n\nMessage:\n${formData.message}`
-    )}`;
+    // Redirect to contact page with pre-filled subject
+    toast({
+      title: "Redirecting to Contact Form",
+      description: "Please complete the full contact form for licensing inquiries.",
+    });
     
-    window.location.href = mailtoLink;
+    setTimeout(() => {
+      window.location.href = "/contact";
+    }, 1500);
     
     toast({
       title: "Request Submitted",
@@ -228,9 +231,9 @@ const GlobalLicensing = () => {
 
           <div className="mt-8 text-center">
             <p className="text-sm text-muted-foreground">
-              Questions? Contact us at{" "}
-              <a href="mailto:licensing@futurecandy.online" className="text-candy-cyan hover:underline">
-                licensing@futurecandy.online
+              Questions?{" "}
+              <a href="/contact" className="text-candy-cyan hover:underline font-semibold">
+                Contact us through our contact form
               </a>
             </p>
           </div>

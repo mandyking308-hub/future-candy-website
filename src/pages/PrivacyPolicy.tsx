@@ -145,9 +145,13 @@ const PrivacyPolicy = () => {
         <section id="contact" className="glass p-8 rounded-lg scroll-mt-24">
           <h2 className="text-2xl font-bold text-candy-pink mb-4">8. Contact Information</h2>
           <p className="mb-4">
-            If you have any questions or concerns about this Privacy Policy, our data practices, or if you wish to exercise your rights, please contact us at:
+            If you have any questions or concerns about this Privacy Policy, our data practices, or if you wish to exercise your rights, please use our contact form:
           </p>
-          <p className="mb-4"><strong>Email:</strong> <a href="mailto:privacy@futurecandy.online" className="text-candy-cyan hover:underline">privacy@futurecandy.online</a></p>
+          <p className="mb-4">
+            <a href="/contact" className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-candy-pink to-candy-violet rounded-lg text-white font-semibold hover:scale-105 transition-transform">
+              Contact Us
+            </a>
+          </p>
           <p>
             You also have the right to lodge a complaint with the UK supervisory authority, the Information Commissioner's Office (ICO), if you believe your data has been processed unlawfully.
           </p>

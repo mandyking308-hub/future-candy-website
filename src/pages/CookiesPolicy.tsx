@@ -89,7 +89,10 @@ const CookiesPolicy = () => {
             <section className="glass p-8 rounded-lg">
               <h2 className="text-2xl font-bold text-candy-cyan mb-4">5. Contact Information</h2>
               <p>
-                For any questions regarding our use of cookies, please refer to our Privacy Policy or contact us at <strong>privacy@futurecandy.studio</strong>
+                For any questions regarding our use of cookies, please refer to our Privacy Policy or{" "}
+                <a href="/contact" className="text-candy-cyan hover:underline font-semibold">
+                  contact us through our contact form
+                </a>.
               </p>
             </section>
           </div>
