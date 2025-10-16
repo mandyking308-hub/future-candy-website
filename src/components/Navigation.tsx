@@ -42,14 +42,18 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
+          <button
+            className="md:hidden p-2 rounded-lg bg-gradient-to-r from-cyan-400/90 to-blue-400/90 hover:from-cyan-300 hover:to-blue-300 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,170,255,0.6)] active:scale-95"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
           >
-            {isOpen ? <X /> : <Menu />}
-          </Button>
+            {isOpen ? (
+              <X className="w-6 h-6 text-[#1a2942]" />
+            ) : (
+              <Menu className="w-6 h-6 text-[#1a2942]" />
+            )}
+          </button>
         </div>
 
         {/* Mobile Menu */}
