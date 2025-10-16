@@ -7,6 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Briefcase, Film, Palette } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import ContentProtection from "@/components/ContentProtection";
+import { Helmet } from "react-helmet";
 
 const Collab = () => {
   const [formData, setFormData] = useState({
@@ -46,8 +48,15 @@ const Collab = () => {
   ];
 
   return (
-    <div className="min-h-screen page-transition">
-      <Navigation />
+    <>
+      <Helmet>
+        <title>Licensing & Collaboration | FutureCandy</title>
+        <meta name="description" content="License FutureCandy's AI-powered pop music for film, brands, and digital experiences. Custom sonic identities and creative partnerships." />
+        <link rel="canonical" href="https://futurecandy.lovable.app/collab" />
+      </Helmet>
+      <ContentProtection />
+      <div className="min-h-screen page-transition">
+        <Navigation />
       
       <section className="pt-32 pb-24 min-h-screen">
         <div className="container mx-auto px-4">
@@ -148,7 +157,8 @@ const Collab = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

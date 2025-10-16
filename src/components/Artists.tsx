@@ -88,8 +88,9 @@ const Artists = () => {
               <div className="aspect-square relative">
                 <img
                   src={project.image}
-                  alt={`${project.name} visual world`}
+                  alt={`${project.name} artist visual world - ${project.description}`}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
               </div>

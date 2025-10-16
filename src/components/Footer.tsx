@@ -81,9 +81,16 @@ const Footer = () => {
             </p>
           </div>
           
-          <p className="text-sm text-muted-foreground mb-2">
-            © 2025 FutureCandy. Born Digital. Made for the Future.
-          </p>
+          <div className="flex flex-col items-center gap-2 mb-4">
+            <p className="text-sm text-muted-foreground">
+              © 2025 FutureCandy. Born Digital. Made for the Future.
+            </p>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground/60">
+              <span>🛡️ DMCA Protected</span>
+              <span>|</span>
+              <span>All Rights Reserved</span>
+            </div>
+          </div>
           <p className="text-xs text-muted-foreground/60">
             A subsidiary of HEALTH CHOICES GLOBAL LIMITED | Company No. 10941962 | 128 City Road, London, EC1V 2NX
           </p>

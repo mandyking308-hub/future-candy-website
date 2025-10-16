@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowUp } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import ContentProtection from "@/components/ContentProtection";
+import { Helmet } from "react-helmet";
 
 interface LegalPageLayoutProps {
   children: ReactNode;
@@ -56,8 +58,15 @@ const LegalPageLayout = ({ children, title, lastUpdated, sections }: LegalPageLa
   };
 
   return (
-    <div className="min-h-screen page-transition">
-      <Navigation />
+    <>
+      <Helmet>
+        <title>{title} | FutureCandy</title>
+        <meta name="description" content={`${title} for FutureCandy - The next evolution of pop, digital-first and AI-powered.`} />
+        <link rel="canonical" href={`https://futurecandy.lovable.app${typeof window !== 'undefined' ? window.location.pathname : ''}`} />
+      </Helmet>
+      <ContentProtection />
+      <div className="min-h-screen page-transition">
+        <Navigation />
       
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-4">
@@ -192,7 +201,8 @@ const LegalPageLayout = ({ children, title, lastUpdated, sections }: LegalPageLa
           <ArrowUp className="w-5 h-5" />
         </Button>
       )}
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -52,6 +52,8 @@ const Hero = () => {
           backgroundPosition: 'center 30%',
           filter: 'brightness(0.6) contrast(1.1)',
         }}
+        role="img"
+        aria-label="FutureCandy hero visual showing vibrant neon colors and synthetic aesthetic"
       />
       
       {/* Gradient Overlays for Better Readability */}

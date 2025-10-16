@@ -2,6 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Calendar } from "lucide-react";
+import ContentProtection from "@/components/ContentProtection";
+import { Helmet } from "react-helmet";
 
 const Journal = () => {
   const posts = [
@@ -26,8 +28,15 @@ const Journal = () => {
   ];
 
   return (
-    <div className="min-h-screen page-transition">
-      <Navigation />
+    <>
+      <Helmet>
+        <title>The Drop Room - Journal | FutureCandy</title>
+        <meta name="description" content="Announcements, creative statements, and notes from the FutureCandy universe. Your direct line to digital-first AI pop." />
+        <link rel="canonical" href="https://futurecandy.lovable.app/journal" />
+      </Helmet>
+      <ContentProtection />
+      <div className="min-h-screen page-transition">
+        <Navigation />
       
       <section className="pt-32 pb-24 min-h-screen">
         <div className="container mx-auto px-4">
@@ -75,7 +84,8 @@ const Journal = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

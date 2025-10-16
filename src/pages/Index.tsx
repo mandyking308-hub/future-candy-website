@@ -8,21 +8,31 @@ import Footer from "@/components/Footer";
 import NowPlaying from "@/components/NowPlaying";
 import CandyClub from "@/components/CandyClub";
 import CookieConsent from "@/components/CookieConsent";
+import ContentProtection from "@/components/ContentProtection";
+import { Helmet } from "react-helmet";
 
 const Index = () => {
   return (
-    <div className="min-h-screen page-transition">
-      <Navigation />
-      <Hero />
-      <About />
-      <Artists />
-      <Visuals />
-      <CandyClub />
-      <Contact />
-      <Footer />
-      <NowPlaying />
-      <CookieConsent />
-    </div>
+    <>
+      <Helmet>
+        <title>FutureCandy | Sweet Beats. Synthetic Dreams. AI Pop for the Future.</title>
+        <meta name="description" content="FutureCandy is the next evolution of pop — digital-first, multilingual, and powered by AI." />
+        <link rel="canonical" href="https://futurecandy.lovable.app/" />
+      </Helmet>
+      <ContentProtection />
+      <div className="min-h-screen page-transition">
+        <Navigation />
+        <Hero />
+        <About />
+        <Artists />
+        <Visuals />
+        <CandyClub />
+        <Contact />
+        <Footer />
+        <NowPlaying />
+        <CookieConsent />
+      </div>
+    </>
   );
 };
 

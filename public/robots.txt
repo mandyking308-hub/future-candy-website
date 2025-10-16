@@ -1,8 +1,14 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /admin
+Disallow: /backend
+Disallow: /private
 
 User-agent: Bingbot
 Allow: /
+Disallow: /admin
+Disallow: /backend
+Disallow: /private
 
 User-agent: Twitterbot
 Allow: /
@@ -12,3 +18,12 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /backend
+Disallow: /private
+
+# Crawl-delay for polite bots
+Crawl-delay: 10
+
+# Sitemap
+Sitemap: https://futurecandy.lovable.app/sitemap.xml
