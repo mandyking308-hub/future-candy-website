@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/select";
 import { Mail, Briefcase, Film, Music } from "lucide-react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
@@ -82,13 +83,24 @@ const ContactPage = () => {
     setIsSubmitting(true);
 
     try {
-      // Here you would typically send to your backend/edge function
-      // For now, we'll simulate a successful submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const { data: fnData, error: fnError } = await supabase.functions.invoke("contact-form", {
+        body: {
+          name: data.name,
+          email: data.email,
+          phone: data.phone || "",
+          company: data.company || "",
+          subject: data.subject,
+          message: data.message,
+          sourcePage: window.location.href,
+          captchaToken,
+        },
+      });
+
+      if (fnError) throw fnError;
 
       toast({
-        title: "Message Sent Successfully!",
-        description: "We'll get back to you within 24-48 hours.",
+        title: "Message Sent!",
+        description: "Thank you for contacting FutureCandy — we'll get back to you soon.",
       });
 
       form.reset();
@@ -367,8 +379,11 @@ const ContactPage = () => {
                     </Button>
 
                     <p className="text-sm text-center text-muted-foreground">
-                      By submitting this form, you agree to our Privacy Policy
-                      and Terms of Use.
+                      By submitting, you consent to FutureCandy securely storing
+                      your message for communication purposes. See our{" "}
+                      <a href="/privacy" className="text-candy-pink hover:underline">Privacy Policy</a>{" "}
+                      and{" "}
+                      <a href="/terms" className="text-candy-pink hover:underline">Terms of Use</a>.
                     </p>
                   </form>
                 </Form>
