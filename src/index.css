@@ -144,6 +144,33 @@ All colors MUST be HSL.
     animation: gradient-shift 6s ease infinite;
   }
   
+  /* Subtle depth backgrounds */
+  .bg-depth {
+    background: linear-gradient(180deg, hsl(var(--deep-black)), hsl(240 10% 7%), hsl(var(--deep-black)));
+  }
+  
+  .bg-depth-alt {
+    background: linear-gradient(180deg, hsl(240 10% 7%), hsl(240 8% 9%), hsl(240 10% 7%));
+  }
+  
+  /* Soft glow behind content */
+  .content-glow {
+    position: relative;
+  }
+  
+  .content-glow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(ellipse, hsl(var(--candy-pink) / 0.06), hsl(var(--candy-violet) / 0.04), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
   .glow-pink {
     box-shadow: var(--glow-pink);
   }
