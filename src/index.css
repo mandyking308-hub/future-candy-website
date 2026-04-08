@@ -8,54 +8,60 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* FutureCandy Brand Colors - Electric & Neon */
-    --candy-pink: 330 100% 50%;
-    --candy-cyan: 180 100% 50%;
-    --candy-violet: 270 100% 55%;
-    --candy-orange: 15 100% 60%;
-    --deep-black: 240 10% 5%;
-    --soft-black: 240 8% 10%;
+    /* FutureCandy Brand Colors - Soft Luxury */
+    --candy-pink: 340 65% 65%;
+    --candy-cyan: 185 45% 55%;
+    --candy-violet: 270 50% 60%;
+    --candy-orange: 20 60% 65%;
+    --candy-rose: 350 50% 70%;
+    --candy-champagne: 35 40% 80%;
+    --deep-black: 240 10% 6%;
+    --soft-black: 240 8% 11%;
     
     /* Semantic Tokens */
     --background: var(--deep-black);
-    --foreground: 0 0% 100%;
+    --foreground: 30 15% 95%;
 
-    --card: var(--soft-black);
-    --card-foreground: 0 0% 100%;
+    --card: 240 8% 12%;
+    --card-foreground: 30 15% 95%;
 
-    --popover: var(--soft-black);
-    --popover-foreground: 0 0% 100%;
+    --popover: 240 8% 12%;
+    --popover-foreground: 30 15% 95%;
 
     --primary: var(--candy-pink);
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 30 15% 98%;
 
     --secondary: var(--candy-cyan);
     --secondary-foreground: var(--deep-black);
 
-    --muted: 240 8% 15%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 240 6% 16%;
+    --muted-foreground: 30 10% 65%;
 
     --accent: var(--candy-violet);
-    --accent-foreground: 0 0% 100%;
+    --accent-foreground: 30 15% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 30 15% 98%;
 
-    --border: 240 8% 20%;
-    --input: 240 8% 20%;
-    --ring: var(--candy-pink);
+    --border: 240 6% 18%;
+    --input: 240 6% 18%;
+    --ring: var(--candy-rose);
 
-    --radius: 0.75rem;
+    --radius: 1rem;
     
-    /* Gradients */
+    /* Gradients - Softer */
     --gradient-candy: linear-gradient(135deg, hsl(var(--candy-pink)), hsl(var(--candy-violet)), hsl(var(--candy-cyan)));
     --gradient-neon: linear-gradient(90deg, hsl(var(--candy-cyan)), hsl(var(--candy-violet)));
-    --gradient-glow: linear-gradient(180deg, hsl(var(--candy-pink) / 0.2), transparent);
+    --gradient-glow: linear-gradient(180deg, hsl(var(--candy-pink) / 0.15), transparent);
     
-    /* Shadows & Effects */
-    --glow-pink: 0 0 40px hsl(var(--candy-pink) / 0.5);
-    --glow-cyan: 0 0 40px hsl(var(--candy-cyan) / 0.5);
-    --glow-violet: 0 0 40px hsl(var(--candy-violet) / 0.5);
+    /* Shadows & Effects - Softer, more diffused */
+    --glow-pink: 0 0 50px hsl(var(--candy-pink) / 0.3);
+    --glow-cyan: 0 0 50px hsl(var(--candy-cyan) / 0.3);
+    --glow-violet: 0 0 50px hsl(var(--candy-violet) / 0.3);
+    
+    /* Soft luxury shadows */
+    --shadow-soft: 0 4px 30px hsl(0 0% 0% / 0.15);
+    --shadow-glow: 0 4px 40px hsl(var(--candy-pink) / 0.15);
   }
 }
 
@@ -67,10 +73,30 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-['Space_Grotesk'];
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+  h1 {
+    @apply font-bold tracking-tight text-4xl md:text-5xl lg:text-6xl;
+    letter-spacing: -0.02em;
+  }
+  
+  h2 {
+    @apply font-bold tracking-tight text-3xl md:text-4xl;
+    letter-spacing: -0.015em;
+  }
+  
+  h3 {
+    @apply font-semibold tracking-tight text-2xl md:text-3xl;
+  }
+  
+  h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+  
+  p {
+    @apply leading-relaxed;
   }
   
   /* Cursor Trail Effect */
@@ -94,13 +120,13 @@ All colors MUST be HSL.
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
   
-  /* Interactive Glow on Hover */
+  /* Interactive Glow on Hover - Softer */
   .interactive-glow {
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
   }
   
   .interactive-glow:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.1);
     transform: translateY(-2px);
   }
 }
