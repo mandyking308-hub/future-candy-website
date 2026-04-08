@@ -19,6 +19,10 @@ import NotFound from "./pages/NotFound";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminManual from "./pages/AdminManual";
 import AdminQAReport from "./pages/AdminQAReport";
+import AdminContentEngine from "./pages/AdminContentEngine";
+import ArtistsPage from "./pages/ArtistsPage";
+import ArtistProfile from "./pages/ArtistProfile";
+import MusicPage from "./pages/MusicPage";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +37,9 @@ const App = () => (
           <Route path="/journal" element={<Journal />} />
           <Route path="/collab" element={<Collab />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/artists" element={<ArtistsPage />} />
+          <Route path="/artists/:id" element={<ArtistProfile />} />
+          <Route path="/music" element={<MusicPage />} />
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/digital-licensing" element={<DigitalLicensing />} />
@@ -44,6 +51,7 @@ const App = () => (
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/manual" element={<AdminManual />} />
           <Route path="/admin/qa-report" element={<AdminQAReport />} />
+          <Route path="/admin/content" element={<AdminContentEngine />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

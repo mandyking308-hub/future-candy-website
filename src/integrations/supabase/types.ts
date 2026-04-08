@@ -14,6 +14,151 @@ export type Database = {
   }
   public: {
     Tables: {
+      fc_artists: {
+        Row: {
+          apple_music_link: string | null
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          name: string
+          personality: string | null
+          spotify_link: string | null
+          status: string
+          updated_at: string
+          visual_style_prompt: string | null
+          youtube_link: string | null
+        }
+        Insert: {
+          apple_music_link?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name: string
+          personality?: string | null
+          spotify_link?: string | null
+          status?: string
+          updated_at?: string
+          visual_style_prompt?: string | null
+          youtube_link?: string | null
+        }
+        Update: {
+          apple_music_link?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          personality?: string | null
+          spotify_link?: string | null
+          status?: string
+          updated_at?: string
+          visual_style_prompt?: string | null
+          youtube_link?: string | null
+        }
+        Relationships: []
+      }
+      fc_songs: {
+        Row: {
+          apple_music_link: string | null
+          artist_id: string
+          audio_url: string | null
+          created_at: string
+          description: string | null
+          id: string
+          lyrics: string | null
+          mood: string | null
+          spotify_link: string | null
+          status: string
+          title: string
+          updated_at: string
+          youtube_link: string | null
+        }
+        Insert: {
+          apple_music_link?: string | null
+          artist_id: string
+          audio_url?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          lyrics?: string | null
+          mood?: string | null
+          spotify_link?: string | null
+          status?: string
+          title: string
+          updated_at?: string
+          youtube_link?: string | null
+        }
+        Update: {
+          apple_music_link?: string | null
+          artist_id?: string
+          audio_url?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          lyrics?: string | null
+          mood?: string | null
+          spotify_link?: string | null
+          status?: string
+          title?: string
+          updated_at?: string
+          youtube_link?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fc_songs_artist_id_fkey"
+            columns: ["artist_id"]
+            isOneToOne: false
+            referencedRelation: "fc_artists"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      fc_videos: {
+        Row: {
+          created_at: string
+          embed_url: string | null
+          id: string
+          song_id: string
+          status: string
+          style: string | null
+          updated_at: string
+          video_prompt: string | null
+          video_url: string | null
+        }
+        Insert: {
+          created_at?: string
+          embed_url?: string | null
+          id?: string
+          song_id: string
+          status?: string
+          style?: string | null
+          updated_at?: string
+          video_prompt?: string | null
+          video_url?: string | null
+        }
+        Update: {
+          created_at?: string
+          embed_url?: string | null
+          id?: string
+          song_id?: string
+          status?: string
+          style?: string | null
+          updated_at?: string
+          video_prompt?: string | null
+          video_url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fc_videos_song_id_fkey"
+            columns: ["song_id"]
+            isOneToOne: false
+            referencedRelation: "fc_songs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       futurecandy_enquiries: {
         Row: {
           company: string | null

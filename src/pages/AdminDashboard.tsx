@@ -21,7 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, LogOut, Mail, Clock, CheckCircle, MessageSquare, BookOpen, ClipboardCheck } from "lucide-react";
+import { Search, LogOut, Mail, Clock, CheckCircle, MessageSquare, BookOpen, ClipboardCheck, Layers } from "lucide-react";
 
 interface Enquiry {
   id: string;
@@ -203,6 +203,11 @@ const AdminDashboard = () => {
             <span className="text-gradient">FutureCandy Admin</span>
           </h1>
           <div className="flex items-center gap-2">
+            <a href="/admin/content">
+              <Button variant="outline" size="sm" className="border-border">
+                <Layers className="w-4 h-4 mr-2" /> Content Engine
+              </Button>
+            </a>
             <a href="/admin/manual">
               <Button variant="outline" size="sm" className="border-border">
                 <BookOpen className="w-4 h-4 mr-2" /> Manual
