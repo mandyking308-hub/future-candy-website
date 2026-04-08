@@ -16,6 +16,7 @@ import CookiesPolicy from "./pages/CookiesPolicy";
 import GlobalLicensing from "./pages/GlobalLicensing";
 import MultilingualRights from "./pages/MultilingualRights";
 import NotFound from "./pages/NotFound";
+import AdminDashboard from "./pages/AdminDashboard";
 import AdminManual from "./pages/AdminManual";
 import AdminQAReport from "./pages/AdminQAReport";
 
