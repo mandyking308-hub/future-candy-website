@@ -17,6 +17,8 @@ import GlobalLicensing from "./pages/GlobalLicensing";
 import MultilingualRights from "./pages/MultilingualRights";
 import NotFound from "./pages/NotFound";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminManual from "./pages/AdminManual";
+import AdminQAReport from "./pages/AdminQAReport";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +42,8 @@ const App = () => (
           <Route path="/global-licensing" element={<GlobalLicensing />} />
           <Route path="/multilingual-rights" element={<MultilingualRights />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/manual" element={<AdminManual />} />
+          <Route path="/admin/qa-report" element={<AdminQAReport />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

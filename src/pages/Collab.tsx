@@ -1,34 +1,12 @@
-import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Briefcase, Film, Palette } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 import ContentProtection from "@/components/ContentProtection";
 import { Helmet } from "react-helmet";
 
 const Collab = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    project: "",
-    purpose: "",
-    message: "",
-  });
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll review your collaboration proposal and get back to you soon.",
-    });
-    setFormData({ name: "", email: "", project: "", purpose: "", message: "" });
-  };
-
   const features = [
     {
       icon: Film,
@@ -79,79 +57,26 @@ const Collab = () => {
                     className="p-6 glass border-candy-cyan/30 hover:border-candy-cyan/50 transition-all animate-fade-in"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="w-12 h-12 bg-gradient-neon rounded-lg flex items-center justify-center glow-cyan mb-4">
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 bg-gradient-neon rounded-full flex items-center justify-center glow-cyan mb-4">
+                      <Icon className="w-6 h-6 text-foreground" />
                     </div>
                     <h3 className="text-xl font-bold mb-2 text-candy-cyan">{feature.title}</h3>
-                    <p className="text-foreground/70">{feature.description}</p>
+                    <p className="text-muted-foreground">{feature.description}</p>
                   </Card>
                 );
               })}
             </div>
 
-            <Card className="p-8 glass border-candy-pink/30 glow-pink">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Name</label>
-                    <Input
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      required
-                      className="bg-background/50 border-candy-pink/30 focus:border-candy-pink"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Email</label>
-                    <Input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      required
-                      className="bg-background/50 border-candy-pink/30 focus:border-candy-pink"
-                    />
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Project Name</label>
-                    <Input
-                      value={formData.project}
-                      onChange={(e) => setFormData({ ...formData, project: e.target.value })}
-                      required
-                      className="bg-background/50 border-candy-pink/30 focus:border-candy-pink"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Purpose</label>
-                    <Input
-                      value={formData.purpose}
-                      onChange={(e) => setFormData({ ...formData, purpose: e.target.value })}
-                      placeholder="e.g., Film, Brand Campaign, Installation"
-                      required
-                      className="bg-background/50 border-candy-pink/30 focus:border-candy-pink"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold mb-2">Message</label>
-                  <Textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell us about your vision..."
-                    required
-                    rows={6}
-                    className="bg-background/50 border-candy-pink/30 focus:border-candy-pink"
-                  />
-                </div>
-
-                <Button type="submit" size="lg" className="w-full glow-pink">
-                  Submit Proposal
+            <div className="text-center">
+              <p className="text-lg text-muted-foreground mb-8">
+                Interested in working together? Submit your proposal through our contact page.
+              </p>
+              <a href="/contact">
+                <Button size="lg" className="glow-pink text-lg px-8">
+                  Get in Touch
                 </Button>
-              </form>
-            </Card>
+              </a>
+            </div>
           </div>
         </div>
       </section>

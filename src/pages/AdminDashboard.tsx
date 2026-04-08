@@ -21,7 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, LogOut, Mail, Clock, CheckCircle, MessageSquare } from "lucide-react";
+import { Search, LogOut, Mail, Clock, CheckCircle, MessageSquare, BookOpen, ClipboardCheck } from "lucide-react";
 
 interface Enquiry {
   id: string;
@@ -202,9 +202,21 @@ const AdminDashboard = () => {
           <h1 className="text-3xl font-bold">
             <span className="text-gradient">FutureCandy Admin</span>
           </h1>
-          <Button variant="outline" onClick={handleLogout} className="border-candy-pink/30">
-            <LogOut className="w-4 h-4 mr-2" /> Logout
-          </Button>
+          <div className="flex items-center gap-2">
+            <a href="/admin/manual">
+              <Button variant="outline" size="sm" className="border-border">
+                <BookOpen className="w-4 h-4 mr-2" /> Manual
+              </Button>
+            </a>
+            <a href="/admin/qa-report">
+              <Button variant="outline" size="sm" className="border-border">
+                <ClipboardCheck className="w-4 h-4 mr-2" /> QA Report
+              </Button>
+            </a>
+            <Button variant="outline" onClick={handleLogout} className="border-candy-pink/30">
+              <LogOut className="w-4 h-4 mr-2" /> Logout
+            </Button>
+          </div>
         </div>
 
         {/* Stats */}
