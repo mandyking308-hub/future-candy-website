@@ -9,7 +9,8 @@ const Navigation = () => {
   const navLinks = [
     { name: "Home", href: "/#home" },
     { name: "About", href: "/#about" },
-    { name: "Artists", href: "/#artists" },
+    { name: "Artists", href: "/artists" },
+    { name: "Music", href: "/music" },
     { name: "Visuals", href: "/#visuals" },
     { name: "Journal", href: "/journal" },
     { name: "Collab", href: "/collab" },
