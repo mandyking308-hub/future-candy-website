@@ -55,6 +55,8 @@ export default {
           cyan: "hsl(var(--candy-cyan))",
           violet: "hsl(var(--candy-violet))",
           orange: "hsl(var(--candy-orange))",
+          rose: "hsl(var(--candy-rose))",
+          champagne: "hsl(var(--candy-champagne))",
         },
       },
       borderRadius: {
