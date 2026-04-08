@@ -17,10 +17,10 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border/10 shadow-[0_2px_20px_rgba(0,0,0,0.06)]">
       <div className="container mx-auto px-6 py-2">
         <div className="flex items-center justify-between">
-          <a href="#home" className="flex items-center transition-all duration-300 hover:scale-105">
+          <a href="#home" className="flex items-center transition-all duration-400 hover:scale-[1.03]">
             <img 
               src={logo} 
               alt="FutureCandy Logo" 
@@ -29,12 +29,12 @@ const Navigation = () => {
           </a>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-1.5">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="relative px-4 py-2 text-sm font-semibold text-[#1a2942] bg-gradient-to-r from-cyan-400/90 to-blue-400/90 rounded-full transition-all duration-300 hover:from-cyan-300 hover:to-blue-300 hover:shadow-[0_0_20px_rgba(0,170,255,0.6)] hover:scale-105 active:scale-95"
+                className="relative px-4 py-1.5 text-sm font-medium text-[#2a3a52] rounded-full transition-all duration-300 hover:bg-[#2a3a52]/5 hover:text-[#1a2942]"
               >
                 {link.name}
               </a>
@@ -43,27 +43,27 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg bg-gradient-to-r from-cyan-400/90 to-blue-400/90 hover:from-cyan-300 hover:to-blue-300 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,170,255,0.6)] active:scale-95"
+            className="md:hidden p-2 rounded-full text-[#2a3a52] hover:bg-[#2a3a52]/5 transition-all duration-300 active:scale-95"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
           >
             {isOpen ? (
-              <X className="w-6 h-6 text-[#1a2942]" />
+              <X className="w-5 h-5" />
             ) : (
-              <Menu className="w-6 h-6 text-[#1a2942]" />
+              <Menu className="w-5 h-5" />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pt-4 pb-2 animate-fade-in space-y-2">
+          <div className="md:hidden pt-3 pb-2 animate-fade-in space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-4 py-2 text-sm font-semibold text-[#1a2942] bg-gradient-to-r from-cyan-400/90 to-blue-400/90 rounded-full transition-all duration-300 hover:from-cyan-300 hover:to-blue-300 hover:shadow-[0_0_20px_rgba(0,170,255,0.6)] active:scale-95"
+                className="block px-4 py-2 text-sm font-medium text-[#2a3a52] rounded-full transition-all duration-300 hover:bg-[#2a3a52]/5"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
