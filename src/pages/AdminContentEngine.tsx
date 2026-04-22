@@ -35,6 +35,7 @@ interface Artist {
 interface Song {
   id: string; artist_id: string; title: string; lyrics: string | null; mood: string | null;
   audio_url: string | null; description: string | null; status: string;
+  cover_image_url: string | null;
   spotify_link: string | null; apple_music_link: string | null; youtube_link: string | null;
   created_at: string; updated_at: string;
   fc_artists?: { name: string };
@@ -145,7 +146,7 @@ const AdminContentEngine = () => {
   // CRUD Songs
   const saveSong = async () => {
     if (!editSong?.title || !editSong?.artist_id) return;
-    const payload = { title: editSong.title, artist_id: editSong.artist_id, lyrics: editSong.lyrics || null, mood: editSong.mood || "energetic", audio_url: editSong.audio_url || null, description: editSong.description || null, status: editSong.status || "draft" };
+    const payload = { title: editSong.title, artist_id: editSong.artist_id, lyrics: editSong.lyrics || null, mood: editSong.mood || "energetic", audio_url: editSong.audio_url || null, description: editSong.description || null, cover_image_url: editSong.cover_image_url || null, youtube_link: editSong.youtube_link || null, status: editSong.status || "draft" };
     if (editSong.id) {
       await supabase.from("fc_songs").update({ ...payload, updated_at: new Date().toISOString() }).eq("id", editSong.id);
     } else {
@@ -413,6 +414,13 @@ const AdminContentEngine = () => {
               <div><label className="text-sm text-muted-foreground">Mood</label><Input value={editSong?.mood || ""} onChange={e => setEditSong({ ...editSong, mood: e.target.value })} placeholder="e.g. emotional, confident, romantic" /></div>
               <div><label className="text-sm text-muted-foreground">Description</label><Textarea value={editSong?.description || ""} onChange={e => setEditSong({ ...editSong, description: e.target.value })} rows={2} /></div>
               <div><label className="text-sm text-muted-foreground">Lyrics</label><Textarea value={editSong?.lyrics || ""} onChange={e => setEditSong({ ...editSong, lyrics: e.target.value })} rows={6} placeholder="Full lyrics..." /></div>
+              <div><label className="text-sm text-muted-foreground">Cover Image</label>
+                <Input type="file" accept="image/*" onChange={async e => { const f = e.target.files?.[0]; if (f) { const url = await uploadFile(f, "covers"); if (url) setEditSong(prev => ({ ...prev, cover_image_url: url })); } }} />
+                {editSong?.cover_image_url && <img src={editSong.cover_image_url} alt="Cover preview" className="mt-2 w-24 h-24 object-cover rounded" />}
+              </div>
+              <div><label className="text-sm text-muted-foreground">YouTube Embed URL (external player)</label>
+                <Input value={editSong?.youtube_link || ""} onChange={e => setEditSong({ ...editSong, youtube_link: e.target.value })} placeholder="https://www.youtube.com/embed/VIDEO_ID" />
+              </div>
               <div><label className="text-sm text-muted-foreground">Audio File</label>
                 <Input type="file" accept="audio/*" onChange={async e => { const f = e.target.files?.[0]; if (f) { const url = await uploadFile(f, "audio"); if (url) setEditSong(prev => ({ ...prev, audio_url: url })); } }} />
                 {editSong?.audio_url && <p className="text-xs text-muted-foreground mt-1 truncate">Current: {editSong.audio_url}</p>}

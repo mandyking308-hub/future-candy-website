@@ -13,6 +13,7 @@ interface Artist {
 }
 interface Song {
   id: string; title: string; mood: string | null; audio_url: string | null; description: string | null;
+  cover_image_url: string | null; youtube_link: string | null;
   fc_videos?: { id: string; embed_url: string | null; video_url: string | null; status: string }[];
 }
 
@@ -69,27 +70,53 @@ const ArtistProfile = () => {
               <div className="space-y-6">
                 {songs.map(song => {
                   const publishedVideos = song.fc_videos?.filter(v => v.status === "published") || [];
+                  const fallbackEmbed = !publishedVideos.length && song.youtube_link ? song.youtube_link : null;
                   return (
-                    <Card key={song.id} className="glass border-border p-6">
-                      <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <h3 className="text-lg font-bold text-foreground">{song.title}</h3>
-                          {song.mood && <p className="text-sm text-candy-cyan capitalize">{song.mood}</p>}
+                    <Card key={song.id} className="glass border-border overflow-hidden">
+                      <div className="flex flex-col sm:flex-row gap-0">
+                        {/* Cover */}
+                        <div className="w-full sm:w-48 aspect-square sm:aspect-square flex-shrink-0 bg-muted/30 overflow-hidden">
+                          {song.cover_image_url ? (
+                            <img
+                              src={song.cover_image_url}
+                              alt={`${song.title} cover artwork`}
+                              loading="lazy"
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-candy-pink/20 via-candy-violet/20 to-candy-cyan/20">
+                              <Music className="w-12 h-12 text-muted-foreground/40" />
+                            </div>
+                          )}
+                        </div>
+                        {/* Body */}
+                        <div className="p-6 flex-1">
+                          <div className="flex items-start justify-between mb-2">
+                            <div>
+                              <h3 className="text-lg font-bold text-foreground">{song.title}</h3>
+                              {song.mood && <p className="text-sm text-candy-cyan capitalize">{song.mood}</p>}
+                            </div>
+                          </div>
+                          {song.description && <p className="text-sm text-muted-foreground mb-4">{song.description}</p>}
+                          {song.audio_url && (
+                            <audio controls className="w-full mb-4" preload="none">
+                              <source src={song.audio_url} />
+                            </audio>
+                          )}
+                          {publishedVideos.map(v => v.embed_url ? (
+                            <div key={v.id} className="aspect-video rounded-lg overflow-hidden mb-4">
+                              <iframe src={v.embed_url} className="w-full h-full" allowFullScreen title={song.title} loading="lazy" />
+                            </div>
+                          ) : v.video_url ? (
+                            <video key={v.id} controls className="w-full rounded-lg mb-4" preload="none"><source src={v.video_url} /></video>
+                          ) : null)}
+                          {fallbackEmbed && (
+                            <div className="aspect-video rounded-lg overflow-hidden">
+                              <iframe src={fallbackEmbed} className="w-full h-full" allowFullScreen title={song.title} loading="lazy" />
+                            </div>
+                          )}
                         </div>
                       </div>
-                      {song.description && <p className="text-sm text-muted-foreground mb-4">{song.description}</p>}
-                      {song.audio_url && (
-                        <audio controls className="w-full mb-4" preload="none">
-                          <source src={song.audio_url} />
-                        </audio>
-                      )}
-                      {publishedVideos.map(v => v.embed_url ? (
-                        <div key={v.id} className="aspect-video rounded-lg overflow-hidden mb-4">
-                          <iframe src={v.embed_url} className="w-full h-full" allowFullScreen title={song.title} loading="lazy" />
-                        </div>
-                      ) : v.video_url ? (
-                        <video key={v.id} controls className="w-full rounded-lg mb-4" preload="none"><source src={v.video_url} /></video>
-                      ) : null)}
                     </Card>
                   );
                 })}
