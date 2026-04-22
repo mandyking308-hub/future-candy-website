@@ -1,0 +1,1 @@
+UPDATE public.fc_songs SET cover_image_url = 'https://niyszxlvqcqttvwrzfmt.supabase.co/storage/v1/object/public/fc-media/covers/crown_the_fire.jpg' WHERE id = '32d4006f-5ab5-4962-b1d7-267c543a8c39';
