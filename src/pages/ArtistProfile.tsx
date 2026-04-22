@@ -27,7 +27,7 @@ const ArtistProfile = () => {
     if (!id) return;
     Promise.all([
       supabase.from("fc_artists").select("*").eq("id", id).eq("status", "active").single(),
-      supabase.from("fc_songs").select("*, fc_videos(id, embed_url, video_url, status)").eq("artist_id", id).eq("status", "published").order("created_at", { ascending: false }),
+      supabase.from("fc_songs").select("*, fc_videos(id, embed_url, video_url, status)").eq("artist_id", id).eq("status", "published").order("display_order", { ascending: true }),
     ]).then(([artistRes, songsRes]) => {
       setArtist(artistRes.data as Artist | null);
       setSongs((songsRes.data as Song[]) || []);
