@@ -52,7 +52,6 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const ContactPage = () => {
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -70,15 +69,6 @@ const ContactPage = () => {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    if (!captchaToken) {
-      toast({
-        title: "Verification Required",
-        description: "Please complete the CAPTCHA verification.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setIsSubmitting(true);
 
     try {
