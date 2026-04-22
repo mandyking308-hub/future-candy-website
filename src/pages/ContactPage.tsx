@@ -26,8 +26,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Mail, Briefcase, Film, Music } from "lucide-react";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { Mail, Briefcase, Film, Music, ShieldCheck } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const contactSchema = z.object({
