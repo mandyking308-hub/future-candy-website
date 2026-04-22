@@ -1,0 +1,2 @@
+UPDATE fc_songs SET audio_url = 'https://niyszxlvqcqttvwrzfmt.supabase.co/storage/v1/object/public/fc-media/songs/no_thanks.mp3' WHERE id = '56f70184-efa1-4829-bb4b-866be8d01541';
+UPDATE fc_songs SET audio_url = 'https://niyszxlvqcqttvwrzfmt.supabase.co/storage/v1/object/public/fc-media/songs/you_dont_deserve_this.mp3' WHERE id = '302b2c9d-cbfa-4eaf-b60d-d4456328d68a';
