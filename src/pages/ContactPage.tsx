@@ -346,20 +346,18 @@ const ContactPage = () => {
                       )}
                     />
 
-                    {/* hCaptcha */}
-                    <div className="flex justify-center">
-                      <HCaptcha
-                        sitekey="10000000-ffff-ffff-ffff-000000000001" // Test key - replace with real key in production
-                        onVerify={(token) => setCaptchaToken(token)}
-                        onExpire={() => setCaptchaToken(null)}
-                        theme="dark"
-                      />
+                    {/* Anti-spam notice (honeypot field above protects the form) */}
+                    <div className="flex items-center justify-center gap-2 rounded-md border border-candy-pink/20 bg-background/40 px-4 py-3 text-sm text-muted-foreground">
+                      <ShieldCheck className="h-4 w-4 text-candy-cyan" />
+                      <span>
+                        Protected by anti-spam verification.
+                      </span>
                     </div>
 
                     <Button
                       type="submit"
                       size="lg"
-                      disabled={isSubmitting || !captchaToken}
+                      disabled={isSubmitting}
                       className="w-full glow-pink text-lg"
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
