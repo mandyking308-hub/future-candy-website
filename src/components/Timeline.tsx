@@ -7,7 +7,7 @@ const Timeline = () => {
     { year: "2024", event: "Launch", description: "NeonCandy is born" },
     { year: "Mid 2024", event: "Project Velvette", description: "Pure pop energy unleashed" },
     { year: "Early 2025", event: "EchoNova Debut", description: "Dreamy electro emerges" },
-    { year: "Mid 2025", event: "ByteBaby Chaos", description: "Experimental hyperpop arrives" },
+    { year: "2027", event: "ByteBaby Chaos", description: "Experimental hyperpop arrives" },
     { year: "2026", event: "The Future", description: "Infinite possibilities ahead" },
   ];
 
