@@ -24,7 +24,7 @@ const Visuals = () => {
         <p className="text-xl text-center text-muted-foreground mb-16 max-w-3xl mx-auto">
           Every track deserves a vision.
           <br />
-          FutureCandy visuals are explosions of color and emotion — part music video, part dream sequence.
+          NeonCandy visuals are explosions of color and emotion — part music video, part dream sequence.
           <br />
           No avatars. No fake faces. Just pure energy in motion.
         </p>
@@ -39,7 +39,7 @@ const Visuals = () => {
               <div className="aspect-square relative">
                 <img
                   src={visual.image}
-                  alt={`${visual.title} - ${visual.description} - FutureCandy visual art`}
+                  alt={`${visual.title} - ${visual.description} - NeonCandy visual art`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />

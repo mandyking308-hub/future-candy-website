@@ -155,7 +155,7 @@ const AdminDashboard = () => {
     return (
       <>
         <Helmet>
-          <title>Admin Login | FutureCandy</title>
+          <title>Admin Login | NeonCandy</title>
           <meta name="robots" content="noindex, nofollow" />
         </Helmet>
         <div className="min-h-screen bg-background flex items-center justify-center p-4">
@@ -193,14 +193,14 @@ const AdminDashboard = () => {
   return (
     <>
       <Helmet>
-        <title>Admin Dashboard | FutureCandy</title>
+        <title>Admin Dashboard | NeonCandy</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div className="min-h-screen bg-background p-4 md:p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold">
-            <span className="text-gradient">FutureCandy Admin</span>
+            <span className="text-gradient">NeonCandy Admin</span>
           </h1>
           <div className="flex items-center gap-2">
             <a href="/admin/content">

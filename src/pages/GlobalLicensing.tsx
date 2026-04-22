@@ -71,7 +71,7 @@ const GlobalLicensing = () => {
               Global Licensing
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Request regional or language-specific versions of FutureCandy productions for your project. 
+              Request regional or language-specific versions of NeonCandy productions for your project. 
               We create music that transcends borders — tailored for audiences worldwide.
             </p>
           </div>
@@ -198,7 +198,7 @@ const GlobalLicensing = () => {
                   className="mt-1"
                 />
                 <label htmlFor="terms" className="text-sm text-muted-foreground cursor-pointer">
-                  I acknowledge FutureCandy's{" "}
+                  I acknowledge NeonCandy's{" "}
                   <a href="/digital-licensing" className="text-candy-cyan hover:underline">
                     Licensing Policy
                   </a>{" "}
@@ -225,7 +225,7 @@ const GlobalLicensing = () => {
               <li>• Our team will review your request within 48 hours</li>
               <li>• We'll provide licensing terms and availability for your selected market</li>
               <li>• Each language version is a unique master recording with dedicated ISRC</li>
-              <li>• All multilingual works maintain FutureCandy's quality and artistic standards</li>
+              <li>• All multilingual works maintain NeonCandy's quality and artistic standards</li>
             </ul>
           </div>
 

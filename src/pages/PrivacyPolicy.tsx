@@ -23,11 +23,11 @@ const PrivacyPolicy = () => {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "PrivacyPolicy",
-          "name": "Privacy Policy - FutureCandy",
-          "description": "GDPR-compliant Privacy Policy for FutureCandy, detailing how we collect, use, and protect your personal data.",
+          "name": "Privacy Policy - NeonCandy",
+          "description": "GDPR-compliant Privacy Policy for NeonCandy, detailing how we collect, use, and protect your personal data.",
           "publisher": {
             "@type": "Organization",
-            "name": "FutureCandy",
+            "name": "NeonCandy",
             "url": "https://futurecandy.online"
           }
         })}
@@ -36,13 +36,13 @@ const PrivacyPolicy = () => {
       <div className="prose prose-invert max-w-none space-y-8">
         <div id="intro" className="glass p-8 rounded-lg scroll-mt-24">
           <p className="text-lg text-candy-cyan mb-4">
-            FutureCandy is committed to protecting your privacy. This Privacy Policy describes how we collect, use, process, and disclose your information in compliance with GDPR regulations when you visit our website or engage with our services.
+            NeonCandy is committed to protecting your privacy. This Privacy Policy describes how we collect, use, process, and disclose your information in compliance with GDPR regulations when you visit our website or engage with our services.
           </p>
         </div>
 
         <section id="data-controller" className="glass p-8 rounded-lg scroll-mt-24">
           <h2 className="text-2xl font-bold text-candy-cyan mb-4">1. Data Controller</h2>
-          <p className="mb-2">FutureCandy is the Data Controller responsible for your personal data.</p>
+          <p className="mb-2">NeonCandy is the Data Controller responsible for your personal data.</p>
           <p><strong>Registered Office:</strong> 128 City Road, London, United Kingdom, EC1V 2NX.</p>
         </section>
 
@@ -110,7 +110,7 @@ const PrivacyPolicy = () => {
             <li><strong className="text-candy-pink">4.2. Service Providers:</strong> Third-party vendors who perform functions on our behalf (e.g., cloud hosting, IT support, payment processing, professional accounting/legal services).</li>
             <li><strong className="text-candy-pink">4.3. Legal Requirements:</strong> When required by law, court order, or governmental regulation.</li>
             <li><strong className="text-candy-pink">4.4. Music Industry Partners:</strong> Where necessary for the scope of the project (e.g., sharing contact information with mixing engineers, mastering houses, or collection societies).</li>
-            <li><strong className="text-candy-pink">4.5. International Data Transfers:</strong> For global distribution and royalty management, FutureCandy may share limited metadata (track titles, artist identifiers, rights information) with international streaming and licensing platforms. All transfers comply with UK GDPR and applicable adequacy frameworks, including the UK-US Data Bridge and EU Standard Contractual Clauses where relevant.</li>
+            <li><strong className="text-candy-pink">4.5. International Data Transfers:</strong> For global distribution and royalty management, NeonCandy may share limited metadata (track titles, artist identifiers, rights information) with international streaming and licensing platforms. All transfers comply with UK GDPR and applicable adequacy frameworks, including the UK-US Data Bridge and EU Standard Contractual Clauses where relevant.</li>
           </ul>
         </section>
 

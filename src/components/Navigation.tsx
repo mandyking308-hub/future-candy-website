@@ -24,7 +24,7 @@ const Navigation = () => {
           <a href="#home" className="flex items-center transition-all duration-400 hover:scale-[1.03]">
             <img 
               src={logo} 
-              alt="FutureCandy Logo" 
+              alt="NeonCandy Logo" 
               className="h-16 md:h-20 w-auto object-contain"
             />
           </a>

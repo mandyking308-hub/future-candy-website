@@ -15,14 +15,14 @@ const ModernSlavery = () => {
           <div className="prose prose-invert max-w-none space-y-8">
             <div className="glass p-8 rounded-lg">
               <p className="text-lg">
-                This statement is made pursuant to section 54(1) of the Modern Slavery Act 2015 and constitutes FutureCandy's (a subsidiary of HEALTH CHOICES GLOBAL LIMITED) modern slavery and human trafficking statement for the current financial year.
+                This statement is made pursuant to section 54(1) of the Modern Slavery Act 2015 and constitutes NeonCandy's (a subsidiary of HEALTH CHOICES GLOBAL LIMITED) modern slavery and human trafficking statement for the current financial year.
               </p>
             </div>
 
             <section className="glass p-8 rounded-lg">
               <h2 className="text-2xl font-bold text-candy-cyan mb-4">1. Our Structure and Business</h2>
               <p>
-                FutureCandy is a UK-based music production and licensing company specializing in electronic and synthesized music creation. Our core business involves the provision of creative services, digital content production, and commercial licensing. We operate primarily in the United Kingdom.
+                NeonCandy is a UK-based music production and licensing company specializing in electronic and synthesized music creation. Our core business involves the provision of creative services, digital content production, and commercial licensing. We operate primarily in the United Kingdom.
               </p>
             </section>
 
@@ -42,7 +42,7 @@ const ModernSlavery = () => {
             <section className="glass p-8 rounded-lg">
               <h2 className="text-2xl font-bold text-candy-pink mb-4">3. Our Policies on Slavery and Trafficking</h2>
               <p className="mb-4">
-                FutureCandy adheres to the policies established by its parent company, HEALTH CHOICES GLOBAL LIMITED, which are designed to ensure that there is no modern slavery or human trafficking in our supply chains or in any part of our business. These policies include:
+                NeonCandy adheres to the policies established by its parent company, HEALTH CHOICES GLOBAL LIMITED, which are designed to ensure that there is no modern slavery or human trafficking in our supply chains or in any part of our business. These policies include:
               </p>
               <ul className="space-y-2 list-disc list-inside">
                 <li><strong>Whistleblowing Policy:</strong> Encouraging staff to report any concerns regarding unlawful conduct, including slavery and human trafficking, without fear of reprisal.</li>
@@ -80,10 +80,10 @@ const ModernSlavery = () => {
             <section className="glass p-8 rounded-lg">
               <h2 className="text-2xl font-bold text-candy-pink mb-4">6. Commitment</h2>
               <p className="mb-6">
-                FutureCandy is committed to ensuring full transparency in our business and in our approach to tackling modern slavery. We will continue to review and update our procedures annually.
+                NeonCandy is committed to ensuring full transparency in our business and in our approach to tackling modern slavery. We will continue to review and update our procedures annually.
               </p>
               <p className="text-muted-foreground">
-                Approved by the Board of Directors of FutureCandy (a subsidiary of HEALTH CHOICES GLOBAL LIMITED).
+                Approved by the Board of Directors of NeonCandy (a subsidiary of HEALTH CHOICES GLOBAL LIMITED).
               </p>
               <p className="text-muted-foreground">Date: October 2025</p>
             </section>

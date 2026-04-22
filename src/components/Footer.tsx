@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="text-center">
           <h3 className="text-3xl font-bold text-gradient mb-4">
-            FutureCandy
+            NeonCandy
           </h3>
           <p className="text-xl text-muted-foreground mb-8">
             Pop Without Limits.
@@ -75,7 +75,7 @@ const Footer = () => {
           
           <div className="mb-6 max-w-3xl mx-auto">
             <p className="text-xs text-muted-foreground/60 leading-relaxed">
-              Translation and localization features of FutureCandy's productions are generated using supervised AI systems. 
+              Translation and localization features of NeonCandy's productions are generated using supervised AI systems. 
               Artistic adaptations may differ from literal linguistic equivalents. All works are reviewed for cultural respect 
               and accuracy prior to release.
             </p>
@@ -83,7 +83,7 @@ const Footer = () => {
           
           <div className="flex flex-col items-center gap-2 mb-4">
             <p className="text-sm text-muted-foreground">
-              © 2025 FutureCandy. Born Digital. Made for the Future.
+              © 2025 NeonCandy. Born Digital. Made for the Future.
             </p>
             <div className="flex items-center gap-2 text-xs text-muted-foreground/60">
               <span>🛡️ DMCA Protected</span>

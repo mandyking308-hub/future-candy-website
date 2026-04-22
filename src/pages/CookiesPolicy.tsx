@@ -15,7 +15,7 @@ const CookiesPolicy = () => {
           <div className="prose prose-invert max-w-none space-y-8">
             <div className="glass p-8 rounded-lg">
               <p className="text-lg">
-                This Cookies Policy explains what cookies are, how FutureCandy — Sweet Beats. Synthetic Dreams uses them, the types of cookies we use, and your choices regarding them.
+                This Cookies Policy explains what cookies are, how NeonCandy — Sweet Beats. Synthetic Dreams uses them, the types of cookies we use, and your choices regarding them.
               </p>
             </div>
 
@@ -28,7 +28,7 @@ const CookiesPolicy = () => {
 
             <section className="glass p-8 rounded-lg">
               <h2 className="text-2xl font-bold text-candy-violet mb-4">2. How We Use Cookies</h2>
-              <p className="mb-4">FutureCandy uses cookies for the following purposes:</p>
+              <p className="mb-4">NeonCandy uses cookies for the following purposes:</p>
               <ol className="space-y-3 list-[lower-alpha] list-inside">
                 <li><strong>Website Functionality:</strong> To ensure the website operates correctly (e.g., maintaining your shopping cart if we sell products).</li>
                 <li><strong>Analytics:</strong> To understand how users interact with our Website, which pages are most popular, and how we can improve our services. We typically use tools like Google Analytics for this purpose.</li>

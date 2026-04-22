@@ -9,7 +9,7 @@ import { ArrowLeft, Download, RefreshCw, Clock } from "lucide-react";
 
 // Live system configuration
 const SITE_CONFIG = {
-  name: "FutureCandy",
+  name: "NeonCandy",
   tagline: "Sweet Beats. Synthetic Dreams. AI Pop for the Future.",
   company: "HEALTH CHOICES GLOBAL LIMITED",
   companyNumber: "10941962",
@@ -95,7 +95,7 @@ const AdminManual = () => {
         <!DOCTYPE html>
         <html>
         <head>
-          <title>FutureCandy Admin Manual</title>
+          <title>NeonCandy Admin Manual</title>
           <style>
             @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
             * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -119,7 +119,7 @@ const AdminManual = () => {
         <body>
           <div class="header">
             <div>
-              <h1>FutureCandy Admin Manual</h1>
+              <h1>NeonCandy Admin Manual</h1>
               <p class="subtitle">System Documentation & Operations Guide</p>
               <p class="timestamp">Generated: ${new Date().toLocaleString('en-GB')}</p>
             </div>
@@ -256,7 +256,7 @@ const AdminManual = () => {
   return (
     <>
       <Helmet>
-        <title>Admin Manual | FutureCandy</title>
+        <title>Admin Manual | NeonCandy</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div className="min-h-screen bg-background p-4 md:p-8">

@@ -28,14 +28,14 @@ const MusicPage = () => {
   return (
     <>
       <Helmet>
-        <title>Music & Releases | FutureCandy</title>
-        <meta name="description" content="Listen to the latest AI-powered releases from FutureCandy artists." />
+        <title>Music & Releases | NeonCandy</title>
+        <meta name="description" content="Listen to the latest AI-powered releases from NeonCandy artists." />
       </Helmet>
       <Navigation />
       <main className="min-h-screen bg-background pt-32 pb-20 px-4">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4"><span className="text-gradient">Music & Releases</span></h1>
-          <p className="text-muted-foreground text-center mb-12 max-w-xl mx-auto">The latest sounds from the FutureCandy universe.</p>
+          <p className="text-muted-foreground text-center mb-12 max-w-xl mx-auto">The latest sounds from the NeonCandy universe.</p>
 
           {loading ? (
             <div className="text-center text-muted-foreground py-20">Loading releases...</div>

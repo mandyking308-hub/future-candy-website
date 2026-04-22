@@ -40,8 +40,8 @@ const ArtistProfile = () => {
   return (
     <>
       <Helmet>
-        <title>{artist.name} | FutureCandy</title>
-        <meta name="description" content={artist.description || `${artist.name} — a FutureCandy artist.`} />
+        <title>{artist.name} | NeonCandy</title>
+        <meta name="description" content={artist.description || `${artist.name} — a NeonCandy artist.`} />
       </Helmet>
       <Navigation />
       <main className="min-h-screen bg-background pt-32 pb-20 px-4">
