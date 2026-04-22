@@ -77,7 +77,7 @@ const CookieConsent = () => {
                   We Value Your Privacy
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  FutureCandy uses cookies to enhance your experience, analyze site traffic, and deliver personalized content. 
+                  NeonCandy uses cookies to enhance your experience, analyze site traffic, and deliver personalized content. 
                   By clicking "Accept All," you consent to our use of cookies. You can manage your preferences at any time.
                 </p>
                 <div className="flex flex-wrap gap-3">

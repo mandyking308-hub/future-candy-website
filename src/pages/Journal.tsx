@@ -23,15 +23,15 @@ const Journal = () => {
       date: "2025-03-01",
       category: "Announcement",
       title: "Welcome to the Drop Room",
-      excerpt: "Your portal into FutureCandy's creative universe — no social media required.",
+      excerpt: "Your portal into NeonCandy's creative universe — no social media required.",
     },
   ];
 
   return (
     <>
       <Helmet>
-        <title>The Drop Room - Journal | FutureCandy</title>
-        <meta name="description" content="Announcements, creative statements, and notes from the FutureCandy universe. Your direct line to digital-first AI pop." />
+        <title>The Drop Room - Journal | NeonCandy</title>
+        <meta name="description" content="Announcements, creative statements, and notes from the NeonCandy universe. Your direct line to digital-first AI pop." />
         <link rel="canonical" href="https://futurecandy.lovable.app/journal" />
       </Helmet>
       <ContentProtection />
@@ -47,7 +47,7 @@ const Journal = () => {
             <p className="text-xl text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
               Announcements, creative statements, and notes from the lab.
               <br />
-              Your direct line to the FutureCandy universe.
+              Your direct line to the NeonCandy universe.
             </p>
 
             <div className="space-y-8">

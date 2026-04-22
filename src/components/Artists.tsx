@@ -49,7 +49,7 @@ const Artists = () => {
     <section id="artists" className="py-24">
       <div className="container mx-auto px-4">
         <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
-          <span className="text-gradient">Meet the Sounds of FutureCandy</span>
+          <span className="text-gradient">Meet the Sounds of NeonCandy</span>
         </h2>
         <p className="text-xl text-center text-muted-foreground mb-16">
           We don&apos;t do artists — we do experiences.

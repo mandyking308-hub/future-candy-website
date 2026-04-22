@@ -71,7 +71,7 @@ const AdminQAReport = () => {
   return (
     <>
       <Helmet>
-        <title>QA Report | FutureCandy Admin</title>
+        <title>QA Report | NeonCandy Admin</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div className="min-h-screen bg-background p-4 md:p-8">

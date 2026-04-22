@@ -199,7 +199,7 @@ const AdminContentEngine = () => {
 
   return (
     <>
-      <Helmet><title>Content Engine | FutureCandy Admin</title><meta name="robots" content="noindex, nofollow" /></Helmet>
+      <Helmet><title>Content Engine | NeonCandy Admin</title><meta name="robots" content="noindex, nofollow" /></Helmet>
       <div className="min-h-screen bg-background p-4 md:p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

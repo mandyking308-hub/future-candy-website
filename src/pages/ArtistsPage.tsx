@@ -23,8 +23,8 @@ const ArtistsPage = () => {
   return (
     <>
       <Helmet>
-        <title>Artists | FutureCandy</title>
-        <meta name="description" content="Meet the artists of FutureCandy — AI-powered pop creators shaping the future of music." />
+        <title>Artists | NeonCandy</title>
+        <meta name="description" content="Meet the artists of NeonCandy — AI-powered pop creators shaping the future of music." />
       </Helmet>
       <Navigation />
       <main className="min-h-screen bg-background pt-32 pb-20 px-4">

@@ -100,7 +100,7 @@ const ContactPage = () => {
 
       toast({
         title: "Message Sent!",
-        description: "Thank you for contacting FutureCandy — we'll get back to you soon.",
+        description: "Thank you for contacting NeonCandy — we'll get back to you soon.",
       });
 
       form.reset();
@@ -119,10 +119,10 @@ const ContactPage = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us | FutureCandy</title>
+        <title>Contact Us | NeonCandy</title>
         <meta
           name="description"
-          content="Get in touch with FutureCandy for licensing, collaboration, press inquiries, and more. Professional contact form with secure verification."
+          content="Get in touch with NeonCandy for licensing, collaboration, press inquiries, and more. Professional contact form with secure verification."
         />
         <link rel="canonical" href="https://futurecandy.lovable.app/contact" />
       </Helmet>
@@ -379,7 +379,7 @@ const ContactPage = () => {
                     </Button>
 
                     <p className="text-sm text-center text-muted-foreground">
-                      By submitting, you consent to FutureCandy securely storing
+                      By submitting, you consent to NeonCandy securely storing
                       your message for communication purposes. See our{" "}
                       <a href="/privacy" className="text-candy-pink hover:underline">Privacy Policy</a>{" "}
                       and{" "}
@@ -406,11 +406,11 @@ const ContactPage = () => {
                     Business Information
                   </h3>
                   <p className="text-sm text-foreground/70">
-                    FutureCandy - A subsidiary of HEALTH CHOICES GLOBAL LIMITED
+                    NeonCandy is operated by Global Solutions Management LLC
                     <br />
-                    Company No. 10941962
+                    Delaware, United States
                     <br />
-                    128 City Road, London, EC1V 2NX
+                    File Number: 10420698
                   </p>
                 </Card>
               </div>

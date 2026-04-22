@@ -13,7 +13,7 @@ const About = () => {
           
           <div className="space-y-6 text-lg md:text-xl text-foreground/80">
             <p>
-              FutureCandy is a digital-first pop production label.
+              NeonCandy is a digital-first pop production label.
               <br />
               We don&apos;t follow trends — we generate them.
             </p>
@@ -34,20 +34,20 @@ const About = () => {
             <h3 className="text-3xl font-bold text-gradient mb-6">Our Philosophy</h3>
             <p className="text-lg text-foreground/80 leading-relaxed">
               We believe creativity should be infinite, borderless, and ego-free. Music is emotion rendered as energy. 
-              FutureCandy is the experiment that never ends — a perpetual evolution of sound, vision, and feeling.
+              NeonCandy is the experiment that never ends — a perpetual evolution of sound, vision, and feeling.
             </p>
           </div>
 
           <div className="mt-12 p-8 glass rounded-lg border border-candy-pink/30">
             <h3 className="text-3xl font-bold text-gradient mb-6">Music Without Borders.</h3>
             <p className="text-lg text-foreground/80 leading-relaxed mb-4">
-              FutureCandy creates and distributes multilingual productions worldwide — sound that transcends language.
+              NeonCandy creates and distributes multilingual productions worldwide — sound that transcends language.
             </p>
             <p className="text-lg text-foreground/80 leading-relaxed mb-4">
               Every track can exist in multiple versions, each built with precision and emotion for audiences across the globe.
             </p>
             <p className="text-lg text-foreground/80 leading-relaxed">
-              Whether English, Japanese, Spanish, or beyond, every translation is an independent master recording owned by FutureCandy.
+              Whether English, Japanese, Spanish, or beyond, every translation is an independent master recording owned by NeonCandy.
             </p>
             <div className="mt-6 flex justify-center">
               <div className="relative w-32 h-32 animate-[spin_20s_linear_infinite]">

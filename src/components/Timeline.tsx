@@ -4,7 +4,7 @@ const Timeline = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const milestones = [
-    { year: "2024", event: "Launch", description: "FutureCandy is born" },
+    { year: "2024", event: "Launch", description: "NeonCandy is born" },
     { year: "Mid 2024", event: "Project Velvette", description: "Pure pop energy unleashed" },
     { year: "Early 2025", event: "EchoNova Debut", description: "Dreamy electro emerges" },
     { year: "Mid 2025", event: "ByteBaby Chaos", description: "Experimental hyperpop arrives" },

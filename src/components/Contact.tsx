@@ -7,7 +7,7 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl font-bold mb-8">
-            <span className="text-gradient">Work With FutureCandy</span>
+            <span className="text-gradient">Work With NeonCandy</span>
           </h2>
           
           <p className="text-xl text-foreground/80 mb-8">

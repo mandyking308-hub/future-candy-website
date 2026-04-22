@@ -28,8 +28,8 @@ const Collab = () => {
   return (
     <>
       <Helmet>
-        <title>Licensing & Collaboration | FutureCandy</title>
-        <meta name="description" content="License FutureCandy's AI-powered pop music for film, brands, and digital experiences. Custom sonic identities and creative partnerships." />
+        <title>Licensing & Collaboration | NeonCandy</title>
+        <meta name="description" content="License NeonCandy's AI-powered pop music for film, brands, and digital experiences. Custom sonic identities and creative partnerships." />
         <link rel="canonical" href="https://futurecandy.lovable.app/collab" />
       </Helmet>
       <ContentProtection />

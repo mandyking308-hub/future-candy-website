@@ -60,8 +60,8 @@ const LegalPageLayout = ({ children, title, lastUpdated, sections }: LegalPageLa
   return (
     <>
       <Helmet>
-        <title>{title} | FutureCandy</title>
-        <meta name="description" content={`${title} for FutureCandy - The next evolution of pop, digital-first and AI-powered.`} />
+        <title>{title} | NeonCandy</title>
+        <meta name="description" content={`${title} for NeonCandy - The next evolution of pop, digital-first and AI-powered.`} />
         <link rel="canonical" href={`https://futurecandy.lovable.app${typeof window !== 'undefined' ? window.location.pathname : ''}`} />
       </Helmet>
       <ContentProtection />
@@ -140,13 +140,13 @@ const LegalPageLayout = ({ children, title, lastUpdated, sections }: LegalPageLa
                 
                 <div className="glass border border-candy-cyan/30 rounded-lg px-4 py-2">
                   <p className="text-xs text-candy-cyan font-semibold">
-                    FutureCandy — Sweet Beats. Synthetic Dreams
+                    NeonCandy — Sweet Beats. Synthetic Dreams
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    A subsidiary of HEALTH CHOICES GLOBAL LIMITED
+                    Operated by Global Solutions Management LLC
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    Company No. 10941962
+                    Delaware, USA · File No. 10420698
                   </p>
                 </div>
               </div>
@@ -160,16 +160,16 @@ const LegalPageLayout = ({ children, title, lastUpdated, sections }: LegalPageLa
                 </h3>
                 <div className="space-y-2 text-sm">
                   <p className="text-foreground">
-                    <strong>FutureCandy — Sweet Beats. Synthetic Dreams</strong>
+                    <strong>NeonCandy — Sweet Beats. Synthetic Dreams</strong>
                   </p>
                   <p className="text-muted-foreground">
-                    A subsidiary of HEALTH CHOICES GLOBAL LIMITED
+                    Operated by Global Solutions Management LLC
                   </p>
                   <p className="text-muted-foreground">
-                    Company No. 10941962
+                    Delaware State File Number: 10420698
                   </p>
                   <p className="text-muted-foreground">
-                    Registered Office: 128 City Road, London, EC1V 2NX
+                    Registered Jurisdiction: Delaware, United States
                   </p>
                   <div className="mt-4">
                     <a
