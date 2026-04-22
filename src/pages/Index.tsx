@@ -17,7 +17,7 @@ const Index = () => {
       <Helmet>
         <title>NeonCandy | Sweet Beats. Synthetic Dreams. AI Pop for the Future.</title>
         <meta name="description" content="NeonCandy is the next evolution of pop — digital-first, multilingual, and powered by AI." />
-        <link rel="canonical" href="https://futurecandy.lovable.app/" />
+        <link rel="canonical" href="https://neoncandy.online/" />
       </Helmet>
       <ContentProtection />
       <div className="min-h-screen page-transition">

@@ -124,7 +124,7 @@ const ContactPage = () => {
           name="description"
           content="Get in touch with NeonCandy for licensing, collaboration, press inquiries, and more. Professional contact form with secure verification."
         />
-        <link rel="canonical" href="https://futurecandy.lovable.app/contact" />
+        <link rel="canonical" href="https://neoncandy.online/contact" />
       </Helmet>
       <ContentProtection />
       <div className="min-h-screen page-transition">
