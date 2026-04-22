@@ -62,7 +62,7 @@ const LegalPageLayout = ({ children, title, lastUpdated, sections }: LegalPageLa
       <Helmet>
         <title>{title} | NeonCandy</title>
         <meta name="description" content={`${title} for NeonCandy - The next evolution of pop, digital-first and AI-powered.`} />
-        <link rel="canonical" href={`https://futurecandy.lovable.app${typeof window !== 'undefined' ? window.location.pathname : ''}`} />
+        <link rel="canonical" href={`https://neoncandy.online${typeof window !== 'undefined' ? window.location.pathname : ''}`} />
       </Helmet>
       <ContentProtection />
       <div className="min-h-screen page-transition">

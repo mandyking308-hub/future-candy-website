@@ -24,7 +24,7 @@ const MultilingualRights = () => {
           "publisher": {
             "@type": "Organization",
             "name": "NeonCandy",
-            "url": "https://futurecandy.online"
+            "url": "https://neoncandy.online"
           }
         })}
       </script>

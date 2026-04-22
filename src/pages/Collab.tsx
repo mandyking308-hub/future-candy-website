@@ -30,7 +30,7 @@ const Collab = () => {
       <Helmet>
         <title>Licensing & Collaboration | NeonCandy</title>
         <meta name="description" content="License NeonCandy's AI-powered pop music for film, brands, and digital experiences. Custom sonic identities and creative partnerships." />
-        <link rel="canonical" href="https://futurecandy.lovable.app/collab" />
+        <link rel="canonical" href="https://neoncandy.online/collab" />
       </Helmet>
       <ContentProtection />
       <div className="min-h-screen page-transition">

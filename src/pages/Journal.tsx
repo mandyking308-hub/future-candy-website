@@ -32,7 +32,7 @@ const Journal = () => {
       <Helmet>
         <title>The Drop Room - Journal | NeonCandy</title>
         <meta name="description" content="Announcements, creative statements, and notes from the NeonCandy universe. Your direct line to digital-first AI pop." />
-        <link rel="canonical" href="https://futurecandy.lovable.app/journal" />
+        <link rel="canonical" href="https://neoncandy.online/journal" />
       </Helmet>
       <ContentProtection />
       <div className="min-h-screen page-transition">
