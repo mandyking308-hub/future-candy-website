@@ -13,6 +13,7 @@ interface Artist {
 }
 interface Song {
   id: string; title: string; mood: string | null; audio_url: string | null; description: string | null;
+  cover_image_url: string | null; youtube_link: string | null;
   fc_videos?: { id: string; embed_url: string | null; video_url: string | null; status: string }[];
 }
 
