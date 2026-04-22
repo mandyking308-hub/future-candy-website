@@ -114,7 +114,7 @@ const TermsOfUse = () => {
         <section id="indemnification" className="glass p-8 rounded-lg scroll-mt-24">
           <h2 className="text-2xl font-bold text-candy-violet mb-4">7. Indemnification</h2>
           <p>
-            You agree to defend, indemnify, and hold harmless NeonCandy, its parent company, affiliates, and their respective directors, officers, employees, and agents from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms of Use or your use of the Services.
+            You agree to defend, indemnify, and hold harmless NeonCandy, its operating entity Global Solutions Management LLC, its affiliates, and their respective directors, officers, employees, and agents from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms of Use or your use of the Services.
           </p>
         </section>
 
