@@ -190,6 +190,17 @@ const AdminDashboard = () => {
     );
   });
 
+  const filteredPartners = partnerEnquiries.filter((p) => {
+    if (!partnerSearch) return true;
+    const s = partnerSearch.toLowerCase();
+    return (
+      p.full_name.toLowerCase().includes(s) ||
+      p.email.toLowerCase().includes(s) ||
+      (p.company?.toLowerCase().includes(s) ?? false) ||
+      p.message.toLowerCase().includes(s)
+    );
+  });
+
   const statusBadge = (status: string) => {
     const variants: Record<string, string> = {
       new: "bg-candy-pink/20 text-candy-pink border-candy-pink/30",
