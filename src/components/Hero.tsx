@@ -139,7 +139,9 @@ const Hero = () => {
             className="gap-2 text-sm text-muted-foreground hover:text-candy-cyan transition-colors"
           >
             {audioPlaying ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-            {audioPlaying ? "Ambient Sound On" : "Ambient Sound Off"}
+            {audioPlaying
+              ? `Now Playing: ${trackTitle ?? "Single"}`
+              : "Play a Single"}
           </Button>
         </div>
       </div>
