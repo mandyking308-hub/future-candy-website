@@ -91,8 +91,8 @@ const Footer = () => {
               <span>All Rights Reserved</span>
             </div>
           </div>
-          <p className="text-xs text-muted-foreground/60">
-            A subsidiary of HEALTH CHOICES GLOBAL LIMITED | Company No. 10941962 | 128 City Road, London, EC1V 2NX
+          <p className="text-xs text-muted-foreground/60 max-w-3xl mx-auto leading-relaxed">
+            NeonCandy is operated by Global Solutions Management LLC, a company registered in Delaware, United States (File Number: 10420698).
           </p>
         </div>
       </div>

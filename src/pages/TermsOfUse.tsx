@@ -40,7 +40,7 @@ const TermsOfUse = () => {
             These Terms of Use govern your access to and use of the NeonCandy website and services. By using our platform, you agree to be bound by these terms. Please read them carefully before proceeding.
           </p>
           <p className="mb-4">
-            NeonCandy ("we," "us," or "our") is a private limited company and a subsidiary of HEALTH CHOICES GLOBAL LIMITED, operating under the company number 10941962, with a registered office at 128 City Road, London, United Kingdom, EC1V 2NX.
+            NeonCandy is a digital music label operated by Global Solutions Management LLC ("we," "us," or "our"), a company registered in Delaware, United States (Delaware State File Number: 10420698).
           </p>
           <p>
             By accessing or using our website and services, you agree to comply with and be bound by these Terms of Use. If you do not agree to these terms, you must not use our website.
@@ -107,7 +107,7 @@ const TermsOfUse = () => {
         <section id="liability" className="glass p-8 rounded-lg scroll-mt-24">
           <h2 className="text-2xl font-bold text-candy-cyan mb-4">6. Limitation of Liability</h2>
           <p>
-            In no event shall NeonCandy, its affiliates (including HEALTH CHOICES GLOBAL LIMITED), directors, employees, or agents be liable for damages of any kind, under any legal theory, arising out of or in connection with your use, or inability to use, the Website or Services, including any direct, indirect, special, incidental, consequential, or punitive damages.
+            In no event shall NeonCandy, its operating entity Global Solutions Management LLC, its affiliates, directors, employees, or agents be liable for damages of any kind, under any legal theory, arising out of or in connection with your use, or inability to use, the Website or Services, including any direct, indirect, special, incidental, consequential, or punitive damages.
           </p>
         </section>
 

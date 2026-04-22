@@ -42,8 +42,8 @@ const PrivacyPolicy = () => {
 
         <section id="data-controller" className="glass p-8 rounded-lg scroll-mt-24">
           <h2 className="text-2xl font-bold text-candy-cyan mb-4">1. Data Controller</h2>
-          <p className="mb-2">NeonCandy is the Data Controller responsible for your personal data.</p>
-          <p><strong>Registered Office:</strong> 128 City Road, London, United Kingdom, EC1V 2NX.</p>
+          <p className="mb-2">NeonCandy, operated by Global Solutions Management LLC, is the Data Controller responsible for your personal data.</p>
+          <p><strong>Registered Jurisdiction:</strong> Delaware, United States — Delaware State File Number: 10420698.</p>
         </section>
 
         <section id="information-collected" className="glass p-8 rounded-lg scroll-mt-24">
@@ -106,7 +106,7 @@ const PrivacyPolicy = () => {
           <h2 className="text-2xl font-bold text-candy-violet mb-4">4. Disclosure of Your Information</h2>
           <p className="mb-4">We may share your personal data with the following parties:</p>
           <ul className="space-y-3 list-none">
-            <li><strong className="text-candy-pink">4.1. Affiliates:</strong> With HEALTH CHOICES GLOBAL LIMITED (our parent company) and other related entities for internal administrative purposes.</li>
+            <li><strong className="text-candy-pink">4.1. Operating Entity & Affiliates:</strong> Within Global Solutions Management LLC (our operating entity, registered in Delaware, USA) and other related entities for internal administrative purposes.</li>
             <li><strong className="text-candy-pink">4.2. Service Providers:</strong> Third-party vendors who perform functions on our behalf (e.g., cloud hosting, IT support, payment processing, professional accounting/legal services).</li>
             <li><strong className="text-candy-pink">4.3. Legal Requirements:</strong> When required by law, court order, or governmental regulation.</li>
             <li><strong className="text-candy-pink">4.4. Music Industry Partners:</strong> Where necessary for the scope of the project (e.g., sharing contact information with mixing engineers, mastering houses, or collection societies).</li>

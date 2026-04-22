@@ -206,8 +206,8 @@ const MultilingualRights = () => {
             </a>
           </p>
           <p className="text-sm text-muted-foreground">
-            NeonCandy — A subsidiary of HEALTH CHOICES GLOBAL LIMITED<br />
-            Company No. 10941962 | 128 City Road, London, United Kingdom, EC1V 2NX
+            NeonCandy is operated by Global Solutions Management LLC<br />
+            Delaware, United States · File Number: 10420698
           </p>
         </div>
       </div>

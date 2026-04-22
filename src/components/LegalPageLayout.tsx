@@ -143,10 +143,10 @@ const LegalPageLayout = ({ children, title, lastUpdated, sections }: LegalPageLa
                     NeonCandy — Sweet Beats. Synthetic Dreams
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    A subsidiary of HEALTH CHOICES GLOBAL LIMITED
+                    Operated by Global Solutions Management LLC
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    Company No. 10941962
+                    Delaware, USA · File No. 10420698
                   </p>
                 </div>
               </div>
@@ -163,13 +163,13 @@ const LegalPageLayout = ({ children, title, lastUpdated, sections }: LegalPageLa
                     <strong>NeonCandy — Sweet Beats. Synthetic Dreams</strong>
                   </p>
                   <p className="text-muted-foreground">
-                    A subsidiary of HEALTH CHOICES GLOBAL LIMITED
+                    Operated by Global Solutions Management LLC
                   </p>
                   <p className="text-muted-foreground">
-                    Company No. 10941962
+                    Delaware State File Number: 10420698
                   </p>
                   <p className="text-muted-foreground">
-                    Registered Office: 128 City Road, London, EC1V 2NX
+                    Registered Jurisdiction: Delaware, United States
                   </p>
                   <div className="mt-4">
                     <a

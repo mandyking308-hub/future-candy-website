@@ -406,11 +406,11 @@ const ContactPage = () => {
                     Business Information
                   </h3>
                   <p className="text-sm text-foreground/70">
-                    NeonCandy - A subsidiary of HEALTH CHOICES GLOBAL LIMITED
+                    NeonCandy is operated by Global Solutions Management LLC
                     <br />
-                    Company No. 10941962
+                    Delaware, United States
                     <br />
-                    128 City Road, London, EC1V 2NX
+                    File Number: 10420698
                   </p>
                 </Card>
               </div>

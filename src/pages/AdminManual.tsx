@@ -11,9 +11,10 @@ import { ArrowLeft, Download, RefreshCw, Clock } from "lucide-react";
 const SITE_CONFIG = {
   name: "NeonCandy",
   tagline: "Sweet Beats. Synthetic Dreams. AI Pop for the Future.",
-  company: "HEALTH CHOICES GLOBAL LIMITED",
-  companyNumber: "10941962",
-  address: "128 City Road, London, EC1V 2NX",
+  company: "Global Solutions Management LLC",
+  companyNumber: "10420698",
+  jurisdiction: "Delaware, United States",
+  address: "Delaware, United States (File Number: 10420698)",
   adminEmail: "contact@futurecandy.studio",
   publishedUrl: "https://future-candy-website.lovable.app",
 };
