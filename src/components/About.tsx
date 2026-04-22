@@ -23,7 +23,7 @@ const About = () => {
             <p>
               Every beat, every bassline, every hook is a new flavor — bright, bold, and totally addictive.
               <br />
-              No egos. No faces. Just sound, design, and raw emotion.
+              No egos. No faces. Just sound, design, and emotion.
             </p>
             <p className="text-2xl font-semibold text-gradient">
               We make the future sound like fun.
