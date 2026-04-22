@@ -124,12 +124,12 @@ const MultilingualRights = () => {
             <li>Language and market categorization</li>
           </ul>
           
-          <h3 className="text-xl font-semibold text-candy-cyan mt-6 mb-3">3.2. GDPR Compliance</h3>
+          <h3 className="text-xl font-semibold text-candy-cyan mt-6 mb-3">3.2. Data Compliance</h3>
           <p className="mb-4">
-            All international data transfers comply with UK GDPR and applicable adequacy frameworks, including:
+            All international data transfers comply with applicable data protection frameworks, including:
           </p>
           <ul className="space-y-2 list-disc list-inside mb-4">
-            <li>UK-US Data Bridge for transfers to United States</li>
+            <li>EU-US Data Privacy Framework for transfers involving EU data subjects</li>
             <li>EU Standard Contractual Clauses where relevant</li>
             <li>Partner compliance verification for third-party processors</li>
           </ul>
