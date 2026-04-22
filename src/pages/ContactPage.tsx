@@ -81,7 +81,6 @@ const ContactPage = () => {
           subject: data.subject,
           message: data.message,
           sourcePage: window.location.href,
-          captchaToken,
         },
       });
 
@@ -93,7 +92,6 @@ const ContactPage = () => {
       });
 
       form.reset();
-      setCaptchaToken(null);
     } catch (error) {
       toast({
         title: "Error",
