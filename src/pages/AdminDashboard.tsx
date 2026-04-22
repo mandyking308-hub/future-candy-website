@@ -21,7 +21,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, LogOut, Mail, Clock, CheckCircle, MessageSquare, BookOpen, ClipboardCheck, Layers } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Search, LogOut, Mail, Clock, CheckCircle, MessageSquare, BookOpen, ClipboardCheck, Layers, Handshake, Archive } from "lucide-react";
 
 interface Enquiry {
   id: string;
@@ -30,6 +31,20 @@ interface Enquiry {
   phone: string | null;
   company: string | null;
   subject: string;
+  message: string;
+  source_page: string | null;
+  status: string;
+  created_at: string;
+}
+
+interface PartnerEnquiry {
+  id: string;
+  full_name: string;
+  email: string;
+  company: string | null;
+  phone: string | null;
+  website: string | null;
+  enquiry_type: string;
   message: string;
   source_page: string | null;
   status: string;
