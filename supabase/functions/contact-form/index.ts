@@ -83,7 +83,7 @@ Deno.serve(async (req) => {
 
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-        <h1 style="color: #1a1a2e; border-bottom: 2px solid #ff0080; padding-bottom: 10px;">New FutureCandy Enquiry</h1>
+        <h1 style="color: #1a1a2e; border-bottom: 2px solid #ff0080; padding-bottom: 10px;">New NeonCandy Enquiry</h1>
         <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
           <tr><td style="padding: 8px; font-weight: bold; color: #333; width: 120px;">Name:</td><td style="padding: 8px; color: #555;">${name}</td></tr>
           <tr style="background: #f8f8f8;"><td style="padding: 8px; font-weight: bold; color: #333;">Email:</td><td style="padding: 8px; color: #555;">${email}</td></tr>
@@ -97,7 +97,7 @@ Deno.serve(async (req) => {
           <h3 style="color: #333; margin-top: 0;">Message:</h3>
           <p style="color: #555; line-height: 1.6;">${message.replace(/\n/g, "<br>")}</p>
         </div>
-        <p style="color: #999; font-size: 12px; margin-top: 20px;">This enquiry was submitted via the FutureCandy website contact form.</p>
+        <p style="color: #999; font-size: 12px; margin-top: 20px;">This enquiry was submitted via the NeonCandy website contact form.</p>
       </div>
     `;
 
@@ -124,7 +124,7 @@ Deno.serve(async (req) => {
     }
 
     return new Response(
-      JSON.stringify({ success: true, message: "Thank you for contacting FutureCandy — we'll get back to you soon." }),
+      JSON.stringify({ success: true, message: "Thank you for contacting NeonCandy — we'll get back to you soon." }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (err) {
