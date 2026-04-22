@@ -1,0 +1,1 @@
+UPDATE public.fc_songs SET cover_image_url = 'https://niyszxlvqcqttvwrzfmt.supabase.co/storage/v1/object/public/fc-media/covers/cant_wait.jpg' WHERE id = 'e9ae0391-c126-4241-876d-bfc0cbc12c31';
