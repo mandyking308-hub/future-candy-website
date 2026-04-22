@@ -169,7 +169,7 @@ const AdminManual = () => {
           <h2>6. How to Update Branding, Text, Media & Links</h2>
           <p>All visual content is managed through the codebase in Lovable. To make changes:</p>
           <ul>
-            <li><strong>Logo:</strong> Replace <code>src/assets/futurecandy-logo-new.png</code></li>
+            <li><strong>Logo:</strong> Replace <code>src/assets/neoncandy-logo.png</code></li>
             <li><strong>Favicon:</strong> Replace <code>public/favicon.png</code></li>
             <li><strong>Hero Image:</strong> Replace <code>src/assets/hero-visual.jpg</code></li>
             <li><strong>Text & Copy:</strong> Edit the relevant component file in <code>src/components/</code> or <code>src/pages/</code></li>
@@ -384,7 +384,7 @@ const AdminManual = () => {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>All content is managed through the Lovable editor. Key files:</p>
               <ul className="list-disc pl-5 space-y-1">
-                <li><strong className="text-foreground">Logo:</strong> <code className="text-candy-cyan">src/assets/futurecandy-logo-new.png</code></li>
+                <li><strong className="text-foreground">Logo:</strong> <code className="text-candy-cyan">src/assets/neoncandy-logo.png</code></li>
                 <li><strong className="text-foreground">Favicon:</strong> <code className="text-candy-cyan">public/favicon.png</code></li>
                 <li><strong className="text-foreground">Hero Image:</strong> <code className="text-candy-cyan">src/assets/hero-visual.jpg</code></li>
                 <li><strong className="text-foreground">Colours:</strong> CSS variables in <code className="text-candy-cyan">src/index.css</code></li>
