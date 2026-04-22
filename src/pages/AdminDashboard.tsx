@@ -61,6 +61,15 @@ const AdminDashboard = () => {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
   const [selectedEnquiry, setSelectedEnquiry] = useState<Enquiry | null>(null);
+
+  // Partner enquiries
+  const [partnerEnquiries, setPartnerEnquiries] = useState<PartnerEnquiry[]>([]);
+  const [partnerSearch, setPartnerSearch] = useState("");
+  const [partnerStatusFilter, setPartnerStatusFilter] = useState("all");
+  const [selectedPartner, setSelectedPartner] = useState<PartnerEnquiry | null>(null);
+
+  const [activeTab, setActiveTab] = useState("general");
+
   const { toast } = useToast();
 
   useEffect(() => {
@@ -79,6 +88,10 @@ const AdminDashboard = () => {
     if (session) fetchEnquiries();
   }, [session, statusFilter]);
 
+  useEffect(() => {
+    if (session) fetchPartnerEnquiries();
+  }, [session, partnerStatusFilter]);
+
   const fetchEnquiries = async () => {
     let query = supabase
       .from("futurecandy_enquiries")
@@ -94,6 +107,41 @@ const AdminDashboard = () => {
       toast({ title: "Error", description: "Failed to load enquiries", variant: "destructive" });
     } else {
       setEnquiries((data as Enquiry[]) || []);
+    }
+  };
+
+  const fetchPartnerEnquiries = async () => {
+    let query = supabase
+      .from("neoncandy_partner_enquiries")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (partnerStatusFilter !== "all") {
+      query = query.eq("status", partnerStatusFilter);
+    }
+
+    const { data, error } = await query;
+    if (error) {
+      toast({ title: "Error", description: "Failed to load partner enquiries", variant: "destructive" });
+    } else {
+      setPartnerEnquiries((data as PartnerEnquiry[]) || []);
+    }
+  };
+
+  const updatePartnerStatus = async (id: string, status: string) => {
+    const { error } = await supabase
+      .from("neoncandy_partner_enquiries")
+      .update({ status })
+      .eq("id", id);
+
+    if (error) {
+      toast({ title: "Error", description: "Failed to update status", variant: "destructive" });
+    } else {
+      toast({ title: "Updated", description: `Enquiry marked as ${status}` });
+      fetchPartnerEnquiries();
+      if (selectedPartner?.id === id) {
+        setSelectedPartner({ ...selectedPartner, status });
+      }
     }
   };
 
