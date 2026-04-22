@@ -64,6 +64,7 @@ export type Database = {
           apple_music_link: string | null
           artist_id: string
           audio_url: string | null
+          cover_image_url: string | null
           created_at: string
           description: string | null
           id: string
@@ -79,6 +80,7 @@ export type Database = {
           apple_music_link?: string | null
           artist_id: string
           audio_url?: string | null
+          cover_image_url?: string | null
           created_at?: string
           description?: string | null
           id?: string
@@ -94,6 +96,7 @@ export type Database = {
           apple_music_link?: string | null
           artist_id?: string
           audio_url?: string | null
+          cover_image_url?: string | null
           created_at?: string
           description?: string | null
           id?: string
