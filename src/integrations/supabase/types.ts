@@ -204,6 +204,51 @@ export type Database = {
         }
         Relationships: []
       }
+      neoncandy_partner_enquiries: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string
+          enquiry_type: string
+          full_name: string
+          id: string
+          message: string
+          phone: string | null
+          source_page: string | null
+          status: string
+          updated_at: string
+          website: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email: string
+          enquiry_type?: string
+          full_name: string
+          id?: string
+          message: string
+          phone?: string | null
+          source_page?: string | null
+          status?: string
+          updated_at?: string
+          website?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string
+          enquiry_type?: string
+          full_name?: string
+          id?: string
+          message?: string
+          phone?: string | null
+          source_page?: string | null
+          status?: string
+          updated_at?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
