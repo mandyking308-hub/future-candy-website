@@ -21,7 +21,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, LogOut, Mail, Clock, CheckCircle, MessageSquare, BookOpen, ClipboardCheck, Layers } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Search, LogOut, Mail, Clock, CheckCircle, MessageSquare, BookOpen, ClipboardCheck, Layers, Handshake, Archive } from "lucide-react";
 
 interface Enquiry {
   id: string;
@@ -30,6 +31,20 @@ interface Enquiry {
   phone: string | null;
   company: string | null;
   subject: string;
+  message: string;
+  source_page: string | null;
+  status: string;
+  created_at: string;
+}
+
+interface PartnerEnquiry {
+  id: string;
+  full_name: string;
+  email: string;
+  company: string | null;
+  phone: string | null;
+  website: string | null;
+  enquiry_type: string;
   message: string;
   source_page: string | null;
   status: string;
@@ -46,6 +61,15 @@ const AdminDashboard = () => {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
   const [selectedEnquiry, setSelectedEnquiry] = useState<Enquiry | null>(null);
+
+  // Partner enquiries
+  const [partnerEnquiries, setPartnerEnquiries] = useState<PartnerEnquiry[]>([]);
+  const [partnerSearch, setPartnerSearch] = useState("");
+  const [partnerStatusFilter, setPartnerStatusFilter] = useState("all");
+  const [selectedPartner, setSelectedPartner] = useState<PartnerEnquiry | null>(null);
+
+  const [activeTab, setActiveTab] = useState("general");
+
   const { toast } = useToast();
 
   useEffect(() => {
@@ -64,6 +88,10 @@ const AdminDashboard = () => {
     if (session) fetchEnquiries();
   }, [session, statusFilter]);
 
+  useEffect(() => {
+    if (session) fetchPartnerEnquiries();
+  }, [session, partnerStatusFilter]);
+
   const fetchEnquiries = async () => {
     let query = supabase
       .from("futurecandy_enquiries")
@@ -79,6 +107,41 @@ const AdminDashboard = () => {
       toast({ title: "Error", description: "Failed to load enquiries", variant: "destructive" });
     } else {
       setEnquiries((data as Enquiry[]) || []);
+    }
+  };
+
+  const fetchPartnerEnquiries = async () => {
+    let query = supabase
+      .from("neoncandy_partner_enquiries")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (partnerStatusFilter !== "all") {
+      query = query.eq("status", partnerStatusFilter);
+    }
+
+    const { data, error } = await query;
+    if (error) {
+      toast({ title: "Error", description: "Failed to load partner enquiries", variant: "destructive" });
+    } else {
+      setPartnerEnquiries((data as PartnerEnquiry[]) || []);
+    }
+  };
+
+  const updatePartnerStatus = async (id: string, status: string) => {
+    const { error } = await supabase
+      .from("neoncandy_partner_enquiries")
+      .update({ status })
+      .eq("id", id);
+
+    if (error) {
+      toast({ title: "Error", description: "Failed to update status", variant: "destructive" });
+    } else {
+      toast({ title: "Updated", description: `Enquiry marked as ${status}` });
+      fetchPartnerEnquiries();
+      if (selectedPartner?.id === id) {
+        setSelectedPartner({ ...selectedPartner, status });
+      }
     }
   };
 
@@ -124,6 +187,17 @@ const AdminDashboard = () => {
       e.name.toLowerCase().includes(s) ||
       e.email.toLowerCase().includes(s) ||
       e.message.toLowerCase().includes(s)
+    );
+  });
+
+  const filteredPartners = partnerEnquiries.filter((p) => {
+    if (!partnerSearch) return true;
+    const s = partnerSearch.toLowerCase();
+    return (
+      p.full_name.toLowerCase().includes(s) ||
+      p.email.toLowerCase().includes(s) ||
+      (p.company?.toLowerCase().includes(s) ?? false) ||
+      p.message.toLowerCase().includes(s)
     );
   });
 
@@ -264,158 +338,346 @@ const AdminDashboard = () => {
           </Card>
         </div>
 
-        {/* Filters */}
-        <div className="flex flex-col md:flex-row gap-4 mb-6">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input
-              placeholder="Search by name or email..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="pl-10 bg-background/50 border-border"
-            />
-          </div>
-          <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger className="w-full md:w-48 bg-background/50 border-border">
-              <SelectValue placeholder="Filter by status" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Statuses</SelectItem>
-              <SelectItem value="new">New</SelectItem>
-              <SelectItem value="read">Read</SelectItem>
-              <SelectItem value="replied">Replied</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="mb-6">
+            <TabsTrigger value="general" className="gap-2">
+              <Mail className="w-4 h-4" /> General Enquiries
+            </TabsTrigger>
+            <TabsTrigger value="partners" className="gap-2">
+              <Handshake className="w-4 h-4" /> Partner Enquiries
+              {partnerEnquiries.filter((p) => p.status === "new").length > 0 && (
+                <Badge className="ml-1 bg-candy-pink/20 text-candy-pink border border-candy-pink/30">
+                  {partnerEnquiries.filter((p) => p.status === "new").length}
+                </Badge>
+              )}
+            </TabsTrigger>
+          </TabsList>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Table */}
-          <div className="lg:col-span-2">
-            <Card className="glass border-border overflow-hidden">
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow className="border-border">
-                      <TableHead className="text-muted-foreground">Name</TableHead>
-                      <TableHead className="text-muted-foreground">Email</TableHead>
-                      <TableHead className="text-muted-foreground">Subject</TableHead>
-                      <TableHead className="text-muted-foreground">Status</TableHead>
-                      <TableHead className="text-muted-foreground">Date</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {filteredEnquiries.length === 0 ? (
-                      <TableRow>
-                        <TableCell colSpan={5} className="text-center text-muted-foreground py-8">
-                          No enquiries found
-                        </TableCell>
-                      </TableRow>
-                    ) : (
-                      filteredEnquiries.map((enquiry) => (
-                        <TableRow
-                          key={enquiry.id}
-                          className={`border-border cursor-pointer hover:bg-muted/20 transition-colors ${selectedEnquiry?.id === enquiry.id ? "bg-muted/30" : ""}`}
-                          onClick={() => setSelectedEnquiry(enquiry)}
-                        >
-                          <TableCell className="font-medium text-foreground">{enquiry.name}</TableCell>
-                          <TableCell className="text-muted-foreground text-sm">{enquiry.email}</TableCell>
-                          <TableCell className="text-muted-foreground text-sm capitalize">{enquiry.subject}</TableCell>
-                          <TableCell>{statusBadge(enquiry.status)}</TableCell>
-                          <TableCell className="text-muted-foreground text-sm">
-                            {new Date(enquiry.created_at).toLocaleDateString("en-GB", {
-                              day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit",
-                            })}
-                          </TableCell>
-                        </TableRow>
-                      ))
-                    )}
-                  </TableBody>
-                </Table>
+          {/* GENERAL ENQUIRIES TAB */}
+          <TabsContent value="general">
+            {/* Filters */}
+            <div className="flex flex-col md:flex-row gap-4 mb-6">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Input
+                  placeholder="Search by name or email..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="pl-10 bg-background/50 border-border"
+                />
               </div>
-            </Card>
-          </div>
+              <Select value={statusFilter} onValueChange={setStatusFilter}>
+                <SelectTrigger className="w-full md:w-48 bg-background/50 border-border">
+                  <SelectValue placeholder="Filter by status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Statuses</SelectItem>
+                  <SelectItem value="new">New</SelectItem>
+                  <SelectItem value="read">Read</SelectItem>
+                  <SelectItem value="replied">Replied</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
 
-          {/* Detail Panel */}
-          <div>
-            {selectedEnquiry ? (
-              <Card className="p-6 glass border-candy-pink/30 sticky top-4">
-                <h3 className="text-lg font-bold text-foreground mb-4">Enquiry Details</h3>
-                <div className="space-y-3 text-sm">
-                  <div>
-                    <span className="text-muted-foreground">Name:</span>
-                    <p className="text-foreground font-medium">{selectedEnquiry.name}</p>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Table */}
+              <div className="lg:col-span-2">
+                <Card className="glass border-border overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <Table>
+                      <TableHeader>
+                        <TableRow className="border-border">
+                          <TableHead className="text-muted-foreground">Name</TableHead>
+                          <TableHead className="text-muted-foreground">Email</TableHead>
+                          <TableHead className="text-muted-foreground">Subject</TableHead>
+                          <TableHead className="text-muted-foreground">Status</TableHead>
+                          <TableHead className="text-muted-foreground">Date</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {filteredEnquiries.length === 0 ? (
+                          <TableRow>
+                            <TableCell colSpan={5} className="text-center text-muted-foreground py-8">
+                              No enquiries found
+                            </TableCell>
+                          </TableRow>
+                        ) : (
+                          filteredEnquiries.map((enquiry) => (
+                            <TableRow
+                              key={enquiry.id}
+                              className={`border-border cursor-pointer hover:bg-muted/20 transition-colors ${selectedEnquiry?.id === enquiry.id ? "bg-muted/30" : ""}`}
+                              onClick={() => setSelectedEnquiry(enquiry)}
+                            >
+                              <TableCell className="font-medium text-foreground">{enquiry.name}</TableCell>
+                              <TableCell className="text-muted-foreground text-sm">{enquiry.email}</TableCell>
+                              <TableCell className="text-muted-foreground text-sm capitalize">{enquiry.subject}</TableCell>
+                              <TableCell>{statusBadge(enquiry.status)}</TableCell>
+                              <TableCell className="text-muted-foreground text-sm">
+                                {new Date(enquiry.created_at).toLocaleDateString("en-GB", {
+                                  day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit",
+                                })}
+                              </TableCell>
+                            </TableRow>
+                          ))
+                        )}
+                      </TableBody>
+                    </Table>
                   </div>
-                  <div>
-                    <span className="text-muted-foreground">Email:</span>
-                    <p className="text-foreground">{selectedEnquiry.email}</p>
-                  </div>
-                  {selectedEnquiry.phone && (
-                    <div>
-                      <span className="text-muted-foreground">Phone:</span>
-                      <p className="text-foreground">{selectedEnquiry.phone}</p>
+                </Card>
+              </div>
+
+              {/* Detail Panel */}
+              <div>
+                {selectedEnquiry ? (
+                  <Card className="p-6 glass border-candy-pink/30 sticky top-4">
+                    <h3 className="text-lg font-bold text-foreground mb-4">Enquiry Details</h3>
+                    <div className="space-y-3 text-sm">
+                      <div>
+                        <span className="text-muted-foreground">Name:</span>
+                        <p className="text-foreground font-medium">{selectedEnquiry.name}</p>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Email:</span>
+                        <p className="text-foreground">{selectedEnquiry.email}</p>
+                      </div>
+                      {selectedEnquiry.phone && (
+                        <div>
+                          <span className="text-muted-foreground">Phone:</span>
+                          <p className="text-foreground">{selectedEnquiry.phone}</p>
+                        </div>
+                      )}
+                      {selectedEnquiry.company && (
+                        <div>
+                          <span className="text-muted-foreground">Company:</span>
+                          <p className="text-foreground">{selectedEnquiry.company}</p>
+                        </div>
+                      )}
+                      <div>
+                        <span className="text-muted-foreground">Subject:</span>
+                        <p className="text-foreground capitalize">{selectedEnquiry.subject}</p>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Date:</span>
+                        <p className="text-foreground">
+                          {new Date(selectedEnquiry.created_at).toLocaleString("en-GB")}
+                        </p>
+                      </div>
+                      {selectedEnquiry.source_page && (
+                        <div>
+                          <span className="text-muted-foreground">Source:</span>
+                          <p className="text-foreground text-xs break-all">{selectedEnquiry.source_page}</p>
+                        </div>
+                      )}
+                      <div>
+                        <span className="text-muted-foreground">Status:</span>
+                        <div className="mt-1">{statusBadge(selectedEnquiry.status)}</div>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Message:</span>
+                        <p className="text-foreground mt-1 whitespace-pre-wrap bg-muted/20 rounded-lg p-3">
+                          {selectedEnquiry.message}
+                        </p>
+                      </div>
                     </div>
-                  )}
-                  {selectedEnquiry.company && (
-                    <div>
-                      <span className="text-muted-foreground">Company:</span>
-                      <p className="text-foreground">{selectedEnquiry.company}</p>
+                    <div className="flex gap-2 mt-6">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 border-candy-cyan/30 text-candy-cyan hover:bg-candy-cyan/10"
+                        onClick={() => updateStatus(selectedEnquiry.id, "read")}
+                        disabled={selectedEnquiry.status === "read"}
+                      >
+                        Mark Read
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 border-green-500/30 text-green-400 hover:bg-green-500/10"
+                        onClick={() => updateStatus(selectedEnquiry.id, "replied")}
+                        disabled={selectedEnquiry.status === "replied"}
+                      >
+                        Mark Replied
+                      </Button>
                     </div>
-                  )}
-                  <div>
-                    <span className="text-muted-foreground">Subject:</span>
-                    <p className="text-foreground capitalize">{selectedEnquiry.subject}</p>
+                  </Card>
+                ) : (
+                  <Card className="p-6 glass border-border">
+                    <p className="text-muted-foreground text-center">Select an enquiry to view details</p>
+                  </Card>
+                )}
+              </div>
+            </div>
+          </TabsContent>
+
+          {/* PARTNER ENQUIRIES TAB */}
+          <TabsContent value="partners">
+            <div className="flex flex-col md:flex-row gap-4 mb-6">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Input
+                  placeholder="Search by name, email or company..."
+                  value={partnerSearch}
+                  onChange={(e) => setPartnerSearch(e.target.value)}
+                  className="pl-10 bg-background/50 border-border"
+                />
+              </div>
+              <Select value={partnerStatusFilter} onValueChange={setPartnerStatusFilter}>
+                <SelectTrigger className="w-full md:w-48 bg-background/50 border-border">
+                  <SelectValue placeholder="Filter by status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Statuses</SelectItem>
+                  <SelectItem value="new">New</SelectItem>
+                  <SelectItem value="read">Read</SelectItem>
+                  <SelectItem value="replied">Replied</SelectItem>
+                  <SelectItem value="archived">Archived</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="lg:col-span-2">
+                <Card className="glass border-border overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <Table>
+                      <TableHeader>
+                        <TableRow className="border-border">
+                          <TableHead className="text-muted-foreground">Name</TableHead>
+                          <TableHead className="text-muted-foreground">Company</TableHead>
+                          <TableHead className="text-muted-foreground">Type</TableHead>
+                          <TableHead className="text-muted-foreground">Status</TableHead>
+                          <TableHead className="text-muted-foreground">Date</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {filteredPartners.length === 0 ? (
+                          <TableRow>
+                            <TableCell colSpan={5} className="text-center text-muted-foreground py-8">
+                              No partner enquiries found
+                            </TableCell>
+                          </TableRow>
+                        ) : (
+                          filteredPartners.map((p) => (
+                            <TableRow
+                              key={p.id}
+                              className={`border-border cursor-pointer hover:bg-muted/20 transition-colors ${selectedPartner?.id === p.id ? "bg-muted/30" : ""}`}
+                              onClick={() => setSelectedPartner(p)}
+                            >
+                              <TableCell className="font-medium text-foreground">{p.full_name}</TableCell>
+                              <TableCell className="text-muted-foreground text-sm">{p.company || "—"}</TableCell>
+                              <TableCell className="text-muted-foreground text-sm capitalize">{p.enquiry_type}</TableCell>
+                              <TableCell>{statusBadge(p.status)}</TableCell>
+                              <TableCell className="text-muted-foreground text-sm">
+                                {new Date(p.created_at).toLocaleDateString("en-GB", {
+                                  day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit",
+                                })}
+                              </TableCell>
+                            </TableRow>
+                          ))
+                        )}
+                      </TableBody>
+                    </Table>
                   </div>
-                  <div>
-                    <span className="text-muted-foreground">Date:</span>
-                    <p className="text-foreground">
-                      {new Date(selectedEnquiry.created_at).toLocaleString("en-GB")}
-                    </p>
-                  </div>
-                  {selectedEnquiry.source_page && (
-                    <div>
-                      <span className="text-muted-foreground">Source:</span>
-                      <p className="text-foreground text-xs break-all">{selectedEnquiry.source_page}</p>
+                </Card>
+              </div>
+
+              <div>
+                {selectedPartner ? (
+                  <Card className="p-6 glass border-candy-pink/30 sticky top-4">
+                    <h3 className="text-lg font-bold text-foreground mb-4">Partner Enquiry</h3>
+                    <div className="space-y-3 text-sm">
+                      <div>
+                        <span className="text-muted-foreground">Name:</span>
+                        <p className="text-foreground font-medium">{selectedPartner.full_name}</p>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Email:</span>
+                        <p className="text-foreground break-all">{selectedPartner.email}</p>
+                      </div>
+                      {selectedPartner.company && (
+                        <div>
+                          <span className="text-muted-foreground">Company:</span>
+                          <p className="text-foreground">{selectedPartner.company}</p>
+                        </div>
+                      )}
+                      {selectedPartner.phone && (
+                        <div>
+                          <span className="text-muted-foreground">Phone:</span>
+                          <p className="text-foreground">{selectedPartner.phone}</p>
+                        </div>
+                      )}
+                      {selectedPartner.website && (
+                        <div>
+                          <span className="text-muted-foreground">Website / Social:</span>
+                          <p className="text-foreground text-xs break-all">{selectedPartner.website}</p>
+                        </div>
+                      )}
+                      <div>
+                        <span className="text-muted-foreground">Type:</span>
+                        <p className="text-foreground capitalize">{selectedPartner.enquiry_type}</p>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Date:</span>
+                        <p className="text-foreground">
+                          {new Date(selectedPartner.created_at).toLocaleString("en-GB")}
+                        </p>
+                      </div>
+                      {selectedPartner.source_page && (
+                        <div>
+                          <span className="text-muted-foreground">Source:</span>
+                          <p className="text-foreground text-xs break-all">{selectedPartner.source_page}</p>
+                        </div>
+                      )}
+                      <div>
+                        <span className="text-muted-foreground">Status:</span>
+                        <div className="mt-1">{statusBadge(selectedPartner.status)}</div>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Message:</span>
+                        <p className="text-foreground mt-1 whitespace-pre-wrap bg-muted/20 rounded-lg p-3">
+                          {selectedPartner.message}
+                        </p>
+                      </div>
                     </div>
-                  )}
-                  <div>
-                    <span className="text-muted-foreground">Status:</span>
-                    <div className="mt-1">{statusBadge(selectedEnquiry.status)}</div>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground">Message:</span>
-                    <p className="text-foreground mt-1 whitespace-pre-wrap bg-muted/20 rounded-lg p-3">
-                      {selectedEnquiry.message}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-2 mt-6">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="flex-1 border-candy-cyan/30 text-candy-cyan hover:bg-candy-cyan/10"
-                    onClick={() => updateStatus(selectedEnquiry.id, "read")}
-                    disabled={selectedEnquiry.status === "read"}
-                  >
-                    Mark Read
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="flex-1 border-green-500/30 text-green-400 hover:bg-green-500/10"
-                    onClick={() => updateStatus(selectedEnquiry.id, "replied")}
-                    disabled={selectedEnquiry.status === "replied"}
-                  >
-                    Mark Replied
-                  </Button>
-                </div>
-              </Card>
-            ) : (
-              <Card className="p-6 glass border-border">
-                <p className="text-muted-foreground text-center">Select an enquiry to view details</p>
-              </Card>
-            )}
-          </div>
-        </div>
+                    <div className="flex flex-wrap gap-2 mt-6">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 border-candy-cyan/30 text-candy-cyan hover:bg-candy-cyan/10"
+                        onClick={() => updatePartnerStatus(selectedPartner.id, "read")}
+                        disabled={selectedPartner.status === "read"}
+                      >
+                        Mark Read
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 border-green-500/30 text-green-400 hover:bg-green-500/10"
+                        onClick={() => updatePartnerStatus(selectedPartner.id, "replied")}
+                        disabled={selectedPartner.status === "replied"}
+                      >
+                        Mark Replied
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 border-border text-muted-foreground hover:bg-muted/20"
+                        onClick={() => updatePartnerStatus(selectedPartner.id, "archived")}
+                        disabled={selectedPartner.status === "archived"}
+                      >
+                        <Archive className="w-3 h-3 mr-1" /> Archive
+                      </Button>
+                    </div>
+                  </Card>
+                ) : (
+                  <Card className="p-6 glass border-border">
+                    <p className="text-muted-foreground text-center">Select a partner enquiry to view details</p>
+                  </Card>
+                )}
+              </div>
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </>
   );

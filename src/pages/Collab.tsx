@@ -69,9 +69,9 @@ const Collab = () => {
 
             <div className="text-center">
               <p className="text-lg text-muted-foreground mb-8">
-                Interested in working together? Submit your proposal through our contact page.
+                Interested in working together? Send us a partnership or collaboration enquiry.
               </p>
-              <a href="/contact">
+              <a href="/collab/enquire">
                 <Button size="lg" className="glow-pink text-lg px-8">
                   Get in Touch
                 </Button>
