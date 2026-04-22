@@ -60,7 +60,7 @@ const TermsOfUse = () => {
           <h2 className="text-2xl font-bold text-candy-violet mb-4">2. Intellectual Property Rights</h2>
           <h3 className="text-xl font-semibold text-candy-pink mt-6 mb-3">2.1. Ownership</h3>
           <p className="mb-4">
-            All content on the Website, including text, graphics, logos, sounds (unless explicitly offered for license), musical works, software, and compilation of the foregoing, is the exclusive property of NeonCandy or its licensors and is protected by UK and international copyright laws.
+            All content on the Website, including text, graphics, logos, sounds (unless explicitly offered for license), musical works, software, and compilation of the foregoing, is the exclusive property of NeonCandy or its licensors and is protected by United States and international copyright laws.
           </p>
           
           <h3 className="text-xl font-semibold text-candy-pink mt-6 mb-3">2.2. Limited License</h3>
@@ -114,14 +114,14 @@ const TermsOfUse = () => {
         <section id="indemnification" className="glass p-8 rounded-lg scroll-mt-24">
           <h2 className="text-2xl font-bold text-candy-violet mb-4">7. Indemnification</h2>
           <p>
-            You agree to defend, indemnify, and hold harmless NeonCandy, its parent company, affiliates, and their respective directors, officers, employees, and agents from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms of Use or your use of the Services.
+            You agree to defend, indemnify, and hold harmless NeonCandy, its operating entity Global Solutions Management LLC, its affiliates, and their respective directors, officers, employees, and agents from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms of Use or your use of the Services.
           </p>
         </section>
 
         <section id="governing-law" className="glass p-8 rounded-lg scroll-mt-24">
           <h2 className="text-2xl font-bold text-candy-pink mb-4">8. Governing Law and Jurisdiction</h2>
           <p>
-            These Terms of Use and any dispute or claim arising out of them shall be governed by and construed in accordance with the laws of England and Wales. You agree that the courts of England shall have exclusive jurisdiction to settle any dispute or claim that arises out of or in connection with these terms.
+            These Terms of Use and any dispute or claim arising out of them shall be governed by and construed in accordance with the laws of the State of Delaware, United States. You agree that the courts of the State of Delaware shall have exclusive jurisdiction to settle any dispute or claim that arises out of or in connection with these terms.
           </p>
         </section>
 

@@ -110,7 +110,7 @@ const PrivacyPolicy = () => {
             <li><strong className="text-candy-pink">4.2. Service Providers:</strong> Third-party vendors who perform functions on our behalf (e.g., cloud hosting, IT support, payment processing, professional accounting/legal services).</li>
             <li><strong className="text-candy-pink">4.3. Legal Requirements:</strong> When required by law, court order, or governmental regulation.</li>
             <li><strong className="text-candy-pink">4.4. Music Industry Partners:</strong> Where necessary for the scope of the project (e.g., sharing contact information with mixing engineers, mastering houses, or collection societies).</li>
-            <li><strong className="text-candy-pink">4.5. International Data Transfers:</strong> For global distribution and royalty management, NeonCandy may share limited metadata (track titles, artist identifiers, rights information) with international streaming and licensing platforms. All transfers comply with UK GDPR and applicable adequacy frameworks, including the UK-US Data Bridge and EU Standard Contractual Clauses where relevant.</li>
+            <li><strong className="text-candy-pink">4.5. International Data Transfers:</strong> For global distribution and royalty management, NeonCandy may share limited metadata (track titles, artist identifiers, rights information) with international streaming and licensing platforms. All transfers comply with applicable data protection frameworks, including the EU-US Data Privacy Framework and EU Standard Contractual Clauses where relevant.</li>
           </ul>
         </section>
 
@@ -130,7 +130,7 @@ const PrivacyPolicy = () => {
 
         <section id="your-rights" className="glass p-8 rounded-lg scroll-mt-24">
           <h2 className="text-2xl font-bold text-candy-violet mb-4">7. Your Rights (GDPR)</h2>
-          <p className="mb-4">As a UK-based company, we adhere to GDPR regulations, granting you the following rights regarding your personal data:</p>
+          <p className="mb-4">As a US-registered company serving a global audience, we adhere to applicable data protection regulations (including GDPR for EU users), granting you the following rights regarding your personal data:</p>
           <ul className="space-y-2 list-none">
             <li><strong className="text-candy-pink">a. Right to Access:</strong> The right to request copies of your personal data.</li>
             <li><strong className="text-candy-pink">b. Right to Rectification:</strong> The right to request that we correct any information you believe is inaccurate.</li>
