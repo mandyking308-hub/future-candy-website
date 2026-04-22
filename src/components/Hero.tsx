@@ -2,17 +2,35 @@ import { Button } from "@/components/ui/button";
 import { Music, Video, Volume2, VolumeX } from "lucide-react";
 import heroVisual from "@/assets/hero-visual.jpg";
 import { useState, useRef, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
+
+type AmbientTrack = { title: string; audio_url: string };
 
 const Hero = () => {
   const [audioPlaying, setAudioPlaying] = useState(false);
+  const [trackTitle, setTrackTitle] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const tracksRef = useRef<AmbientTrack[]>([]);
 
   useEffect(() => {
-    // Create ambient audio element (placeholder - user would need to add actual audio file)
     audioRef.current = new Audio();
     audioRef.current.loop = true;
     audioRef.current.volume = 0.3;
-    
+
+    // Preload available singles to use as ambient sound
+    supabase
+      .from("fc_songs")
+      .select("title, audio_url")
+      .eq("status", "published")
+      .not("audio_url", "is", null)
+      .then(({ data }) => {
+        if (data) {
+          tracksRef.current = data.filter(
+            (t): t is AmbientTrack => !!t.audio_url && !!t.title
+          );
+        }
+      });
+
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -22,16 +40,29 @@ const Hero = () => {
   }, []);
 
   const toggleAudio = () => {
-    if (audioRef.current) {
-      if (audioPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play().catch(() => {
-          console.log("Audio playback requires user interaction");
-        });
-      }
-      setAudioPlaying(!audioPlaying);
+    if (!audioRef.current) return;
+
+    if (audioPlaying) {
+      audioRef.current.pause();
+      setAudioPlaying(false);
+      return;
     }
+
+    const tracks = tracksRef.current;
+    if (tracks.length === 0) {
+      console.log("No ambient tracks available yet");
+      return;
+    }
+
+    const pick = tracks[Math.floor(Math.random() * tracks.length)];
+    audioRef.current.src = pick.audio_url;
+    setTrackTitle(pick.title);
+    audioRef.current
+      .play()
+      .then(() => setAudioPlaying(true))
+      .catch(() => {
+        console.log("Audio playback requires user interaction");
+      });
   };
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
