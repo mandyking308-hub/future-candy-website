@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/neoncandy-logo.png";
@@ -21,13 +22,13 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border/10 shadow-[0_2px_20px_rgba(0,0,0,0.06)]">
       <div className="container mx-auto px-6 py-2">
         <div className="flex items-center justify-between">
-          <a href="#home" className="flex items-center transition-all duration-400 hover:scale-[1.03]">
+          <Link to="/" className="flex items-center transition-all duration-400 hover:scale-[1.03]">
             <img 
               src={logo} 
               alt="NeonCandy Logo" 
               className="h-16 md:h-20 w-auto object-contain"
             />
-          </a>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-1.5">
