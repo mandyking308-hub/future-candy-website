@@ -10,8 +10,8 @@ const Journal = () => {
     {
       date: "2025-03-15",
       category: "Release",
-      title: "New Track: Neon Heartbeat",
-      excerpt: "Velvette's latest single drops today — a sugar rush of pure pop euphoria.",
+      title: "New Track: Boom in My Step",
+      excerpt: "Velvette's debut single drops today — a sugar rush of pure pop euphoria.",
     },
     {
       date: "2025-03-10",
