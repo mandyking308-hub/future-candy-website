@@ -32,7 +32,7 @@ const MusicPage = () => {
       .from("fc_songs")
       .select("*, fc_artists(id, name, image_url), fc_videos(id, embed_url, video_url, status)")
       .eq("status", "published")
-      .order("created_at", { ascending: false })
+      .order("display_order", { ascending: true })
       .then(({ data }) => {
         setSongs((data as unknown as Song[]) || []);
         setLoading(false);
