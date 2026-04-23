@@ -22,13 +22,13 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border/10 shadow-[0_2px_20px_rgba(0,0,0,0.06)]">
       <div className="container mx-auto px-6 py-2">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-baseline transition-all duration-400 hover:scale-[1.03]">
+          <Link to="/" className="flex items-start transition-all duration-400 hover:scale-[1.03]">
             <img 
               src={logo} 
-              alt="NeonCandy Logo" 
+              alt="NeonCandy™ Logo" 
               className="h-16 md:h-20 w-auto object-contain"
             />
-            <sup className="text-xs md:text-sm font-medium text-[#2a3a52] -ml-1 mt-2">™</sup>
+            <span className="text-base md:text-lg font-semibold text-[#2a3a52] mt-2 md:mt-3 ml-0.5">™</span>
           </Link>
 
           {/* Desktop Menu */}
