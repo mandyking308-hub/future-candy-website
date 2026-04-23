@@ -10,7 +10,7 @@ const ContactSchema = z.object({
   subject: z.enum(["general", "licensing", "collaboration", "press", "privacy", "other"]),
   message: z.string().min(10).max(2000),
   sourcePage: z.string().optional().default(""),
-  captchaToken: z.string().min(1, "Captcha token required"),
+  captchaToken: z.string().optional().default(""),
 });
 
 Deno.serve(async (req) => {
