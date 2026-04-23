@@ -21,13 +21,13 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border/10 shadow-[0_2px_20px_rgba(0,0,0,0.06)]">
       <div className="container mx-auto px-6 py-2">
         <div className="flex items-center justify-between">
-          <Link to="/" className="group flex items-center gap-2 transition-transform duration-300 hover:scale-[1.03]">
+          <Link to="/" className="group flex items-center gap-1.5 transition-transform duration-300 hover:scale-[1.03]">
             <img
               src={logoIcon}
               alt="NeonCandy™ icon"
-              className="h-8 w-8 md:h-9 md:w-9 object-contain"
+              className="h-6 w-6 md:h-7 md:w-7 object-contain"
             />
-            <span className="flex items-start text-2xl md:text-[1.9rem] font-semibold leading-none tracking-tight">
+            <span className="flex items-start text-lg md:text-xl font-semibold leading-none tracking-tight">
               <span className="text-gradient">NeonCandy</span>
               <span className="text-gradient text-[0.5em] leading-none translate-y-0.5">™</span>
             </span>
