@@ -31,19 +31,21 @@ Deno.serve(async (req) => {
 
     const { name, email, phone, company, subject, message, sourcePage, captchaToken } = parsed.data;
 
-    // Verify hCaptcha
-    const captchaRes = await fetch("https://api.hcaptcha.com/siteverify", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `response=${captchaToken}&secret=${Deno.env.get("HCAPTCHA_SECRET") || "0x0000000000000000000000000000000000000000"}`,
-    });
-    const captchaData = await captchaRes.json();
+    // Verify hCaptcha only if a token was provided (captcha is optional)
+    if (captchaToken) {
+      const captchaRes = await fetch("https://api.hcaptcha.com/siteverify", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `response=${captchaToken}&secret=${Deno.env.get("HCAPTCHA_SECRET") || "0x0000000000000000000000000000000000000000"}`,
+      });
+      const captchaData = await captchaRes.json();
 
-    if (!captchaData.success) {
-      return new Response(
-        JSON.stringify({ error: "Captcha verification failed" }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      if (!captchaData.success) {
+        return new Response(
+          JSON.stringify({ error: "Captcha verification failed" }),
+          { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
     }
 
     // Store in database
