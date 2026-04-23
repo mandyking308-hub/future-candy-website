@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="text-center">
           <h3 className="text-3xl font-bold text-gradient mb-4">
-            NeonCandy
+            NeonCandy™
           </h3>
           <p className="text-xl text-muted-foreground mb-8">
             Pop Without Limits.
@@ -93,6 +93,9 @@ const Footer = () => {
           </div>
           <p className="text-xs text-muted-foreground/60 max-w-3xl mx-auto leading-relaxed">
             NeonCandy is operated by Global Solutions Management LLC, a company registered in Delaware, United States (File Number: 10420698).
+          </p>
+          <p className="text-xs text-muted-foreground/60 max-w-3xl mx-auto leading-relaxed mt-3">
+            NeonCandy™ is a trade mark of Global Solutions Management LLC. © 2026 Global Solutions Management LLC. All rights reserved.
           </p>
         </div>
       </div>
