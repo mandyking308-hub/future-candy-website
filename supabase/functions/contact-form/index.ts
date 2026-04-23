@@ -1,6 +1,11 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
-import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 import { z } from "npm:zod@3.25.76";
+
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+};
 
 const ContactSchema = z.object({
   name: z.string().min(2).max(100),
@@ -10,7 +15,7 @@ const ContactSchema = z.object({
   subject: z.enum(["general", "licensing", "collaboration", "press", "privacy", "other"]),
   message: z.string().min(10).max(2000),
   sourcePage: z.string().optional().default(""),
-  captchaToken: z.string().min(1, "Captcha token required"),
+  captchaToken: z.string().optional().default(""),
 });
 
 Deno.serve(async (req) => {
@@ -31,19 +36,21 @@ Deno.serve(async (req) => {
 
     const { name, email, phone, company, subject, message, sourcePage, captchaToken } = parsed.data;
 
-    // Verify hCaptcha
-    const captchaRes = await fetch("https://api.hcaptcha.com/siteverify", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `response=${captchaToken}&secret=${Deno.env.get("HCAPTCHA_SECRET") || "0x0000000000000000000000000000000000000000"}`,
-    });
-    const captchaData = await captchaRes.json();
+    // Verify hCaptcha only if a token was provided (captcha is optional)
+    if (captchaToken) {
+      const captchaRes = await fetch("https://api.hcaptcha.com/siteverify", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `response=${captchaToken}&secret=${Deno.env.get("HCAPTCHA_SECRET") || "0x0000000000000000000000000000000000000000"}`,
+      });
+      const captchaData = await captchaRes.json();
 
-    if (!captchaData.success) {
-      return new Response(
-        JSON.stringify({ error: "Captcha verification failed" }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      if (!captchaData.success) {
+        return new Response(
+          JSON.stringify({ error: "Captcha verification failed" }),
+          { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
     }
 
     // Store in database
