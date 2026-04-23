@@ -99,7 +99,7 @@ const Hero = () => {
       {/* Content - Properly spaced from navigation */}
       <div className="relative z-10 container mx-auto px-4 text-center py-12 md:py-0">
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 md:mb-6 animate-fade-in">
-          <span className="text-gradient drop-shadow-[0_0_30px_rgba(236,72,153,0.5)]">NeonCandy</span>
+          <span className="text-gradient drop-shadow-[0_0_30px_rgba(236,72,153,0.5)]">NeonCandy™</span>
         </h1>
         <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-3 md:mb-4 text-foreground/95 animate-fade-in drop-shadow-lg" style={{ animationDelay: "0.2s" }}>
           Sweet Beats. Synthetic Dreams.
