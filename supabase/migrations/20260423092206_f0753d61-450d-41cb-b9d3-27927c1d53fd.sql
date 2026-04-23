@@ -1,0 +1,1 @@
+UPDATE public.fc_songs SET cover_image_url = 'https://niyszxlvqcqttvwrzfmt.supabase.co/storage/v1/object/public/fc-media/covers/boom_in_my_step_v2.png', updated_at = now() WHERE id = '5b5aabcc-4bac-4ffb-8962-cb03ab35bfc3';
