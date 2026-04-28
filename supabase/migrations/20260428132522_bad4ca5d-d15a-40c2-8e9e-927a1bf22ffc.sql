@@ -1,0 +1,2 @@
+ALTER TABLE public.fc_songs ADD COLUMN IF NOT EXISTS hyperfollow_url text;
+UPDATE public.fc_songs SET hyperfollow_url = 'https://distrokid.com/hyperfollow/velvettenoir/no-thanks?utm_campaign=website&utm_medium=Email+&utm_source=SendGrid' WHERE id = '56f70184-efa1-4829-bb4b-866be8d01541';

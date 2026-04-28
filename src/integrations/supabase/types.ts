@@ -68,6 +68,7 @@ export type Database = {
           created_at: string
           description: string | null
           display_order: number
+          hyperfollow_url: string | null
           id: string
           lyrics: string | null
           mood: string | null
@@ -85,6 +86,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           display_order?: number
+          hyperfollow_url?: string | null
           id?: string
           lyrics?: string | null
           mood?: string | null
@@ -102,6 +104,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           display_order?: number
+          hyperfollow_url?: string | null
           id?: string
           lyrics?: string | null
           mood?: string | null
