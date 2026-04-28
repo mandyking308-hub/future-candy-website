@@ -18,6 +18,7 @@ interface Song {
   description: string | null;
   cover_image_url: string | null;
   youtube_link: string | null;
+  hyperfollow_url: string | null;
   fc_artists: { id: string; name: string; image_url: string | null } | null;
   fc_videos: { id: string; embed_url: string | null; video_url: string | null; status: string }[] | null;
 }
