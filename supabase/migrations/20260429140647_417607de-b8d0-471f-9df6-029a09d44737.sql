@@ -1,0 +1,1 @@
+ALTER TABLE public.fc_songs ADD COLUMN IF NOT EXISTS release_date date;

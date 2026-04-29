@@ -72,6 +72,7 @@ export type Database = {
           id: string
           lyrics: string | null
           mood: string | null
+          release_date: string | null
           spotify_link: string | null
           status: string
           title: string
@@ -90,6 +91,7 @@ export type Database = {
           id?: string
           lyrics?: string | null
           mood?: string | null
+          release_date?: string | null
           spotify_link?: string | null
           status?: string
           title: string
@@ -108,6 +110,7 @@ export type Database = {
           id?: string
           lyrics?: string | null
           mood?: string | null
+          release_date?: string | null
           spotify_link?: string | null
           status?: string
           title?: string
