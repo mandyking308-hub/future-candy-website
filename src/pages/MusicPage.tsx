@@ -48,7 +48,7 @@ const MusicPage = () => {
     const monthYear = d.toLocaleDateString("en-GB", { month: "long", year: "numeric" });
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    return d > today ? `Coming ${monthYear}` : "Out now";
+    return d > today ? `Release date: ${monthYear}` : "Out now";
   };
 
   const getEmbed = (song: Song): string | null => {
