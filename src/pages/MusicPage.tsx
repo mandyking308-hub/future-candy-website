@@ -19,6 +19,7 @@ interface Song {
   cover_image_url: string | null;
   youtube_link: string | null;
   hyperfollow_url: string | null;
+  release_date: string | null;
   fc_artists: { id: string; name: string; image_url: string | null } | null;
   fc_videos: { id: string; embed_url: string | null; video_url: string | null; status: string }[] | null;
 }
@@ -39,6 +40,16 @@ const MusicPage = () => {
         setLoading(false);
       });
   }, []);
+
+  const formatRelease = (dateStr: string | null): string | null => {
+    if (!dateStr) return null;
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return null;
+    const monthYear = d.toLocaleDateString("en-GB", { month: "long", year: "numeric" });
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    return d > today ? `Coming ${monthYear}` : "Out now";
+  };
 
   const getEmbed = (song: Song): string | null => {
     const v = song.fc_videos?.find((x) => x.status === "published" && x.embed_url);
@@ -116,6 +127,11 @@ const MusicPage = () => {
                       <h2 className="text-base font-bold text-foreground line-clamp-1">
                         {song.title}
                       </h2>
+                      {formatRelease(song.release_date) && (
+                        <p className="text-xs text-muted-foreground/80 -mt-1">
+                          {formatRelease(song.release_date)}
+                        </p>
+                      )}
                       {song.fc_artists && (
                         <Link
                           to={`/artists/${song.fc_artists.id}`}
