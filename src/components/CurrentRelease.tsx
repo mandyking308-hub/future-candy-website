@@ -1,5 +1,5 @@
-const HYPERFOLLOW_URL =
-  "https://distrokid.com/hyperfollow/velvettenoir/boom-in-my-step?ref=release";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const platforms = [
   "Spotify",
@@ -15,17 +15,16 @@ const platforms = [
   "iHeartRadio",
 ];
 
-const CurrentRelease = () => {
+const GlobalDistribution = () => {
   return (
     <section
-      id="current-release"
-      aria-labelledby="current-release-heading"
+      id="global-distribution"
+      aria-labelledby="global-distribution-heading"
       className="py-16 md:py-20 bg-background"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="relative glass rounded-2xl border border-candy-pink/30 p-6 md:p-10 overflow-hidden shadow-[0_0_40px_rgba(236,72,153,0.15)]">
-            {/* Soft gradient highlight */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -inset-px rounded-2xl opacity-40"
@@ -37,52 +36,45 @@ const CurrentRelease = () => {
 
             <div className="relative">
               <div className="flex flex-col items-start gap-2 mb-6">
-                <span
-                  id="current-release-heading"
-                  className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-candy-cyan"
-                >
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-candy-cyan">
                   <span className="w-2 h-2 rounded-full bg-candy-cyan animate-pulse glow-cyan" />
-                  Current Release
+                  Worldwide
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold text-gradient leading-tight">
-                  Boom in My Step
+                <h2
+                  id="global-distribution-heading"
+                  className="text-3xl md:text-4xl font-bold text-gradient leading-tight"
+                >
+                  Global Music Distribution
                 </h2>
-                <p className="text-base md:text-lg text-foreground/80">
-                  Velvette Noir
-                </p>
               </div>
 
               <div className="space-y-3 text-sm md:text-base text-foreground/80 max-w-3xl">
                 <p>
-                  Boom in My Step is NeonCandy&apos;s current release, delivered
-                  across 150+ digital music, streaming and social audio
-                  platforms worldwide.
+                  NeonCandy releases visual pop and dance music across major
+                  digital music, streaming and social audio platforms worldwide.
                 </p>
                 <p className="text-foreground/70">
-                  From release day, listeners can access NeonCandy through major
-                  platforms including Spotify, Apple Music, iTunes, Amazon
-                  Music, YouTube Music, TikTok, Instagram/Facebook, Deezer,
-                  TIDAL, Pandora, iHeartRadio and more.
+                  NeonCandy drops are distributed across 150+ platforms,
+                  including Spotify, Apple Music, iTunes, Amazon Music, YouTube
+                  Music, TikTok, Instagram/Facebook, Deezer, TIDAL, Pandora,
+                  iHeartRadio and more.
                 </p>
                 <p className="text-candy-pink/90 font-medium">
                   New visual music drops arrive monthly.
                 </p>
               </div>
 
-              {/* CTA */}
               <div className="mt-6">
-                <a
-                  href={HYPERFOLLOW_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Listen or pre-save Boom in My Step on the official release link"
-                  className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm md:text-base font-semibold bg-gradient-to-r from-candy-pink to-candy-violet text-white shadow-[0_0_25px_rgba(236,72,153,0.45)] hover:scale-[1.02] transition-transform"
-                >
-                  Listen / Pre-save Boom in My Step
-                </a>
+                <Link to="/music" aria-label="Explore the NeonCandy music catalogue">
+                  <Button
+                    size="lg"
+                    className="rounded-full px-6 py-3 text-sm md:text-base font-semibold bg-gradient-to-r from-candy-pink to-candy-violet text-white shadow-[0_0_25px_rgba(236,72,153,0.45)] hover:scale-[1.02] transition-transform"
+                  >
+                    Explore the Music
+                  </Button>
+                </Link>
               </div>
 
-              {/* Platform pills */}
               <div className="mt-8">
                 <div className="flex flex-wrap gap-2">
                   {platforms.map((p) => (
@@ -94,10 +86,6 @@ const CurrentRelease = () => {
                     </span>
                   ))}
                 </div>
-                <p className="mt-3 text-xs text-muted-foreground/80">
-                  More platforms appear through the release link as the release
-                  becomes available globally.
-                </p>
               </div>
             </div>
           </div>
@@ -107,4 +95,4 @@ const CurrentRelease = () => {
   );
 };
 
-export default CurrentRelease;
+export default GlobalDistribution;

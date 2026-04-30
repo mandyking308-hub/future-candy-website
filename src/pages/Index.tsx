@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import CurrentRelease from "@/components/CurrentRelease";
+import GlobalDistribution from "@/components/CurrentRelease";
 import About from "@/components/About";
 import Artists from "@/components/Artists";
 import Visuals from "@/components/Visuals";
@@ -23,7 +23,7 @@ const Index = () => {
       <div className="min-h-screen page-transition">
         <Navigation />
         <Hero />
-        <CurrentRelease />
+        <GlobalDistribution />
         <About />
         <Artists />
         <Visuals />

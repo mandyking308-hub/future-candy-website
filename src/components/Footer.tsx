@@ -1,7 +1,5 @@
 import { Music, Facebook, Instagram, Youtube } from "lucide-react";
 
-const HYPERFOLLOW_URL =
-  "https://distrokid.com/hyperfollow/velvettenoir/boom-in-my-step?ref=release";
 
 const social = [
   {
@@ -42,37 +40,15 @@ const Footer = () => {
             Pop Without Limits.
           </p>
 
-          {/* Streaming / release access */}
+          {/* Music link */}
           <div className="flex flex-wrap justify-center gap-3 mb-6">
             <a
-              href={HYPERFOLLOW_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Listen or pre-save Boom in My Step (Streaming Link)"
+              href="/music"
+              aria-label="Explore the NeonCandy music catalogue"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-candy-pink to-candy-violet px-5 py-2 text-sm font-semibold text-white shadow-[0_0_20px_rgba(236,72,153,0.4)] hover:scale-[1.02] transition-transform"
             >
               <Music className="w-4 h-4" />
-              Listen / Pre-save
-            </a>
-            <a
-              href={HYPERFOLLOW_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Spotify via release link"
-              className="inline-flex items-center gap-2 rounded-full border border-candy-cyan/50 px-4 py-2 text-sm text-candy-cyan hover:bg-candy-cyan/10 transition-colors"
-            >
-              <Music className="w-4 h-4" />
-              Spotify via Release Link
-            </a>
-            <a
-              href={HYPERFOLLOW_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Apple Music via release link"
-              className="inline-flex items-center gap-2 rounded-full border border-candy-violet/50 px-4 py-2 text-sm text-candy-violet hover:bg-candy-violet/10 transition-colors"
-            >
-              <Music className="w-4 h-4" />
-              Apple Music via Release Link
+              Music
             </a>
           </div>
 
@@ -93,8 +69,8 @@ const Footer = () => {
           </div>
 
           <p className="text-xs text-muted-foreground/80 max-w-2xl mx-auto leading-relaxed mb-8">
-            Current release: Boom in My Step — distributed across 150+ global
-            digital music, streaming and social audio platforms from release day.
+            NeonCandy releases visual pop and dance music across 150+ global
+            digital music, streaming and social audio platforms.
           </p>
 
           <div className="mb-8">

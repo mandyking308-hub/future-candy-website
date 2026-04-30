@@ -116,10 +116,10 @@ const Hero = () => {
               Enter the World
             </Button>
           </a>
-          <a href="https://distrokid.com/hyperfollow/velvettenoir/boom-in-my-step?ref=release" target="_blank" rel="noopener noreferrer" aria-label="Listen or pre-save Boom in My Step" className="w-full sm:w-auto">
+          <a href="/music" aria-label="Explore the NeonCandy music catalogue" className="w-full sm:w-auto">
             <Button size="lg" className="w-full sm:w-auto gap-2 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 bg-candy-cyan/20 border-2 border-candy-cyan text-candy-cyan hover:bg-candy-cyan hover:text-background transition-all shadow-[0_0_20px_rgba(34,211,238,0.4)]">
               <Music className="w-4 h-4 md:w-5 md:h-5" />
-              Listen / Pre-save
+              Explore the Music
             </Button>
           </a>
           <a href="https://www.youtube.com/@neoncandyofficial" target="_blank" rel="noopener noreferrer" aria-label="Watch NeonCandy on YouTube" className="w-full sm:w-auto">
@@ -129,11 +129,6 @@ const Hero = () => {
             </Button>
           </a>
         </div>
-
-        {/* Current release micro-line */}
-        <p className="mt-6 text-xs sm:text-sm text-foreground/70 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.7s" }}>
-          <span className="text-candy-cyan font-medium">Current release:</span> Boom in My Step — available from release day across major global music platforms.
-        </p>
 
         {/* Ambient Sound Toggle */}
         <div className="mt-8 animate-fade-in" style={{ animationDelay: "0.8s" }}>
