@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Music, Instagram } from "lucide-react";
+// icons removed with social links
 
 const Contact = () => {
   return (
