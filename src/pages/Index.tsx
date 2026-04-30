@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import NowPlaying from "@/components/NowPlaying";
 import CandyClub from "@/components/CandyClub";
 import CookieConsent from "@/components/CookieConsent";
-import ContentProtection from "@/components/ContentProtection";
+
 import { Helmet } from "react-helmet";
 
 const Index = () => {
