@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import NowPlaying from "@/components/NowPlaying";
 import CandyClub from "@/components/CandyClub";
 import CookieConsent from "@/components/CookieConsent";
-import ContentProtection from "@/components/ContentProtection";
+
 import { Helmet } from "react-helmet";
 
 const Index = () => {
@@ -19,7 +19,6 @@ const Index = () => {
         <meta name="description" content="NeonCandy is the next evolution of pop — digital-first, multilingual, and powered by AI." />
         <link rel="canonical" href="https://neoncandy.online/" />
       </Helmet>
-      <ContentProtection />
       <div className="min-h-screen page-transition">
         <Navigation />
         <Hero />
