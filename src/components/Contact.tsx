@@ -24,29 +24,6 @@ const Contact = () => {
             </Button>
           </a>
 
-          <div className="flex justify-center gap-8 flex-wrap">
-            <a
-              href="#"
-              className="flex items-center gap-2 text-candy-pink hover:text-candy-pink/80 transition-colors text-lg"
-            >
-              <Music className="w-6 h-6" />
-              Spotify
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-2 text-candy-cyan hover:text-candy-cyan/80 transition-colors text-lg"
-            >
-              <Music className="w-6 h-6" />
-              YouTube
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-2 text-candy-violet hover:text-candy-violet/80 transition-colors text-lg"
-            >
-              <Instagram className="w-6 h-6" />
-              Instagram
-            </a>
-          </div>
         </div>
       </div>
     </section>
