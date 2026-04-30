@@ -1,4 +1,34 @@
-import { Music } from "lucide-react";
+import { Music, Facebook, Instagram, Youtube } from "lucide-react";
+
+const HYPERFOLLOW_URL =
+  "https://distrokid.com/hyperfollow/velvettenoir/boom-in-my-step?ref=release";
+
+const social = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61588811651986",
+    Icon: Facebook,
+    color: "text-candy-cyan hover:text-candy-cyan/80",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/neoncandyofficial/",
+    Icon: Instagram,
+    color: "text-candy-pink hover:text-candy-pink/80",
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/@neoncandyofficial",
+    Icon: Youtube,
+    color: "text-candy-violet hover:text-candy-violet/80",
+  },
+  {
+    name: "TikTok",
+    href: "https://www.tiktok.com/@neoncandyofficial",
+    Icon: Music,
+    color: "text-foreground hover:text-candy-pink",
+  },
+];
 
 const Footer = () => {
   return (
@@ -11,30 +41,61 @@ const Footer = () => {
           <p className="text-xl text-muted-foreground mb-8">
             Pop Without Limits.
           </p>
-          
-          <div className="flex justify-center gap-8 mb-8">
+
+          {/* Streaming / release access */}
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
             <a
-              href="#"
-              className="flex items-center gap-2 text-candy-cyan hover:text-candy-cyan/80 transition-colors"
+              href={HYPERFOLLOW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Listen or pre-save Boom in My Step (Streaming Link)"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-candy-pink to-candy-violet px-5 py-2 text-sm font-semibold text-white shadow-[0_0_20px_rgba(236,72,153,0.4)] hover:scale-[1.02] transition-transform"
             >
-              <Music className="w-5 h-5" />
-              Spotify
+              <Music className="w-4 h-4" />
+              Listen / Pre-save
             </a>
             <a
-              href="#"
-              className="flex items-center gap-2 text-candy-violet hover:text-candy-violet/80 transition-colors"
+              href={HYPERFOLLOW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Spotify via release link"
+              className="inline-flex items-center gap-2 rounded-full border border-candy-cyan/50 px-4 py-2 text-sm text-candy-cyan hover:bg-candy-cyan/10 transition-colors"
             >
-              <Music className="w-5 h-5" />
-              Apple Music
+              <Music className="w-4 h-4" />
+              Spotify via Release Link
             </a>
             <a
-              href="#"
-              className="flex items-center gap-2 text-candy-pink hover:text-candy-pink/80 transition-colors"
+              href={HYPERFOLLOW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Apple Music via release link"
+              className="inline-flex items-center gap-2 rounded-full border border-candy-violet/50 px-4 py-2 text-sm text-candy-violet hover:bg-candy-violet/10 transition-colors"
             >
-              <Music className="w-5 h-5" />
-              YouTube Music
+              <Music className="w-4 h-4" />
+              Apple Music via Release Link
             </a>
           </div>
+
+          {/* Social links */}
+          <div className="flex justify-center gap-4 mb-4">
+            {social.map(({ name, href, Icon, color }) => (
+              <a
+                key={name}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`NeonCandy on ${name}`}
+                className={`flex items-center justify-center w-10 h-10 rounded-full border border-border/50 bg-background/40 transition-all hover:scale-110 ${color}`}
+              >
+                <Icon className="w-5 h-5" />
+              </a>
+            ))}
+          </div>
+
+          <p className="text-xs text-muted-foreground/80 max-w-2xl mx-auto leading-relaxed mb-8">
+            Current release: Boom in My Step — distributed across 150+ global
+            digital music, streaming and social audio platforms from release day.
+          </p>
 
           <div className="mb-8">
             <h4 className="text-sm font-semibold text-candy-cyan mb-3">Legal Hub</h4>
@@ -72,15 +133,15 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
+
           <div className="mb-6 max-w-3xl mx-auto">
             <p className="text-xs text-muted-foreground/60 leading-relaxed">
-              Translation and localization features of NeonCandy's productions are generated using supervised AI systems. 
-              Artistic adaptations may differ from literal linguistic equivalents. All works are reviewed for cultural respect 
+              Translation and localization features of NeonCandy's productions are generated using supervised AI systems.
+              Artistic adaptations may differ from literal linguistic equivalents. All works are reviewed for cultural respect
               and accuracy prior to release.
             </p>
           </div>
-          
+
           <div className="flex flex-col items-center gap-2 mb-4">
             <p className="text-sm text-muted-foreground">
               © 2025 NeonCandy. Born Digital. Made for the Future.
