@@ -174,9 +174,10 @@ const MusicPage = () => {
                             href={song.hyperfollow_url}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={`Listen or pre-save ${song.title}`}
                             className="mt-2 inline-flex w-full items-center justify-center rounded-full border border-candy-pink/40 bg-background/40 px-4 py-2 text-xs font-medium text-foreground transition-colors hover:bg-candy-pink/10 hover:text-candy-pink"
                           >
-                            Stream / Buy
+                            Listen / Pre-save {song.title}
                           </a>
                         )}
                       </div>
