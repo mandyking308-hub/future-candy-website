@@ -25,6 +25,25 @@ const ArtistsPage = () => {
       <Helmet>
         <title>Artists | NeonCandy</title>
         <meta name="description" content="Meet the artists of NeonCandy — AI-powered pop creators shaping the future of music." />
+        <link rel="canonical" href="https://neoncandy.net/artists" />
+        <meta property="og:title" content="Artists | NeonCandy" />
+        <meta property="og:description" content="Meet the artists of NeonCandy — AI-powered pop creators shaping the future of music." />
+        <meta property="og:url" content="https://neoncandy.net/artists" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "NeonCandy Artists",
+          "url": "https://neoncandy.net/artists",
+          "description": "Directory of NeonCandy artists.",
+          "hasPart": artists.map(a => ({
+            "@type": "MusicGroup",
+            "name": a.name,
+            "url": `https://neoncandy.net/artists/${a.id}`,
+            ...(a.image_url ? { "image": a.image_url } : {}),
+            ...(a.description ? { "description": a.description } : {}),
+          })),
+        })}</script>
       </Helmet>
       <Navigation />
       <main className="min-h-screen bg-background pt-32 pb-20 px-4">
