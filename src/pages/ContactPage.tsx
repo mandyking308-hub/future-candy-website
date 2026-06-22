@@ -350,7 +350,7 @@ const ContactPage = () => {
                     <div className="flex items-center justify-center gap-2 rounded-md border border-candy-pink/20 bg-background/40 px-4 py-3 text-sm text-muted-foreground">
                       <ShieldCheck className="h-4 w-4 text-candy-cyan" />
                       <span>
-                        Protected by anti-spam verification.
+                        Protected by spam-filter honeypot verification.
                       </span>
                     </div>
 
