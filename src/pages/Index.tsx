@@ -9,16 +9,15 @@ import Footer from "@/components/Footer";
 import NowPlaying from "@/components/NowPlaying";
 import CandyClub from "@/components/CandyClub";
 import CookieConsent from "@/components/CookieConsent";
-
 import { Helmet } from "react-helmet";
 
 const Index = () => {
   return (
     <>
       <Helmet>
-        <title>FutureCandy | AI Pop for the Future</title>
-        <meta name="description" content="FutureCandy is a digital-first AI pop studio creating synthetic artists, visual music drops, and future-facing pop content." />
-        <link rel="canonical" href="https://futurecandy.online/" />
+        <title>NeonCandy | Sweet Beats. Synthetic Dreams. AI Pop for the Future.</title>
+        <meta name="description" content="NeonCandy is a digital-first AI pop studio with released singles, digital artists, and visual music content." />
+        <link rel="canonical" href="https://neoncandy.net/" />
       </Helmet>
       <div className="min-h-screen page-transition">
         <Navigation />
