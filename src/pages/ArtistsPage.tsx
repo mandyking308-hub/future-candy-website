@@ -23,15 +23,15 @@ const ArtistsPage = () => {
   return (
     <>
       <Helmet>
-        <title>Artists | NeonCandy</title>
-        <meta name="description" content="Meet the artists of NeonCandy — AI-powered pop creators shaping the future of music." />
+        <title>Artists | FutureCandy</title>
+        <meta name="description" content="Meet the FutureCandy artists — digital-first pop identities shaped for songs, videos, and visual worlds." />
+        <link rel="canonical" href="https://futurecandy.online/artists" />
       </Helmet>
       <Navigation />
       <main className="min-h-screen bg-background pt-32 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4"><span className="text-gradient">Our Artists</span></h1>
-          <p className="text-muted-foreground text-center mb-12 max-w-xl mx-auto">Digital-first creators. AI-powered voices. The next evolution of pop.</p>
-
+          <p className="text-muted-foreground text-center mb-12 max-w-xl mx-auto">Digital-first creators. AI-powered voices. Future-facing pop worlds.</p>
           {loading ? (
             <div className="text-center text-muted-foreground py-20">Loading artists...</div>
           ) : artists.length === 0 ? (
@@ -42,11 +42,7 @@ const ArtistsPage = () => {
                 <Link key={artist.id} to={`/artists/${artist.id}`}>
                   <Card className="glass border-border overflow-hidden group hover:border-candy-pink/40 transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--candy-pink)/0.15)]">
                     <div className="aspect-square bg-muted/30 flex items-center justify-center overflow-hidden">
-                      {artist.image_url ? (
-                        <img src={artist.image_url} alt={artist.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                      ) : (
-                        <User className="w-16 h-16 text-muted-foreground/30" />
-                      )}
+                      {artist.image_url ? <img src={artist.image_url} alt={`${artist.name} FutureCandy artist`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /> : <User className="w-16 h-16 text-muted-foreground/30" />}
                     </div>
                     <div className="p-6">
                       <h2 className="text-xl font-bold text-foreground mb-1">{artist.name}</h2>
