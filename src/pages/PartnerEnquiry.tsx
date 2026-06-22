@@ -82,20 +82,22 @@ const PartnerEnquiry = () => {
     }
 
     setSubmitting(true);
-    const { error } = await supabase.from("neoncandy_partner_enquiries").insert({
-      full_name: parsed.data.full_name,
-      email: parsed.data.email,
-      company: parsed.data.company || null,
-      phone: parsed.data.phone || null,
-      website: parsed.data.website || null,
-      enquiry_type: parsed.data.enquiry_type,
-      message: parsed.data.message,
-      source_page: typeof window !== "undefined" ? window.location.href : null,
-      status: "new",
+    const { data: fnData, error } = await supabase.functions.invoke("partner-enquiry", {
+      body: {
+        full_name: parsed.data.full_name,
+        email: parsed.data.email,
+        company: parsed.data.company || null,
+        phone: parsed.data.phone || null,
+        website: parsed.data.website || null,
+        enquiry_type: parsed.data.enquiry_type,
+        message: parsed.data.message,
+        source_page: typeof window !== "undefined" ? window.location.href : null,
+        honeypot: hp,
+      },
     });
     setSubmitting(false);
 
-    if (error) {
+    if (error || (fnData && (fnData as any).error)) {
       toast({
         title: "Submission failed",
         description: "Please try again in a moment.",
