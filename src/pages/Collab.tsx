@@ -11,26 +11,26 @@ const Collab = () => {
     {
       icon: Film,
       title: "Film & Media",
-      description: "Cinematic soundtracks for visual storytelling",
+      description: "Cinematic AI pop and visual music for storytelling",
     },
     {
       icon: Palette,
       title: "Digital Experiences",
-      description: "Interactive installations and immersive projects",
+      description: "Artist worlds, visuals, and immersive creative assets",
     },
     {
       icon: Briefcase,
       title: "Brand Partnerships",
-      description: "Custom sonic identities and campaign music",
+      description: "Custom sonic and visual identities for campaigns",
     },
   ];
 
   return (
     <>
       <Helmet>
-        <title>Licensing & Collaboration | NeonCandy</title>
-        <meta name="description" content="License NeonCandy's AI-powered pop music for film, brands, and digital experiences. Custom sonic identities and creative partnerships." />
-        <link rel="canonical" href="https://neoncandy.net/collab" />
+        <title>Licensing & Collaboration | FutureCandy</title>
+        <meta name="description" content="Work with FutureCandy on AI-powered pop music, visual music videos, digital artists, licensing, and creative partnerships." />
+        <link rel="canonical" href="https://futurecandy.online/collab" />
       </Helmet>
       <ContentProtection />
       <div className="min-h-screen page-transition">
@@ -43,7 +43,7 @@ const Collab = () => {
               <span className="text-gradient">Licensing & Collaboration</span>
             </h1>
             <p className="text-xl text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
-              We work with creators, studios, and brands to license our sound.
+              We work with creators, studios, and brands to shape AI-powered sound and visuals.
               <br />
               For film, design, or digital experiences, reach out directly.
             </p>
