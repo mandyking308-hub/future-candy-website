@@ -1,9 +1,6 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { ArrowUp } from "lucide-react";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import ContentProtection from "@/components/ContentProtection";
 import { Helmet } from "react-helmet";
 
@@ -14,126 +11,36 @@ interface LegalPageLayoutProps {
   sections: { id: string; title: string }[];
 }
 
-const LegalPageLayout = ({ children, title, lastUpdated, sections }: LegalPageLayoutProps) => {
-  const [showBackToTop, setShowBackToTop] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 400);
-      const sectionElements = sections.map(s => document.getElementById(s.id));
-      const currentSection = sectionElements.find((el) => {
-        if (!el) return false;
-        const rect = el.getBoundingClientRect();
-        return rect.top <= 100 && rect.bottom >= 100;
-      });
-      if (currentSection) setActiveSection(currentSection.id);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [sections]);
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (!element) return;
-    const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - 100;
-    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-  };
-
-  return (
-    <>
-      <Helmet>
-        <title>{title} | FutureCandy</title>
-        <meta name="description" content={`${title} for FutureCandy, a digital-first AI pop studio operated by Global Solutions Management LLC.`} />
-        <link rel="canonical" href={`https://futurecandy.online${typeof window !== "undefined" ? window.location.pathname : ""}`} />
-      </Helmet>
-      <ContentProtection />
-      <div className="min-h-screen page-transition">
-        <Navigation />
-        <main className="pt-32 pb-20">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
-              <aside className="lg:w-64 flex-shrink-0">
-                <div className="lg:sticky lg:top-24">
-                  <div className="glass border-2 border-candy-cyan/20 rounded-lg p-4 mb-4">
-                    <h3 className="text-sm font-semibold text-candy-cyan mb-3">On This Page</h3>
-                    <ScrollArea className="h-auto max-h-[60vh]">
-                      <nav className="space-y-2">
-                        {sections.map((section) => (
-                          <button
-                            key={section.id}
-                            onClick={() => scrollToSection(section.id)}
-                            className={`block w-full text-left text-sm py-2 px-3 rounded transition-all ${
-                              activeSection === section.id
-                                ? "bg-candy-pink/20 text-candy-pink font-semibold"
-                                : "text-muted-foreground hover:text-candy-cyan hover:bg-candy-cyan/10"
-                            }`}
-                          >
-                            {section.title}
-                          </button>
-                        ))}
-                      </nav>
-                    </ScrollArea>
-                  </div>
-
-                  <div className="glass border-2 border-candy-violet/20 rounded-lg p-4">
-                    <h3 className="text-sm font-semibold text-candy-violet mb-3">Legal Documents</h3>
-                    <nav className="space-y-2 text-sm">
-                      <a href="/terms" className="block text-muted-foreground hover:text-candy-pink transition-colors">Terms of Use</a>
-                      <a href="/privacy" className="block text-muted-foreground hover:text-candy-pink transition-colors">Privacy Policy</a>
-                      <a href="/digital-licensing" className="block text-muted-foreground hover:text-candy-pink transition-colors">Digital Licensing</a>
-                      <a href="/refund-policy" className="block text-muted-foreground hover:text-candy-pink transition-colors">Refund Policy</a>
-                      <a href="/cookies" className="block text-muted-foreground hover:text-candy-pink transition-colors">Cookies Policy</a>
-                      <a href="/modern-slavery" className="block text-muted-foreground hover:text-candy-pink transition-colors">Modern Slavery Statement</a>
-                    </nav>
-                  </div>
-                </div>
-              </aside>
-
-              <div className="flex-1 max-w-4xl">
-                <div className="flex justify-between items-start mb-8 flex-wrap gap-4">
-                  <div>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-2">{title}</h1>
-                    <p className="text-sm text-muted-foreground">Last Updated: {lastUpdated}</p>
-                  </div>
-                  <div className="glass border border-candy-cyan/30 rounded-lg px-4 py-2">
-                    <p className="text-xs text-candy-cyan font-semibold">FutureCandy — AI Pop for the Future</p>
-                    <p className="text-xs text-muted-foreground">Operated by Global Solutions Management LLC</p>
-                    <p className="text-xs text-muted-foreground">Delaware, USA · File No. 10420698</p>
-                  </div>
-                </div>
-
-                {children}
-
-                <div className="mt-16 glass border-2 border-candy-pink/20 rounded-lg p-6">
-                  <h3 className="text-xl font-bold text-candy-pink mb-4">Contact Information</h3>
-                  <div className="space-y-2 text-sm">
-                    <p className="text-foreground"><strong>FutureCandy — AI Pop for the Future</strong></p>
-                    <p className="text-muted-foreground">Operated by Global Solutions Management LLC</p>
-                    <p className="text-muted-foreground">Delaware State File Number: 10420698</p>
-                    <p className="text-muted-foreground">Registered Jurisdiction: Delaware, United States</p>
-                    <div className="mt-4">
-                      <a href="/contact" className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-candy-pink to-candy-violet rounded-lg text-white font-semibold hover:scale-105 transition-transform">
-                        Contact Us
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+const LegalPageLayout = ({ children, title, lastUpdated, sections }: LegalPageLayoutProps) => (
+  <>
+    <Helmet>
+      <title>{title} | NeonCandy</title>
+      <meta name="description" content={`${title} for NeonCandy.`} />
+      <link rel="canonical" href={`https://neoncandy.net${typeof window !== "undefined" ? window.location.pathname : ""}`} />
+    </Helmet>
+    <ContentProtection />
+    <div className="min-h-screen page-transition">
+      <Navigation />
+      <main className="pt-32 pb-20">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-2">{title}</h1>
+          <p className="text-sm text-muted-foreground mb-8">Last Updated: {lastUpdated}</p>
+          <div className="glass border-2 border-candy-cyan/20 rounded-lg p-4 mb-8">
+            <h3 className="text-sm font-semibold text-candy-cyan mb-3">On This Page</h3>
+            <nav className="flex flex-wrap gap-3 text-sm">{sections.map((section) => <a key={section.id} href={`#${section.id}`} className="text-muted-foreground hover:text-candy-pink transition-colors">{section.title}</a>)}</nav>
           </div>
-        </main>
-        <Footer />
-        {showBackToTop && (
-          <Button onClick={scrollToTop} className="fixed bottom-8 right-8 z-40 rounded-full w-12 h-12 p-0 bg-gradient-to-r from-candy-pink to-candy-violet shadow-[0_0_30px_rgba(236,72,153,0.6)] hover:scale-110 transition-transform animate-fade-in" aria-label="Back to top">
-            <ArrowUp className="w-5 h-5" />
-          </Button>
-        )}
-      </div>
-    </>
-  );
-};
+          {children}
+          <div className="mt-16 glass border-2 border-candy-pink/20 rounded-lg p-6">
+            <h3 className="text-xl font-bold text-candy-pink mb-4">Contact Information</h3>
+            <p className="text-foreground"><strong>NeonCandy</strong></p>
+            <p className="text-muted-foreground text-sm">Operated by Global Solutions Management LLC · Delaware File No. 10420698</p>
+            <a href="/contact" className="inline-flex mt-4 px-4 py-2 bg-gradient-to-r from-candy-pink to-candy-violet rounded-lg text-white font-semibold">Contact Us</a>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  </>
+);
 
 export default LegalPageLayout;
