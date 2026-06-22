@@ -6,7 +6,7 @@ const Visuals = () => {
     {
       image: visual1,
       title: "Kaleidoscope Dreams",
-      description: "Motion. Emotion. Explosion.",
+      description: "Motion. Emotion. Glow.",
     },
     {
       image: visual2,
@@ -24,9 +24,9 @@ const Visuals = () => {
         <p className="text-xl text-center text-muted-foreground mb-16 max-w-3xl mx-auto">
           Every track deserves a vision.
           <br />
-          NeonCandy visuals are explosions of color and emotion — part music video, part dream sequence.
+          FutureCandy visuals are soft, glossy, cinematic worlds for AI pop artists.
           <br />
-          No avatars. No fake faces. Just pure energy in motion.
+          Characters, songs, and videos are built to move together.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -39,7 +39,7 @@ const Visuals = () => {
               <div className="aspect-square relative">
                 <img
                   src={visual.image}
-                  alt={`${visual.title} - ${visual.description} - NeonCandy visual art`}
+                  alt={`${visual.title} - ${visual.description} - FutureCandy visual art`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
