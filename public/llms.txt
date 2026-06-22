@@ -1,0 +1,26 @@
+# NeonCandy
+
+> NeonCandy is a digital-first, multilingual AI pop music label producing monthly visual music drops distributed across 150+ global streaming and social audio platforms.
+
+NeonCandy creates AI-powered pop music, develops virtual/digital-first artists, and licenses its catalogue for film, brands, and digital experiences worldwide.
+
+## Pages
+
+- [Home](/): Brand overview, current sound, and artist roster intro.
+- [Music](/music): Releases, tracks, and the current single "Boom in My Step".
+- [Artists](/artists): Roster of NeonCandy digital-first artists.
+- [Journal](/journal): Notes, drops, and behind-the-scenes writing.
+- [Licensing & Collaboration](/collab): Working with NeonCandy on film, brand, and digital projects.
+- [Partner Enquiry](/collab/enquire): Submit a collaboration or licensing request.
+- [Contact](/contact): Get in touch with NeonCandy.
+
+## Legal
+
+- [Digital Licensing](/digital-licensing): Digital distribution and licensing terms.
+- [Global Licensing](/global-licensing): Regional licensing framework.
+- [Multilingual Rights](/multilingual-rights): Translated master recordings and rights.
+- [Terms of Use](/terms): Site terms.
+- [Privacy Policy](/privacy): How we handle data.
+- [Cookies Policy](/cookies): Cookie usage.
+- [Refund Policy](/refund-policy): Refund terms.
+- [Modern Slavery Statement](/modern-slavery): Compliance statement.
