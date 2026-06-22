@@ -22,7 +22,7 @@ import AdminQAReport from "./pages/AdminQAReport";
 import AdminContentEngine from "./pages/AdminContentEngine";
 import ArtistsPage from "./pages/ArtistsPage";
 import ArtistProfile from "./pages/ArtistProfile";
-import NeonCandyMusicShell from "./pages/NeonCandyMusicShell";
+import NeonCandyMusicPublic from "./pages/NeonCandyMusicPublic";
 
 const queryClient = new QueryClient();
 
@@ -40,7 +40,7 @@ const App = () => (
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/artists" element={<ArtistsPage />} />
           <Route path="/artists/:id" element={<ArtistProfile />} />
-          <Route path="/music" element={<NeonCandyMusicShell />} />
+          <Route path="/music" element={<NeonCandyMusicPublic />} />
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/digital-licensing" element={<DigitalLicensing />} />
