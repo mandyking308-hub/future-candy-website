@@ -22,8 +22,6 @@ Disallow: /admin
 Disallow: /backend
 Disallow: /private
 
-# Crawl-delay for polite bots
 Crawl-delay: 10
 
-# Sitemap
-Sitemap: https://neoncandy.net/sitemap.xml
+Sitemap: https://futurecandy.online/sitemap.xml
