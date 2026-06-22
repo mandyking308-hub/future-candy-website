@@ -13,15 +13,15 @@ const About = () => {
           
           <div className="space-y-6 text-lg md:text-xl text-foreground/80">
             <p>
-              NeonCandy is a digital-first pop production label.
+              FutureCandy is a digital-first AI pop studio.
               <br />
-              We don&apos;t follow trends — we generate them.
+              We build artists, songs, videos, and visual worlds quickly.
             </p>
             <p>
-              Our music is built by creative minds, amplified by machines, and crafted for a world that never stops scrolling.
+              Our music is built by creative direction, amplified by AI tools, and shaped for a world that never stops scrolling.
             </p>
             <p>
-              Every beat, every bassline, every hook is a new flavor — bright, bold, and totally addictive.
+              Every hook, visual, and character is treated as part of a repeatable content engine.
             </p>
             <p className="text-2xl font-semibold text-gradient">
               We make the future sound like fun.
@@ -31,21 +31,20 @@ const About = () => {
           <div className="mt-16 p-8 glass rounded-lg border border-candy-violet/30">
             <h3 className="text-3xl font-bold text-gradient mb-6">Our Philosophy</h3>
             <p className="text-lg text-foreground/80 leading-relaxed">
-              We believe creativity should be infinite, borderless, and ego-free. Music is emotion rendered as energy. 
-              NeonCandy is the experiment that never ends — a perpetual evolution of sound, vision, and feeling.
+              We believe creativity should be fast, visual, emotional, and scalable. FutureCandy is a live production lab for AI-powered pop, artist identities, and release-ready media.
             </p>
           </div>
 
           <div className="mt-12 p-8 glass rounded-lg border border-candy-pink/30">
             <h3 className="text-3xl font-bold text-gradient mb-6">Music Without Borders.</h3>
             <p className="text-lg text-foreground/80 leading-relaxed mb-4">
-              NeonCandy creates and distributes multilingual productions worldwide — sound that transcends language.
+              FutureCandy is designed for global audiences from day one, with artist profiles, songs, and visuals structured for future distribution and licensing.
             </p>
             <p className="text-lg text-foreground/80 leading-relaxed mb-4">
-              Every track can exist in multiple versions, each built with precision and emotion for audiences across the globe.
+              Every track can grow into video, social cuts, licensing assets, and later streaming links.
             </p>
             <p className="text-lg text-foreground/80 leading-relaxed">
-              Whether English, Japanese, Spanish, or beyond, every translation is an independent master recording owned by NeonCandy.
+              The system is built to move fast now and connect to wider distribution when the catalogue is ready.
             </p>
             <div className="mt-6 flex justify-center">
               <div className="relative w-32 h-32 animate-[spin_20s_linear_infinite]">
@@ -58,15 +57,15 @@ const About = () => {
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-6 bg-card rounded-lg border border-candy-pink/30 glow-pink">
               <h3 className="text-2xl font-bold text-candy-pink mb-2">Digital First</h3>
-              <p className="text-foreground/70">Created in the cloud, designed for infinite possibilities</p>
+              <p className="text-foreground/70">Created in the cloud, designed for fast output</p>
             </div>
             <div className="p-6 bg-card rounded-lg border border-candy-cyan/30 glow-cyan">
               <h3 className="text-2xl font-bold text-candy-cyan mb-2">Pop Reimagined</h3>
-              <p className="text-foreground/70">Familiar feelings, futuristic sounds</p>
+              <p className="text-foreground/70">Familiar feelings, futuristic visuals</p>
             </div>
             <div className="p-6 bg-card rounded-lg border border-candy-violet/30 glow-violet">
               <h3 className="text-2xl font-bold text-candy-violet mb-2">Always Evolving</h3>
-              <p className="text-foreground/70">Every release pushes boundaries further</p>
+              <p className="text-foreground/70">Every release teaches the engine what works next</p>
             </div>
           </div>
 
