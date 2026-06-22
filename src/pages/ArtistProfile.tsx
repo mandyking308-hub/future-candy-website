@@ -43,6 +43,28 @@ const ArtistProfile = () => {
       <Helmet>
         <title>{artist.name} | NeonCandy</title>
         <meta name="description" content={artist.description || `${artist.name} — a NeonCandy artist.`} />
+        <link rel="canonical" href={`https://neoncandy.net/artists/${artist.id}`} />
+        <meta property="og:title" content={`${artist.name} | NeonCandy`} />
+        <meta property="og:description" content={artist.description || `${artist.name} — a NeonCandy artist.`} />
+        <meta property="og:url" content={`https://neoncandy.net/artists/${artist.id}`} />
+        <meta property="og:type" content="profile" />
+        {artist.image_url && <meta property="og:image" content={artist.image_url} />}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MusicGroup",
+          "name": artist.name,
+          "url": `https://neoncandy.net/artists/${artist.id}`,
+          ...(artist.image_url ? { "image": artist.image_url } : {}),
+          ...(artist.description ? { "description": artist.description } : {}),
+          "track": songs.map(s => ({
+            "@type": "MusicRecording",
+            "name": s.title,
+            "byArtist": { "@type": "MusicGroup", "name": artist.name },
+            ...(s.audio_url ? { "audio": s.audio_url } : {}),
+            ...(s.cover_image_url ? { "image": s.cover_image_url } : {}),
+            ...(s.description ? { "description": s.description } : {}),
+          })),
+        })}</script>
       </Helmet>
       <Navigation />
       <main className="min-h-screen bg-background pt-32 pb-20 px-4">

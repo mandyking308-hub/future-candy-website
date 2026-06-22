@@ -66,6 +66,30 @@ const MusicPage = () => {
           name="description"
           content="Listen to the latest AI-powered releases from NeonCandy artists."
         />
+        <link rel="canonical" href="https://neoncandy.net/music" />
+        <meta property="og:title" content="Music & Releases | NeonCandy" />
+        <meta property="og:description" content="Listen to the latest AI-powered releases from NeonCandy artists." />
+        <meta property="og:url" content="https://neoncandy.net/music" />
+        <meta property="og:type" content="music.playlist" />
+        {songs[0]?.cover_image_url && (
+          <meta property="og:image" content={songs[0].cover_image_url} />
+        )}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Music & Releases | NeonCandy",
+          "url": "https://neoncandy.net/music",
+          "description": "Latest AI-powered releases from NeonCandy artists.",
+          "hasPart": songs.map(s => ({
+            "@type": "MusicRecording",
+            "name": s.title,
+            ...(s.fc_artists ? { "byArtist": { "@type": "MusicGroup", "name": s.fc_artists.name, "url": `https://neoncandy.net/artists/${s.fc_artists.id}` } } : {}),
+            ...(s.cover_image_url ? { "image": s.cover_image_url } : {}),
+            ...(s.audio_url ? { "audio": s.audio_url } : {}),
+            ...(s.release_date ? { "datePublished": s.release_date } : {}),
+            ...(s.description ? { "description": s.description } : {}),
+          })),
+        })}</script>
       </Helmet>
       <Navigation />
       <main className="min-h-screen bg-background pt-32 pb-20 px-4">
