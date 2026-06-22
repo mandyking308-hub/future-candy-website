@@ -36,26 +36,16 @@ Deno.serve(async (req) => {
 
     const { name, email, phone, company, subject, message, sourcePage, captchaToken } = parsed.data;
 
-    // Verify hCaptcha — required. Fail closed if secret or token is missing.
+    // hCaptcha is optional: only verify when a token is supplied AND the secret is configured.
+    // The form relies on a honeypot field for spam protection; this leaves the door open
+    // for an hCaptcha widget to be wired up later without breaking submissions.
     const hcaptchaSecret = Deno.env.get("HCAPTCHA_SECRET");
-    if (!hcaptchaSecret) {
-      console.error("HCAPTCHA_SECRET is not configured");
-      return new Response(
-        JSON.stringify({ error: "Server captcha is not configured" }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-    if (!captchaToken) {
-      return new Response(
-        JSON.stringify({ error: "Captcha token is required" }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-    const captchaRes = await fetch("https://api.hcaptcha.com/siteverify", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `response=${encodeURIComponent(captchaToken)}&secret=${encodeURIComponent(hcaptchaSecret)}`,
-    });
+    if (captchaToken && hcaptchaSecret) {
+      const captchaRes = await fetch("https://api.hcaptcha.com/siteverify", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `response=${encodeURIComponent(captchaToken)}&secret=${encodeURIComponent(hcaptchaSecret)}`,
+      });
     const captchaData = await captchaRes.json();
     if (!captchaData.success) {
       return new Response(
