@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-// icons removed with social links
 
 const Contact = () => {
   return (
@@ -7,11 +6,11 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl font-bold mb-8">
-            <span className="text-gradient">Work With NeonCandy</span>
+            <span className="text-gradient">Work With FutureCandy</span>
           </h2>
           
           <p className="text-xl text-foreground/80 mb-8">
-            We collaborate with brands, filmmakers, designers, and dreamers.
+            We collaborate with brands, filmmakers, designers, and creative teams.
             <br />
             Want your project to sound like tomorrow?
             <br />
