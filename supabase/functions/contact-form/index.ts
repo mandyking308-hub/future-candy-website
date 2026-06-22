@@ -89,25 +89,43 @@ Deno.serve(async (req) => {
       other: "Other",
     };
 
+    // Escape user-supplied values before interpolating into HTML email
+    const escapeHtml = (s: string) =>
+      s
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safePhone = phone ? escapeHtml(phone) : "";
+    const safeCompany = company ? escapeHtml(company) : "";
+    const safeSubject = escapeHtml(subjectMap[subject] || subject);
+    const safeSourcePage = sourcePage ? escapeHtml(sourcePage) : "";
+    const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
+
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h1 style="color: #1a1a2e; border-bottom: 2px solid #ff0080; padding-bottom: 10px;">New NeonCandy Enquiry</h1>
         <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-          <tr><td style="padding: 8px; font-weight: bold; color: #333; width: 120px;">Name:</td><td style="padding: 8px; color: #555;">${name}</td></tr>
-          <tr style="background: #f8f8f8;"><td style="padding: 8px; font-weight: bold; color: #333;">Email:</td><td style="padding: 8px; color: #555;">${email}</td></tr>
-          ${phone ? `<tr><td style="padding: 8px; font-weight: bold; color: #333;">Phone:</td><td style="padding: 8px; color: #555;">${phone}</td></tr>` : ""}
-          ${company ? `<tr style="background: #f8f8f8;"><td style="padding: 8px; font-weight: bold; color: #333;">Company:</td><td style="padding: 8px; color: #555;">${company}</td></tr>` : ""}
-          <tr><td style="padding: 8px; font-weight: bold; color: #333;">Subject:</td><td style="padding: 8px; color: #555;">${subjectMap[subject] || subject}</td></tr>
+          <tr><td style="padding: 8px; font-weight: bold; color: #333; width: 120px;">Name:</td><td style="padding: 8px; color: #555;">${safeName}</td></tr>
+          <tr style="background: #f8f8f8;"><td style="padding: 8px; font-weight: bold; color: #333;">Email:</td><td style="padding: 8px; color: #555;">${safeEmail}</td></tr>
+          ${safePhone ? `<tr><td style="padding: 8px; font-weight: bold; color: #333;">Phone:</td><td style="padding: 8px; color: #555;">${safePhone}</td></tr>` : ""}
+          ${safeCompany ? `<tr style="background: #f8f8f8;"><td style="padding: 8px; font-weight: bold; color: #333;">Company:</td><td style="padding: 8px; color: #555;">${safeCompany}</td></tr>` : ""}
+          <tr><td style="padding: 8px; font-weight: bold; color: #333;">Subject:</td><td style="padding: 8px; color: #555;">${safeSubject}</td></tr>
           <tr style="background: #f8f8f8;"><td style="padding: 8px; font-weight: bold; color: #333;">Date/Time:</td><td style="padding: 8px; color: #555;">${now}</td></tr>
-          ${sourcePage ? `<tr><td style="padding: 8px; font-weight: bold; color: #333;">Source Page:</td><td style="padding: 8px; color: #555;">${sourcePage}</td></tr>` : ""}
+          ${safeSourcePage ? `<tr><td style="padding: 8px; font-weight: bold; color: #333;">Source Page:</td><td style="padding: 8px; color: #555;">${safeSourcePage}</td></tr>` : ""}
         </table>
         <div style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 8px;">
           <h3 style="color: #333; margin-top: 0;">Message:</h3>
-          <p style="color: #555; line-height: 1.6;">${message.replace(/\n/g, "<br>")}</p>
+          <p style="color: #555; line-height: 1.6;">${safeMessage}</p>
         </div>
         <p style="color: #999; font-size: 12px; margin-top: 20px;">This enquiry was submitted via the NeonCandy website contact form.</p>
       </div>
     `;
+
 
     // Try to send via Lovable email infrastructure
     try {
