@@ -26,4 +26,4 @@ Disallow: /private
 Crawl-delay: 10
 
 # Sitemap
-Sitemap: https://neoncandy.online/sitemap.xml
+Sitemap: https://neoncandy.net/sitemap.xml
