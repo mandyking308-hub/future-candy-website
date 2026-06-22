@@ -4,57 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const DigitalLicensing = () => {
   return (
-    <div className="min-h-screen page-transition">
-      <Navigation />
-      <main className="pt-32 pb-20">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-4">
-            Digital Licensing & Usage Policy
-          </h1>
-          <p className="text-muted-foreground mb-12">Last Updated: June 2026</p>
-
-          <div className="prose prose-invert max-w-none space-y-8">
-            <div className="glass p-8 rounded-lg">
-              <p className="text-lg">
-                This policy explains how FutureCandy handles licensing conversations for AI-powered music, visual pop content, artist identities, music videos, and related digital materials.
-              </p>
-            </div>
-
-            <section className="glass p-8 rounded-lg">
-              <h2 className="text-2xl font-bold text-candy-cyan mb-4">1. No Automatic Licence</h2>
-              <p>
-                Viewing, streaming, previewing, or downloading publicly available FutureCandy content does not grant you a commercial licence. Any commercial use requires written permission or a separate agreement.
-              </p>
-            </section>
-
-            <section className="glass p-8 rounded-lg">
-              <h2 className="text-2xl font-bold text-candy-violet mb-4">2. Permitted Website Use</h2>
-              <p>
-                You may view public website content for personal, informational, and enquiry purposes. You may not copy, resell, redistribute, or commercially exploit FutureCandy creative assets without written permission.
-              </p>
-            </section>
-
-            <section className="glass p-8 rounded-lg">
-              <h2 className="text-2xl font-bold text-candy-pink mb-4">3. Licensing Requests</h2>
-              <p className="mb-4">
-                Film, brand, media, creator, and partnership licensing requests should be submitted through the live enquiry system so they are stored in the admin dashboard.
-              </p>
-              <a href="/collab/enquire">
-                <Button className="glow-pink">Submit Licensing Enquiry</Button>
-              </a>
-            </section>
-
-            <section className="glass p-8 rounded-lg">
-              <h2 className="text-2xl font-bold text-candy-cyan mb-4">4. Future Distribution Links</h2>
-              <p>
-                Spotify, Apple Music, iTunes, YouTube, and other distribution links will only be added when release assets are ready and approved. Until then, any distribution references are roadmap items, not live commercial availability claims.
-              </p>
-            </section>
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </div>
+    <div className="min-h-screen page-transition"><Navigation /><main className="pt-32 pb-20"><div className="container mx-auto px-4 max-w-4xl"><h1 className="text-4xl md:text-5xl font-bold text-gradient mb-4">Digital Licensing & Usage Policy</h1><p className="text-muted-foreground mb-12">Last Updated: June 2026</p><div className="prose prose-invert max-w-none space-y-8"><div className="glass p-8 rounded-lg"><p className="text-lg">This policy explains how NeonCandy handles licensing conversations for AI-powered music, visual pop content, artist identities, music videos, and related digital materials.</p></div><section className="glass p-8 rounded-lg"><h2 className="text-2xl font-bold text-candy-cyan mb-4">1. No Automatic Licence</h2><p>Viewing, streaming, previewing, or downloading publicly available NeonCandy content does not grant you a commercial licence. Any commercial use requires written permission or a separate agreement.</p></section><section className="glass p-8 rounded-lg"><h2 className="text-2xl font-bold text-candy-violet mb-4">2. Permitted Website Use</h2><p>You may view public website content for personal, informational, and enquiry purposes. You may not copy, resell, redistribute, or commercially exploit NeonCandy creative assets without written permission.</p></section><section className="glass p-8 rounded-lg"><h2 className="text-2xl font-bold text-candy-pink mb-4">3. Licensing Requests</h2><p className="mb-4">Film, brand, media, creator, and partnership licensing requests should be submitted through the live enquiry system so they are stored in the admin dashboard.</p><a href="/contact"><Button className="glow-pink">Submit Licensing Enquiry</Button></a></section><section className="glass p-8 rounded-lg"><h2 className="text-2xl font-bold text-candy-cyan mb-4">4. Live and Future Distribution Links</h2><p>NeonCandy releases are already live through distribution channels including Apple Music, iTunes, Spotify, Deezer, and iHeartRadio where confirmed. Final public links can be added to the catalogue as they are checked and approved.</p></section></div></div></main><Footer /></div>
   );
 };
 
