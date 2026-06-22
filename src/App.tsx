@@ -23,7 +23,6 @@ import AdminContentEngine from "./pages/AdminContentEngine";
 import ArtistsPage from "./pages/ArtistsPage";
 import ArtistProfile from "./pages/ArtistProfile";
 import MusicPage from "./pages/MusicPage";
-import PartnerEnquiry from "./pages/PartnerEnquiry";
 
 const queryClient = new QueryClient();
 
@@ -37,7 +36,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/journal" element={<Journal />} />
           <Route path="/collab" element={<Collab />} />
-          <Route path="/collab/enquire" element={<PartnerEnquiry />} />
+          <Route path="/collab/enquire" element={<ContactPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/artists" element={<ArtistsPage />} />
           <Route path="/artists/:id" element={<ArtistProfile />} />
@@ -54,7 +53,6 @@ const App = () => (
           <Route path="/admin/manual" element={<AdminManual />} />
           <Route path="/admin/qa-report" element={<AdminQAReport />} />
           <Route path="/admin/content" element={<AdminContentEngine />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
