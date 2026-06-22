@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import GlobalDistribution from "@/components/CurrentRelease";
 import About from "@/components/About";
-import Artists from "@/components/Artists";
+import NeonCandyArtistsSimple from "@/components/NeonCandyArtistsSimple";
 import Visuals from "@/components/Visuals";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -24,7 +24,7 @@ const Index = () => {
         <Hero />
         <GlobalDistribution />
         <About />
-        <Artists />
+        <NeonCandyArtistsSimple />
         <Visuals />
         <CandyClub />
         <Contact />
