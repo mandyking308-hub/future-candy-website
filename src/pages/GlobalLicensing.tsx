@@ -1,65 +1,10 @@
-import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import { useToast } from "@/hooks/use-toast";
-import { Globe } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Globe, Mail, ShieldCheck } from "lucide-react";
 
 const GlobalLicensing = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    organisation: "",
-    country: "",
-    email: "",
-    projectType: "",
-    language: "",
-    message: "",
-    acceptTerms: false,
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!formData.acceptTerms) {
-      toast({
-        title: "Terms Required",
-        description: "Please acknowledge our Licensing Policy and Terms of Use.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Redirect to contact page with pre-filled subject
-    toast({
-      title: "Redirecting to Contact Form",
-      description: "Please complete the full contact form for licensing inquiries.",
-    });
-    
-    setTimeout(() => {
-      window.location.href = "/contact";
-    }, 1500);
-    
-    toast({
-      title: "Request Submitted",
-      description: "Your global licensing request has been sent to our team.",
-    });
-
-    setFormData({
-      name: "",
-      organisation: "",
-      country: "",
-      email: "",
-      projectType: "",
-      language: "",
-      message: "",
-      acceptTerms: false,
-    });
-  };
-
   return (
     <div className="min-h-screen page-transition">
       <Navigation />
@@ -71,172 +16,54 @@ const GlobalLicensing = () => {
               Global Licensing
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Request regional or language-specific versions of NeonCandy productions for your project. 
-              We create music that transcends borders — tailored for audiences worldwide.
+              Request regional, language-specific, brand, film, or media licensing conversations for FutureCandy productions.
             </p>
           </div>
 
-          <div className="glass p-8 rounded-lg">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-candy-cyan mb-2">
-                    Name *
-                  </label>
-                  <Input
-                    id="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="bg-background/50 border-candy-pink/30 focus:border-candy-cyan"
-                  />
-                </div>
+          <Card className="glass p-8 rounded-lg border-candy-pink/30 mb-8">
+            <h2 className="text-2xl font-bold text-candy-cyan mb-4">Submit a Real Enquiry</h2>
+            <p className="text-muted-foreground mb-6">
+              This page no longer uses a local placeholder form. All licensing requests now go through the live enquiry system so your details are stored securely in the admin dashboard.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <a href="/collab/enquire">
+                <Button size="lg" className="w-full glow-pink gap-2">
+                  <Mail className="w-4 h-4" />
+                  Partnership / Licensing Enquiry
+                </Button>
+              </a>
+              <a href="/contact">
+                <Button size="lg" variant="outline" className="w-full border-candy-cyan/50 text-candy-cyan hover:bg-candy-cyan/10 gap-2">
+                  <ShieldCheck className="w-4 h-4" />
+                  General Contact Form
+                </Button>
+              </a>
+            </div>
+          </Card>
 
-                <div>
-                  <label htmlFor="organisation" className="block text-sm font-semibold text-candy-cyan mb-2">
-                    Organisation
-                  </label>
-                  <Input
-                    id="organisation"
-                    type="text"
-                    value={formData.organisation}
-                    onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
-                    className="bg-background/50 border-candy-pink/30 focus:border-candy-cyan"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="country" className="block text-sm font-semibold text-candy-cyan mb-2">
-                    Country / Region *
-                  </label>
-                  <Input
-                    id="country"
-                    type="text"
-                    required
-                    value={formData.country}
-                    onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                    className="bg-background/50 border-candy-pink/30 focus:border-candy-cyan"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-candy-cyan mb-2">
-                    Contact Email *
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-background/50 border-candy-pink/30 focus:border-candy-cyan"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="projectType" className="block text-sm font-semibold text-candy-cyan mb-2">
-                    Project Type *
-                  </label>
-                  <select
-                    id="projectType"
-                    required
-                    value={formData.projectType}
-                    onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                    className="w-full bg-background/50 border border-candy-pink/30 focus:border-candy-cyan rounded-md px-3 py-2 text-foreground"
-                  >
-                    <option value="">Select type</option>
-                    <option value="Film">Film</option>
-                    <option value="Brand">Brand / Advertising</option>
-                    <option value="Media">Media / Broadcasting</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="language" className="block text-sm font-semibold text-candy-cyan mb-2">
-                    Preferred Language or Market *
-                  </label>
-                  <Input
-                    id="language"
-                    type="text"
-                    required
-                    placeholder="e.g., Japanese, Spanish, French"
-                    value={formData.language}
-                    onChange={(e) => setFormData({ ...formData, language: e.target.value })}
-                    className="bg-background/50 border-candy-pink/30 focus:border-candy-cyan"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-candy-cyan mb-2">
-                  Message *
-                </label>
-                <Textarea
-                  id="message"
-                  required
-                  rows={6}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Tell us about your project and licensing needs..."
-                  className="bg-background/50 border-candy-pink/30 focus:border-candy-cyan"
-                />
-              </div>
-
-              <div className="flex items-start gap-3">
-                <Checkbox
-                  id="terms"
-                  checked={formData.acceptTerms}
-                  onCheckedChange={(checked) => 
-                    setFormData({ ...formData, acceptTerms: checked as boolean })
-                  }
-                  className="mt-1"
-                />
-                <label htmlFor="terms" className="text-sm text-muted-foreground cursor-pointer">
-                  I acknowledge NeonCandy's{" "}
-                  <a href="/digital-licensing" className="text-candy-cyan hover:underline">
-                    Licensing Policy
-                  </a>{" "}
-                  and{" "}
-                  <a href="/terms" className="text-candy-cyan hover:underline">
-                    Terms of Use
-                  </a>
-                  .
-                </label>
-              </div>
-
-              <Button 
-                type="submit"
-                className="w-full bg-gradient-to-r from-candy-pink via-candy-cyan to-candy-violet hover:opacity-90 transition-opacity"
-              >
-                Submit Request
-              </Button>
-            </form>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <Card className="glass p-6 border-candy-cyan/20">
+              <h3 className="text-lg font-bold text-candy-cyan mb-2">Film & Media</h3>
+              <p className="text-sm text-muted-foreground">Music and visual pop assets for campaigns, short-form video, film, and digital projects.</p>
+            </Card>
+            <Card className="glass p-6 border-candy-pink/20">
+              <h3 className="text-lg font-bold text-candy-pink mb-2">Brand Projects</h3>
+              <p className="text-sm text-muted-foreground">AI-assisted sound, artist worlds, and campaign-ready visual music concepts.</p>
+            </Card>
+            <Card className="glass p-6 border-candy-violet/20">
+              <h3 className="text-lg font-bold text-candy-violet mb-2">Language Versions</h3>
+              <p className="text-sm text-muted-foreground">Future regional and multilingual versions can be discussed once release assets are ready.</p>
+            </Card>
           </div>
 
-          <div className="mt-12 glass p-6 rounded-lg">
+          <Card className="glass p-6 rounded-lg">
             <h3 className="text-xl font-bold text-candy-violet mb-3">What Happens Next?</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li>• Our team will review your request within 48 hours</li>
-              <li>• We'll provide licensing terms and availability for your selected market</li>
-              <li>• Each language version is a unique master recording with dedicated ISRC</li>
-              <li>• All multilingual works maintain NeonCandy's quality and artistic standards</li>
+              <li>• Your request is saved in the admin dashboard.</li>
+              <li>• The team can mark it as new, read, or replied.</li>
+              <li>• Licensing links and distribution references will only be added when release assets are ready.</li>
             </ul>
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-sm text-muted-foreground">
-              Questions?{" "}
-              <a href="/contact" className="text-candy-cyan hover:underline font-semibold">
-                Contact us through our contact form
-              </a>
-            </p>
-          </div>
+          </Card>
         </div>
       </main>
       <Footer />
