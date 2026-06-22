@@ -9,10 +9,7 @@ const NowPlaying = () => {
       </div>
       <div className="flex flex-col">
         <span className="text-xs text-muted-foreground">Now Playing</span>
-        <a 
-          href="#" 
-          className="text-sm font-semibold text-foreground hover:text-candy-pink transition-colors"
-        >
+        <a href="/music" className="text-sm font-semibold text-foreground hover:text-candy-pink transition-colors">
           Latest Release
         </a>
       </div>
