@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Music, Sparkles, Volume2, VolumeX } from "lucide-react";
-import heroVisual from "@/assets/hero-visual.jpg";
+const heroVisual = "/hero-visual.jpg";
 import { useState, useRef, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
