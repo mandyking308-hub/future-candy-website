@@ -1,23 +1,8 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Mail } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 
 const CandyClub = () => {
-  const [email, setEmail] = useState("");
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Welcome to the Candy Club!",
-      description: "You'll receive exclusive previews and drops soon.",
-    });
-    setEmail("");
-  };
-
   return (
     <section className="py-24 bg-card/30">
       <div className="container mx-auto px-4">
@@ -30,25 +15,19 @@ const CandyClub = () => {
               <span className="text-gradient">Join the Candy Club</span>
             </h2>
             <p className="text-xl text-foreground/80">
-              Receive exclusive previews, drops, and limited releases.
+              Want updates, previews, or collaboration access?
               <br />
-              Stay connected off-grid.
+              Use the contact page so every enquiry is stored properly in admin.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
-            <Input
-              type="email"
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="flex-1 bg-background/50 border-candy-pink/30 focus:border-candy-pink"
-            />
-            <Button type="submit" size="lg" className="glow-pink">
-              Join Now
-            </Button>
-          </form>
+          <div className="flex justify-center">
+            <a href="/contact">
+              <Button size="lg" className="glow-pink">
+                Contact FutureCandy
+              </Button>
+            </a>
+          </div>
         </Card>
       </div>
     </section>
