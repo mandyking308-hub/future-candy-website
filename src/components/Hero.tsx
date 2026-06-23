@@ -30,11 +30,26 @@ const Hero = () => {
     if (!audioRef.current) return;
     if (audioPlaying) { audioRef.current.pause(); setAudioPlaying(false); return; }
     const tracks = tracksRef.current;
-    if (tracks.length === 0) { window.location.href = "/music"; return; }
+    if (tracks.length === 0) {
+      toast({ title: "No tracks available yet", description: "Releases coming soon." });
+      return;
+    }
     const pick = tracks[Math.floor(Math.random() * tracks.length)];
+    audioRef.current.crossOrigin = "anonymous";
+    audioRef.current.preload = "auto";
     audioRef.current.src = pick.audio_url;
     setTrackTitle(pick.title);
-    audioRef.current.play().then(() => setAudioPlaying(true)).catch(() => { window.location.href = "/music"; });
+    audioRef.current.load();
+    audioRef.current.play()
+      .then(() => setAudioPlaying(true))
+      .catch((err) => {
+        console.error("Audio playback failed:", err);
+        toast({
+          title: "Couldn't play preview",
+          description: err?.message ?? "Try the full player on the Music page.",
+          variant: "destructive",
+        });
+      });
   };
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
