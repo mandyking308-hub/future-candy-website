@@ -22,9 +22,9 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           <Link to="/" className="group flex items-center gap-1.5 transition-transform duration-300 hover:scale-[1.03]">
-            <img src={logoIcon} alt="FutureCandy icon" className="h-6 w-6 md:h-7 md:w-7 object-contain" />
+            <img src={logoIcon} alt="NeonCandy icon" className="h-6 w-6 md:h-7 md:w-7 object-contain" />
             <span className="flex items-start text-lg md:text-xl font-semibold leading-none tracking-tight">
-              <span className="text-gradient">FutureCandy</span>
+              <span className="text-gradient">NeonCandy</span>
             </span>
           </Link>
 
