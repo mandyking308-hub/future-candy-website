@@ -1,9 +1,9 @@
 const Timeline = () => {
   const milestones = [
-    { year: "2026", event: "NeonCandy", description: "Studio direction locked" },
-    { year: "2026", event: "Velvette Noir", description: "Soft-glam artist lane" },
-    { year: "2026", event: "ByteBaby", description: "Digital-pop artist lane" },
-    { year: "Next", event: "Global Links", description: "Verified platform links and listening pages" },
+    { year: "2024", event: "NeonCandy", description: "Songwriting and studio direction locked" },
+    { year: "2025", event: "Velvette Noir", description: "Soft-glam artist lane launched" },
+    { year: "2026", event: "EchoNova", description: "Digital-pop artist lane" },
+    { year: "Now", event: "Global Links", description: "Verified platform links and listening pages" },
   ];
 
   return (
