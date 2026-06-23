@@ -55,12 +55,10 @@ const Artists = () => {
     <section id="artists" className="py-24">
       <div className="container mx-auto px-4">
         <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
-          <span className="text-gradient">Meet the Sounds of FutureCandy</span>
+          <span className="text-gradient">Meet the Artists</span>
         </h2>
-        <p className="text-xl text-center text-muted-foreground mb-16">
-          We build artist worlds, not just tracks.
-          <br />
-          Each project has a look, a voice, a mood, and a visual lane.
+        <p className="text-xl text-center text-muted-foreground mb-16 max-w-3xl mx-auto">
+          NeonCandy builds artist worlds with a distinct look, sound, mood, and visual lane.
         </p>
 
         {flavors.length > 1 && (
@@ -76,7 +74,7 @@ const Artists = () => {
         {loading ? (
           <p className="text-center text-muted-foreground">Loading artists…</p>
         ) : filteredArtists.length === 0 ? (
-          <p className="text-center text-muted-foreground">No artists yet.</p>
+          <p className="text-center text-muted-foreground">Artist profiles are being prepared.</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {filteredArtists.map((artist, index) => {
@@ -86,7 +84,7 @@ const Artists = () => {
                   <Link to={`/artists/${artist.id}`} className="block">
                     <div className="aspect-square relative bg-muted/30">
                       {artist.image_url ? (
-                        <img src={artist.image_url} alt={`${artist.name} — FutureCandy artist`} className="w-full h-full object-cover" loading="lazy" />
+                        <img src={artist.image_url} alt={`${artist.name} — NeonCandy artist`} className="w-full h-full object-cover" loading="lazy" />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-candy-pink/20 via-candy-violet/20 to-candy-cyan/20">
                           <User className="w-20 h-20 text-muted-foreground/40" />
