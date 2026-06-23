@@ -1,10 +1,10 @@
 const Timeline = () => {
   const milestones = [
-    { year: "2026", event: "FutureCandy", description: "Studio direction locked" },
-    { year: "2026", event: "Velvette", description: "Soft-glam artist lane" },
+    { year: "2026", event: "NeonCandy", description: "Studio direction locked" },
+    { year: "2026", event: "Velvette Noir", description: "Soft-glam artist lane" },
     { year: "2026", event: "ByteBaby", description: "Digital-pop artist lane" },
     { year: "2026", event: "Content Engine", description: "Artists, songs, videos, and enquiries" },
-    { year: "Next", event: "Releases", description: "Publish and repeat" },
+    { year: "Next", event: "Global Links", description: "Verified platform links and listening pages" },
   ];
 
   return (
