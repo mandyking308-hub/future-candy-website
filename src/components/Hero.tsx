@@ -9,6 +9,7 @@ type AmbientTrack = { title: string; audio_url: string };
 const Hero = () => {
   const [audioPlaying, setAudioPlaying] = useState(false);
   const [trackTitle, setTrackTitle] = useState<string | null>(null);
+  const [hasPlayableTrack, setHasPlayableTrack] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const tracksRef = useRef<AmbientTrack[]>([]);
 
@@ -17,7 +18,9 @@ const Hero = () => {
     audioRef.current.loop = true;
     audioRef.current.volume = 0.3;
     supabase.from("fc_songs").select("title, audio_url").eq("status", "published").not("audio_url", "is", null).then(({ data }) => {
-      if (data) tracksRef.current = data.filter((t): t is AmbientTrack => !!t.audio_url && !!t.title);
+      const tracks = (data || []).filter((t): t is AmbientTrack => !!t.audio_url && !!t.title);
+      tracksRef.current = tracks;
+      setHasPlayableTrack(tracks.length > 0);
     });
     return () => { if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; } };
   }, []);
@@ -26,11 +29,11 @@ const Hero = () => {
     if (!audioRef.current) return;
     if (audioPlaying) { audioRef.current.pause(); setAudioPlaying(false); return; }
     const tracks = tracksRef.current;
-    if (tracks.length === 0) return;
+    if (tracks.length === 0) { window.location.href = "/music"; return; }
     const pick = tracks[Math.floor(Math.random() * tracks.length)];
     audioRef.current.src = pick.audio_url;
     setTrackTitle(pick.title);
-    audioRef.current.play().then(() => setAudioPlaying(true)).catch(() => undefined);
+    audioRef.current.play().then(() => setAudioPlaying(true)).catch(() => { window.location.href = "/music"; });
   };
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -57,7 +60,7 @@ const Hero = () => {
           <a href="/music" aria-label="Explore the NeonCandy music catalogue" className="w-full sm:w-auto"><Button size="lg" className="w-full sm:w-auto gap-2 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 bg-candy-cyan/20 border-2 border-candy-cyan text-candy-cyan hover:bg-candy-cyan hover:text-background transition-all shadow-[0_0_20px_rgba(34,211,238,0.4)]"><Music className="w-4 h-4 md:w-5 md:h-5" />Explore the Music</Button></a>
           <a href="/artists" aria-label="Meet the NeonCandy artists" className="w-full sm:w-auto"><Button size="lg" variant="outline" className="w-full sm:w-auto gap-2 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 border-2 border-candy-violet text-candy-violet hover:bg-candy-violet hover:text-background transition-all shadow-[0_0_20px_rgba(167,139,250,0.4)]"><Sparkles className="w-4 h-4 md:w-5 md:h-5" />Meet the Artists</Button></a>
         </div>
-        <div className="mt-8 animate-fade-in" style={{ animationDelay: "0.8s" }}><Button onClick={toggleAudio} variant="ghost" size="sm" className="gap-2 text-sm text-muted-foreground hover:text-candy-cyan transition-colors">{audioPlaying ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}{audioPlaying ? `Now Playing: ${trackTitle ?? "Single"}` : "Play a Single"}</Button></div>
+        <div className="mt-8 animate-fade-in" style={{ animationDelay: "0.8s" }}><Button onClick={toggleAudio} variant="ghost" size="sm" className="gap-2 text-sm text-muted-foreground hover:text-candy-cyan transition-colors">{audioPlaying ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}{audioPlaying ? `Now Playing: ${trackTitle ?? "Single"}` : hasPlayableTrack ? "Play a Single" : "Listen to Releases"}</Button></div>
       </div>
       <div className="absolute top-24 md:top-32 left-5 md:left-10 w-3 h-3 md:w-4 md:h-4 bg-candy-pink rounded-full glow-pink animate-float" />
       <div className="absolute bottom-16 md:bottom-20 right-10 md:right-20 w-4 h-4 md:w-6 md:h-6 bg-candy-cyan rounded-full glow-cyan animate-float" style={{ animationDelay: "1s" }} />
