@@ -25,7 +25,7 @@ const GlobalDistribution = () => {
               <div className="space-y-3 text-sm md:text-base text-foreground/80 max-w-3xl">
                 <p>NeonCandy has released music under the Velvette Noir artist lane, with singles including Boom In My Step and Can't Wait now available across a global music distribution network.</p>
                 <p className="text-foreground/70">The catalogue is distributed across 100+ streaming and download platforms, including Apple Music, iTunes, Spotify, Deezer and iHeartRadio.</p>
-                <p className="text-candy-pink/90 font-medium">The next step is to make every verified public listening link easy to find, play, and share.</p>
+                <p className="text-candy-pink/90 font-medium">We make the future sound fun.</p>
               </div>
               <div className="mt-6">
                 <Link to="/music" aria-label="Explore the NeonCandy music catalogue"><Button size="lg" className="rounded-full px-6 py-3 text-sm md:text-base font-semibold bg-gradient-to-r from-candy-pink to-candy-violet text-white shadow-[0_0_25px_rgba(236,72,153,0.45)] hover:scale-[1.02] transition-transform">Listen to the Music</Button></Link>
